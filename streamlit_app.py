@@ -13,7 +13,7 @@ df=pd.read_csv("train.csv")
 
 st.title("Projet de classification binaire Titanic")
 st.sidebar.title("Sommaire")
-pages=["Exploration", "DataVizualization", "Modélisation"]
+pages=["Exploration", "DataVizualization", "Modélisation", "Page test"]
 page=st.sidebar.radio("Aller vers", pages)
 
 if page == pages[0] : 
@@ -106,3 +106,6 @@ if page == pages[2] :
         st.write(scores(clf, display))
     elif display == 'Confusion matrix':
         st.dataframe(scores(clf, display))
+
+if page == pages[3] :
+    st.write("### Page test")
