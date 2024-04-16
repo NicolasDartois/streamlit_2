@@ -17,7 +17,8 @@ pages=["Introduction - Présentation du contexte", "Collecte et Exploration des 
 page=st.sidebar.radio("Aller vers", pages)
 
 if page == pages[0] : 
-    st.write("### Introduction")
+    st.write("### Introduction - Présentation du contexte")
+    st.image('199468.jpg')
     st.dataframe(df.head())
     st.write(df.shape)
     st.dataframe(df.describe())
