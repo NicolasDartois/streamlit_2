@@ -110,3 +110,14 @@ if page == pages[2] :
 
 if page == pages[3] :
     st.write("### Page test")
+    st_code_block("drop-table", "remove an existing table",
+        """
+        DROP TABLE [ IF EXISTS ] <table_name> 
+        """
+        )
+
+        st_code_block("drop-table", "restore the most recent dropped table",
+        """
+        UNDROP TABLE <table_name> 
+        """
+        )
