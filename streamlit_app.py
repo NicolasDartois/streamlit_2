@@ -19,7 +19,7 @@ st.markdown(
         document.addEventListener("DOMContentLoaded", function() {
             var containers = document.querySelectorAll('.element-container');
             for (var i = 0; i < containers.length; i++) {
-                containers[i].style.maxWidth = "1200px";
+                containers[i].style.maxWidth = "200px";
             }
         });
         </script>""",
