@@ -14,14 +14,17 @@ df=pd.read_csv("train.csv")
 st.set_page_config(page_title="Projet Ciné", layout="wide") 
 
 
-st.markdown(f"""<style>
-        .css-18e3th9 {{
-            max-width: 200px;
-        }}
-        .css-1d391kg {{
-            padding: 0 1rem;
-        }}
-    </style>""", unsafe_allow_html=True)
+st.markdown(
+        """<script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var containers = document.querySelectorAll('.element-container');
+            for (var i = 0; i < containers.length; i++) {
+                containers[i].style.maxWidth = "1200px";
+            }
+        });
+        </script>""",
+        unsafe_allow_html=True,
+    )
 
 
 st.title("Projet de classification binaire Olympia")
