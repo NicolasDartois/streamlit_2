@@ -11,19 +11,21 @@ import joblib
 
 df=pd.read_csv("train.csv")
 
-st.set_page_config(page_title="Projet Ciné", layout="centered") 
-st.title("Projet de classification binaire Olympia")
-
-st.markdown(
-    f'''
+st.set_page_config(page_title="Projet Ciné", layout="wide") 
+def set_max_width(width=800):
+    st.markdown(
+        f"""
         <style>
-            .sidebar .sidebar-content {{
-                width: 1375px;
-            }}
+        .reportview-container .main .block-container{{
+            max-width: {width}px;
+        }}
         </style>
-    ''',
-    unsafe_allow_html=True
-)
+        """,
+        unsafe_allow_html=True,
+    )
+
+set_max_width(1000)
+st.title("Projet de classification binaire Olympia")
 
 st.sidebar.title("Sommaire")
 pages=["Introduction - Présentation du contexte", "Collecte et Exploration des Données", "Analyse des Données (DataViz)", "Présentation du modèle"]
