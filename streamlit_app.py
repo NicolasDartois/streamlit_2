@@ -11,8 +11,20 @@ import joblib
 
 df=pd.read_csv("train.csv")
 
-st.set_page_config(page_title="Projet Ciné", layout="wide") 
+st.set_page_config(page_title="Projet Ciné", layout="centered") 
 st.title("Projet de classification binaire Olympia")
+
+st.markdown(
+    f'''
+        <style>
+            .sidebar .sidebar-content {{
+                width: 375px;
+            }}
+        </style>
+    ''',
+    unsafe_allow_html=True
+)
+
 st.sidebar.title("Sommaire")
 pages=["Introduction - Présentation du contexte", "Collecte et Exploration des Données", "Analyse des Données (DataViz)", "Présentation du modèle"]
 page=st.sidebar.radio("Aller vers", pages)
