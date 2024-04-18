@@ -18,7 +18,7 @@ st.markdown(
     f"""
     <style>
     .reportview-container .main .block-container{{
-        max-width: 20%;
+        max-width: 200px;
     }}
     </style>
     """,
