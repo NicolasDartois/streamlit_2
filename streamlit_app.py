@@ -110,6 +110,123 @@ if page == pages[2] :
 
 if page == pages[3] :
     st.write("### Page test")
-    code = '''def hello():
-            print("Hello, Streamlit!")'''
+    code = '''
+
+from concurrent.futures import ThreadPoolExecutor
+import pandas as pd
+import requests
+from bs4 import BeautifulSoup
+import time
+
+# Démarrage du chronomètre pour calculer la durée d'exécution du script
+start_time = time.time()
+
+# Définition de la variable pour intervalle de progression
+pourcent = 23
+
+# Définition de la variable du nombre d'id dans l'url d'Allociné
+total_film = 350000
+
+# Définition de la fonction pour scraper les données d'Allociné
+def allocine_scrap(i):
+    global pourcent
+    # Initialisation des variables à None
+    titre = entree_france = cumul_france = recette_us = cumul_us = year = pays_test = pays_test_1 = pays_test_2 = None
+    try:
+        # Construction de l'URL pour chaque film basé sur son ID
+        url = f'https://www.allocine.fr/film/fichefilm-{i}/box-office/'
+        res = session.get(url, allow_redirects=True)
+
+        # Print du % avec une intervalle de 24 tests
+        pourcent += 1
+        if pourcent == 24:
+            print('Execution :', round((i/total_film)*100, 2), '%')
+            pourcent = 0
+        
+        # Vérification du statut de la réponse, retourne des "0" si le code HTTP n'est pas 200 ou si l'URL a été redirigée
+        if res.status_code != 200:
+            return i, "0", "0", "0", "0", "0", "0"
+        if res.url != url:
+            return i, "0", "0", "0", "0", "0", "0"
+        
+        # Utilisation de BeautifulSoup pour parser le contenu HTML
+        soup = BeautifulSoup(res.content, 'lxml')
+        
+        # Extraction des titres de sections pour identifier les sections France et US
+        pays_test = soup.find_all('h2', class_= 'titlebar-title titlebar-title-md')
+        pays_test_1 = pays_test[0].text.strip()
+        
+        if pays_test_1:
+            pays_test_2 = pays_test[1].text.strip()
+        
+        # Extraction de l'année et du titre du film
+        year = soup.find('span', class_=lambda x: x and 'first-col blue-link' in x)
+        titre = soup.find('h1', class_= 'item')
+        
+        # Extraction des données du box office français si disponible
+        if pays_test_1 and pays_test_1 == "Box Office France":
+            tables = soup.find_all('table', class_='box-office-table table-3-cell responsive-table responsive-table-lined')
+            table_france = tables[0]
+            entree_france = table_france.find('td', class_='responsive-table-column second-col col-bg')
+            cumul_france = table_france.find_all('td', class_='responsive-table-column third-col')[-1] 
+            
+            # Extraction des données du box office américain si box office français + box office américain sont disponibles
+            if pays_test_2 and pays_test_2 == "Box Office US":
+                table_us = tables[1]
+                recette_us = table_us.find('td', class_='responsive-table-column second-col col-bg')
+                cumul_us = table_us.find_all('td', class_='responsive-table-column third-col')[-1]
+                
+        # Extraction des données du box office américain si disponible et si il n'y a pas de box office francais
+        elif pays_test_1 and pays_test_1 == "Box Office US":
+            table_us = soup.find('table', class_='box-office-table table-3-cell responsive-table responsive-table-lined')
+            recette_us = table_us.find('td', class_='responsive-table-column second-col col-bg')
+            cumul_us = table_us.find_all('td', class_='responsive-table-column third-col')[-1]
+    
+    # Retourne des "0" en cas d'exception (Pas de box office par exemple)
+    except requests.exceptions.RequestException:
+        return i, "0", "0", "0", "0", "0", "0"
+    
+    # Retourne les données extraites ou des "0" si les données ne sont pas disponibles
+    return (
+        i,
+        titre.text.strip()[:-13] if titre else "0",
+        entree_france.text.strip() if entree_france else "0",
+        cumul_france.text.strip() if cumul_france else "0",
+        recette_us.text.strip() if recette_us else "0",
+        cumul_us.text.strip() if cumul_us else "0",
+        year.text.strip()[-4:] if year else "0"
+    )
+
+# Initialisation d'un DataFrame pour stocker les données extraites
+df = pd.DataFrame(columns=['ID', 'titre', 'premiere_semaine_france', 'cumul_france', 'premiere_semaine_US', 'cumul_US', 'year'])
+session = requests.Session()
+
+# Utilisation d'un ThreadPoolExecutor pour exécuter les scrapings en parallèle et utiliser les differents coeurs logique du PC.
+with ThreadPoolExecutor(max_workers=6) as executor:
+    # Soumission des tâches de scraping pour chaque ID de film entre 1 et la variable total_film
+    tests = [executor.submit(allocine_scrap, i) for i in range(1, total_film)]
+    for test in tests:
+        # Récupération des résultats et ajout au DataFrame si le titre est différent de "0"
+        i, titre, entree_france, cumul_france, recette_us, cumul_us, year = test.result()
+        if titre != "0":
+            df.loc[i] = [i, titre, entree_france, cumul_france, recette_us, cumul_us, year]
+
+# Arrêt du chronomètre et affichage de la durée d'exécution
+end_time = time.time()
+execution_time = end_time - start_time
+print(f"Le script a pris {execution_time} secondes pour s'exécuter.")
+
+# Sauvegarde des résultats dans un fichier CSV
+df.to_csv('allocine_BO.csv', index=False)
+
+# Affichage du DataFrame final
+display(df)    
+    
+    
+    
+    
+    
+    
+    
+    '''
     st.code(code, language='python')
