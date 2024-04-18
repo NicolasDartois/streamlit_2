@@ -11,11 +11,12 @@ import joblib
 
 df=pd.read_csv("train.csv")
 
+st.set_page_config(page_title="Projet Ciné", layout="wide") 
 st.title("Projet de classification binaire Olympia")
 st.sidebar.title("Sommaire")
 pages=["Introduction - Présentation du contexte", "Collecte et Exploration des Données", "Analyse des Données (DataViz)", "Présentation du modèle"]
 page=st.sidebar.radio("Aller vers", pages)
-st.set_page_config(page_title="Projet Ciné", layout="wide") 
+
 
 if page == pages[0] : 
     st.write("### Introduction - Présentation du contexte")
