@@ -25,8 +25,6 @@ st.markdown(
     unsafe_allow_html=True,
     )
 
-set_max_width(800)
-
 
 st.title("Projet de classification binaire Olympia")
 
