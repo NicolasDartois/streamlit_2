@@ -11,21 +11,7 @@ import joblib
 
 df=pd.read_csv("train.csv")
 
-st.set_page_config(page_title="Projet Ciné", layout="wide") 
-
-
-st.markdown(
-        """<script>
-        document.addEventListener("DOMContentLoaded", function() {
-            var containers = document.querySelectorAll('.element-container');
-            for (var i = 0; i < containers.length; i++) {
-                containers[i].style.maxWidth = "200px";
-            }
-        });
-        </script>""",
-        unsafe_allow_html=True,
-    )
-
+st.set_page_config(page_title="Projet Ciné", layout="centered") 
 
 st.title("Projet de classification binaire Olympia")
 
