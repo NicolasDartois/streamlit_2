@@ -1,4 +1,4 @@
-import streamlit as st
+eredimport streamlit as st
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
@@ -11,7 +11,7 @@ import joblib
 
 df=pd.read_csv("train.csv")
 
-st.set_page_config(page_title="Projet Ciné", layout="wide") 
+st.set_page_config(page_title="Projet Ciné", layout="centered") 
 
 st.title("Projet de classification binaire Olympia")
 
