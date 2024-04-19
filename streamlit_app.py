@@ -11,7 +11,7 @@ import joblib
 
 df=pd.read_csv("train.csv")
 
-st.set_page_config(page_title="Projet Ciné", layout="centered") 
+st.set_page_config(page_title="Projet Ciné", layout="wide") 
 
 st.title("Projet de classification binaire Olympia")
 
