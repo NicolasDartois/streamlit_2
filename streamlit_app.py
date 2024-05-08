@@ -28,7 +28,8 @@ if page == pages[0] :
     st.write("### L'objectif du projet :")
     st.write("L'objectif du prejet est de proposer un outil qui permettra à n'importe quel utilisateurs en renseignant des paramètres souhaitées par lui, d'obtenir rapidement un nombre d'entrée en salle prévue à la fin de la prmeière semaine")
     st.write("### Pourquoi avoir choisi streamlit ?")
-    st.write("Au dela des fonctionnalités natives de cet applicatif qui permet de rendre une présentation plus dynamique et visuellment plus percutante, nous souhaitons signaler également que notre choix de présenter ce projet en utilisant l'applicatif streamlite nous a permis d'attenidre d'autres objectifs pédagogiques d'utilisation de cet applicatif qui est de plus en plus utlisé y compris en entreprise.")
+    st.write("Au-delà des fonctionnalités de base qui rendent cet applicatif capable de dynamiser et d'enrichir visuellement les présentations, il est important de souligner que notre choix d'utiliser Streamlit pour ce projet dépasse les aspects purement esthétiques. Cette décision nous a également permis de réaliser des objectifs pédagogiques supplémentaires. Streamlit, de plus en plus prisé tant dans le milieu académique qu'en entreprise, offre une excellente opportunité pour nos apprenants de se familiariser avec un outil avant-gardiste et très pertinent dans le contexte professionnel actuel.")
+    st.write("En intégrant Streamlit, nous avons non seulement amélioré l'interactivité et l'impact visuel de notre présentation, mais aussi enrichi notre expérience d'apprentissage avec une application technologique en pleine expansion. Cette démarche aligne notre projet avec les tendances actuelles de l'industrie, préparant ainsi les participants à utiliser efficacement des outils technologiques modernes dans leurs futures carrières.")
     
 
     
