@@ -43,8 +43,7 @@ if page == pages[0] :
         #st.dataframe(df.isna().sum())
 
 if page == pages[1] : 
-    url = 'https://drive.google.com/file/d/1c2fE-DIlodhx9fzQxUcAEAYiS6m1C4Vy/view?usp=drive_link'
-    path = 'https://drive.google.com/uc?export=download&id='+url.split('/')[-2]
+    path = 'https://drive.google.com/uc?export=download&id=1c2fE-DIlodhx9fzQxUcAEAYiS6m1C4Vy'
     df_movies = pd.read_csv(path)
     st.dataframe(df_movies)
     st.write("### Notre jeu de donnée lors du démarrage et son évolution")
