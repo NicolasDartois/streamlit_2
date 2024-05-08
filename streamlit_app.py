@@ -43,7 +43,9 @@ if page == pages[0] :
         #st.dataframe(df.isna().sum())
 
 if page == pages[1] : 
-    df_movies=pd.read_csv("https://drive.google.com/file/d/1c2fE-DIlodhx9fzQxUcAEAYiS6m1C4Vy/view?usp=drive_link")
+    url = 'https://drive.google.com/file/d/1c2fE-DIlodhx9fzQxUcAEAYiS6m1C4Vy/view?usp=drive_link'
+    path = 'https://drive.google.com/uc?export=download&id='+url.split('/')[-2]
+    df_movies = pd.read_csv(path)
     st.dataframe(df_movies)
     st.write("### Notre jeu de donnée lors du démarrage et son évolution")
     st.write("Au cours de l'analyse initiale de notre jeu de données et à la lumière de nos premiers acquis en matière de formation, nous avons constaté que nos données étaient insuffisantes pour élaborer un modèle de machine learning robuste. Plusieurs défis se sont présentés : d'abord, notre jeu de données contenait un nombre excessif de valeurs manquantes. De plus, nous hésitions encore sur la variable cible à prédire, hésitant entre les revenus générés et les votes des spectateurs.")       
@@ -55,6 +57,31 @@ if page == pages[1] :
     st.write("‣ Sur IMDB, nous avons récupéré un fichier global contenant les identifiants IMDB des films, leur durée et leurs titres originaux (toujours dans l'optique de l'utiliser comme clé d'indexation).")
     st.write("‣ Enfin, nous avons décidé de scraper sur IMDB et Allociné des données permettant de construire un score de notoriété pour chaque acteur, réalisateur ou scénariste, en nous basant sur le Starmeter, le nombre de récompenses reçues, le nombre de films réalisés et la durée de leur carrière.")
     st.write("Ces démarches nous ont permis de bâtir un jeu de données plus complet et pertinent pour le développement de notre modèle prédictif du nombre d'entrées sur le marché français.")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 if page == pages[2] : 
     st.write("### Modélisation")
