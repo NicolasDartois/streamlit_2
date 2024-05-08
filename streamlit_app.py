@@ -22,7 +22,7 @@ page=st.sidebar.radio("Aller vers", pages)
 
 if page == pages[0] : 
     st.write("### Le contexte :")
-
+    st.write("Ce projet regroupe des données sur des films issus de multiples pays et sortis depuis la naissance du cinéma en 1895. C’est pourquoi, nous avons rapidement décidé d’essayer de borner notre sujet pour ne pas nous éparpiller.")
 
     
     #st.image('199468.jpg')
@@ -30,8 +30,8 @@ if page == pages[0] :
     #st.write(df.shape)
     #st.dataframe(df.describe())
 
-    if st.checkbox("Afficher les NA") :
-        st.dataframe(df.isna().sum())
+    #if st.checkbox("Afficher les NA") :
+        #st.dataframe(df.isna().sum())
 
 if page == pages[1] : 
     st.write("### DataVizualization")
