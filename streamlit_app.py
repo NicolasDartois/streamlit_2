@@ -16,16 +16,19 @@ st.set_page_config(page_title="Projet Ciné", layout="centered")
 st.title("L'IA au service du cinéma !")
 
 st.sidebar.title("Sommaire")
-pages=["Présentation du contexte - Objectifs du projet", "Collecte et Exploration des Données", "Analyse des Données (DataViz)", "Préparation les données - Preprocessing", "Présentation du modèle", "DEMONSTRATION"]
+pages=["Présentation du projet", "Collecte et Exploration des Données", "Analyse des Données (DataViz)", "Préparation les données - Preprocessing", "Présentation du modèle", "DEMONSTRATION"]
 page=st.sidebar.radio("Aller vers", pages)
 
 
 if page == pages[0] : 
-    st.write("### Le Projet")
-    st.image('199468.jpg')
-    st.dataframe(df.head())
-    st.write(df.shape)
-    st.dataframe(df.describe())
+    st.write("### Le contexte :")
+
+
+    
+    #st.image('199468.jpg')
+    #st.dataframe(df.head())
+    #st.write(df.shape)
+    #st.dataframe(df.describe())
 
     if st.checkbox("Afficher les NA") :
         st.dataframe(df.isna().sum())
