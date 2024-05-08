@@ -13,7 +13,7 @@ df=pd.read_csv("train.csv")
 
 st.set_page_config(page_title="Projet Ciné", layout="centered") 
 
-st.title("Projet de classification binaire Olympia")
+st.title("PROJET EXPLOITATION CINÉMATOGRAPHIQUE")
 
 st.sidebar.title("Sommaire")
 pages=["Présentation du contexte - Objectifs du projet", "Collecte et Exploration des Données", "Analyse des Données (DataViz)", "Préparation les données - Preprocessing", "Présentation du modèle", "DEMONSTRATION"]
@@ -21,7 +21,7 @@ page=st.sidebar.radio("Aller vers", pages)
 
 
 if page == pages[0] : 
-    st.write("### Introduction - Présentation du contexte")
+    st.write("### Le Projet")
     st.image('199468.jpg')
     st.dataframe(df.head())
     st.write(df.shape)
