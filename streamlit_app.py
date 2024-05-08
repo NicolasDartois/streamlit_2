@@ -43,7 +43,7 @@ if page == pages[0] :
         #st.dataframe(df.isna().sum())
 
 if page == pages[1] : 
-    st.write("### Notre jeu de donnée lors du démarrage")
+    st.write("### Notre jeu de donnée lors du démarrage et son évolution")
     st.write("Au cours de l'analyse initiale de notre jeu de données et à la lumière de nos premiers acquis en matière de formation, nous avons constaté que nos données étaient insuffisantes pour élaborer un modèle de machine learning robuste. Plusieurs défis se sont présentés : d'abord, notre jeu de données contenait un nombre excessif de valeurs manquantes. De plus, nous hésitions encore sur la variable cible à prédire, hésitant entre les revenus générés et les votes des spectateurs.")       
     st.write("Par ailleurs, notre jeu de données couvrait le marché mondial, ce qui nous a rapidement motivé a nous focaliser sur le marché français, necessitant de trouver de nouvelles sources de données.")  
     st.write("Pour enrichir notre base, nous avons mis en place plusieurs actions :")
