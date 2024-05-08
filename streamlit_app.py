@@ -13,7 +13,7 @@ df=pd.read_csv("train.csv")
 
 st.set_page_config(page_title="Projet Ciné", layout="centered") 
 
-st.title("PROJET EXPLOITATION CINÉMATOGRAPHIQUE")
+st.title("L'IA au service du cinéma !")
 
 st.sidebar.title("Sommaire")
 pages=["Présentation du contexte - Objectifs du projet", "Collecte et Exploration des Données", "Analyse des Données (DataViz)", "Préparation les données - Preprocessing", "Présentation du modèle", "DEMONSTRATION"]
