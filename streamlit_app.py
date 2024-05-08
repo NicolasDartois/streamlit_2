@@ -13,7 +13,7 @@ df=pd.read_csv("train.csv")
 
 st.set_page_config(page_title="Projet Ciné", layout="centered") 
 
-st.title("L'IA au service du cinéma !")
+st.title("L'IA au service de la production cinématographique !")
 
 st.sidebar.title("Sommaire")
 pages=["Présentation du projet", "Collecte et Exploration des Données", "Analyse des Données (DataViz)", "Préparation les données - Preprocessing", "Présentation du modèle", "DEMONSTRATION"]
@@ -22,7 +22,9 @@ page=st.sidebar.radio("Aller vers", pages)
 
 if page == pages[0] : 
     st.write("### Le contexte :")
-    st.write("Ce projet regroupe des données sur des films issus de multiples pays et sortis depuis la naissance du cinéma en 1895. C’est pourquoi, nous avons rapidement décidé d’essayer de borner notre sujet pour ne pas nous éparpiller.")
+    st.write("Le projet présenté dans ce document est un projet que nous avons nous-même proposé. C'est à partir d'une idée d'un des membres de notre groupe que ce pojet est né ; et que notre ambiation de révolutionner l'industrie du cinéma nous est apparue.   ")
+     st.write("Il est d'usage que les producteurs et plus largement les membres de la profession parient entre eux sur le nombre d'entrée qu'un film sera susceptible de réaliser dès la fin de la première semaine de sortie.")
+    st.write("Cette "prtaique" ludique et courante a été l'évennement déclencheur de notre projet : réaliser une modélisation qui permttra à partir d'élements collectés pr&alablement de prévoir au plus juste le nombre de'entrées réalisé par film")
 
     
     #st.image('199468.jpg')
