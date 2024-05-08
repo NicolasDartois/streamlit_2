@@ -50,38 +50,6 @@ if page == pages[1] :
     st.write("‣ Nous avons contacté CBO BOX OFFICE, une société fournissant des données aux professionnels du cinéma. Malgré une proposition contractuelle exposant le contexte non lucratif et éducatif de notre projet, notre demande a été refusée.")
     st.write("‣ Nous avons exploré d'autres plateformes telles que KAGGLE pour trouver des bases de données robustes et adaptées à nos besoins, mais sans succès.")
 
-
-
-
-    
-    fig = plt.figure()
-    sns.countplot(x = 'Survived', data = df)
-    st.pyplot(fig)
-
-    fig = plt.figure()
-    sns.countplot(x = 'Sex', data = df)
-    plt.title("Répartition du genre des passagers")
-    st.pyplot(fig)
-
-    fig = plt.figure()
-    sns.countplot(x = 'Pclass', data = df)
-    plt.title("Répartition des classes des passagers")
-    st.pyplot(fig)
-
-    fig = sns.displot(x = 'Age', data = df)
-    plt.title("Distribution de l'âge des passagers")
-    st.pyplot(fig)
-
-    fig = plt.figure()
-    sns.countplot(x = 'Survived', hue='Sex', data = df)
-    st.pyplot(fig)
-
-    fig = sns.catplot(x='Pclass', y='Survived', data=df, kind='point')
-    st.pyplot(fig)
-
-    fig = sns.lmplot(x='Age', y='Survived', hue="Pclass", data=df)
-    st.pyplot(fig)
-
 if page == pages[2] : 
     st.write("### Modélisation")
 
