@@ -57,8 +57,12 @@ if page == pages[1] :
             Pour ce faire nous avons demandé l'aide de notre chef de cohorte qui nous a déloqué le sprint complet webscrapping et nous avons utilisé les fonctionnalités de beautiful soup pour obtenir et compléter notre jeu de données du marché francais.
             Nous avons ainsi obtenu : 
             la liste liste de tous les films d'allocine avec leur boxoffice et leur titre originaux (qui servira plus tard de clé d'indexation)
-            Nous avons pour ces films complété les features : durée, note spectateur, notre presse, acteurs principaux, réalisateurs, scenariste, distributeurs, date de sortie, nationalité, budget, genre
+            Nous avons pour ces films complété les features :  note spectateur, notre presse, acteurs principaux, réalisateurs, scenariste, distributeurs, date de sortie, nationalité, budget, genre
 
+            Nous avons égalment récupéré sur IMDB un fichier global contenant les identifiants IMDB, la durée des films, les titre originaux
+
+            Par ailleurs nous avons décider de scrapper des données permattnt de batir un score de notorité pat acteur, réalisateur ou scenariste sur le site IMDB qui propse des starmeter, le nombre de récompense, le nombre de films effectués, la durée de la carrière.
+            
             
     fig = plt.figure()
     sns.countplot(x = 'Survived', data = df)
