@@ -44,26 +44,16 @@ if page == pages[0] :
 
 if page == pages[1] : 
     st.write("### Notre jeu de donnée lors du démarrage")
-     En analysant le jeu de données et à partir des premiers acquis de formation, nous nous sommes rendu compte que ce jeu de donénes ne serait pas assez complet pour élaborer un modèle de machine learning suffisamment robuste.
-      Notamment le jeu de données comportait beaucoup trop de valeurs manquantes, et nous hésitions encore dans le choix de la target : Revenus générés ou  bien votes des spectateurs. En l'occurence nous n'avions pas - à ce stade - de données concernant les entrées à lapremière semaine.
-      D'autre part le jeu de donnée étaient mondialement représenté et nous avons choisi assez rapidement de nous orienter vers le marché francais.
-      Il était donc nécessaire d'identifier et de mettre en oeuvre les moyens de completer et d'enrichir notre jeu de donnée dans la perspective de construire un modèle predectif du nombre d'entrée sur le marché francais.
+    st.write("Au cours de l'analyse initiale de notre jeu de données et à la lumière de nos premiers acquis en matière de formation, nous avons constaté que nos données étaient insuffisantes pour élaborer un modèle de machine learning robuste. Plusieurs défis se sont présentés : d'abord, notre jeu de données contenait un nombre excessif de valeurs manquantes. De plus, nous hésitions encore sur la variable cible à prédire, hésitant entre les revenus générés et les votes des spectateurs. À ce stade, nous n'avions pas accès à suffisament de données sur le marché francais.")       
+    st.write("Par ailleurs, notre jeu de données couvrait le marché mondial, ce qui nous a rapidement motivé a nous focaliser sur le marché français, necessitant de trouver de nouvelles sources de données.")  
+    st.write("Pour enrichir notre base, nous avons mis en place plusieurs actions :")
+    st.write("‣ Nous avons contacté CBO BOX OFFICE, une société fournissant des données aux professionnels du cinéma. Malgré une proposition contractuelle exposant le contexte non lucratif et éducatif de notre projet, notre demande a été refusée.")
+    st.write("‣ Nous avons exploré d'autres plateformes telles que KAGGLE pour trouver des bases de données robustes et adaptées à nos besoins, mais sans succès.")
 
-      Les actions mise en oeuvre :
-          - contacter CBO BOX OFFICE qui est uen société qui propose de la DATA destinée aux professionnels du cinema. Marlgré nos démarches appuyées et l'envoi d'une propose contractuelle (à titre gratuit) exposant le contexte du projet non lucratif et pédgogique. Nous avons eu une fin de non recevoir.
-          - Nous avons égelement chercher sur d'autres plateformes data telle KAGGLE s'il existait des bases robustes, fiables et correspondant à nos besoins. Malheureuseument sans succès.
-          - Nous avons alors décider de scrapper la donnée directement sur les sites qui nous semblaient les mieux administrés à savoir :
-                      - Allocine, IMDB PRO (gratuit le premier mois), JPBOX Office.
-            Pour ce faire nous avons demandé l'aide de notre chef de cohorte qui nous a déloqué le sprint complet webscrapping et nous avons utilisé les fonctionnalités de beautiful soup pour obtenir et compléter notre jeu de données du marché francais.
-            Nous avons ainsi obtenu : 
-            la liste liste de tous les films d'allocine avec leur boxoffice et leur titre originaux (qui servira plus tard de clé d'indexation)
-            Nous avons pour ces films complété les features :  note spectateur, notre presse, acteurs principaux, réalisateurs, scenariste, distributeurs, date de sortie, nationalité, budget, genre
 
-            Nous avons égalment récupéré sur IMDB un fichier global contenant les identifiants IMDB, la durée des films, les titre originaux
 
-            Par ailleurs nous avons décider de scrapper des données permattnt de batir un score de notorité pat acteur, réalisateur ou scenariste sur le site IMDB qui propse des starmeter, le nombre de récompense, le nombre de films effectués, la durée de la carrière.
-            
-            
+
+    
     fig = plt.figure()
     sns.countplot(x = 'Survived', data = df)
     st.pyplot(fig)
