@@ -1,5 +1,4 @@
 import streamlit as st
-from streamlit_elements import elements, mui, html, sync
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
@@ -27,10 +26,9 @@ if page == pages[0] :
     st.write("Traditionnellement, il est courant que les producteurs et les professionnels du cinéma fassent des paris amicaux sur le nombre de spectateurs qu'un film attirera à la fin de sa première semaine en salle. Cette pratique, à la fois ludique et ancrée dans les mœurs du secteur, a été le catalyseur de notre projet. Notre objectif est de mettre au point un modèle de machine learning capable de prédire avec la plus grande précision possible le nombre d'entrées qu'un film réalisera. Ce modèle s'appuiera sur des données préalablement collectées, alliant des critères quantitatifs et qualitatifs pour établir ses prévisions.")
     
     st.write("### L'objectif du projet :")
-    st.write("")
-    st.write("")
-    st.write("")
-
+    st.write("L'objectif du prejet est de proposer un outil qui permettra à n'importe quel utilisateurs en renseignant des paramètres souhaitées par lui, d'obtenir rapidement un nombre d'entrée en salle prévue à la fin de la prmeière semaine")
+    st.write("### Pourquoi avoir choisi streamlit ?")
+    st.write("Au dela des fonctionnalités natives de cet applicatif qui permet de rendre une présentation plus dynamique et visuellment plus percutante, nous souhaitons signaler également que notre choix de présenter ce projet en utilisant l'applicatif streamlite nous a permis d'attenidre d'autres objectifs pédagogiques d'utilisation de cet applicatif qui est de plus en plus utlisé y compris en entreprise.")
     
 
     
