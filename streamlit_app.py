@@ -16,7 +16,7 @@ st.set_page_config(page_title="Projet Ciné", layout="centered")
 st.title("Projet de classification binaire Olympia")
 
 st.sidebar.title("Sommaire")
-pages=["Présentation du contexte - Objectifs du projet", "Collecte et Exploration des Données", "Analyse des Données (DataViz)", "Présentation du modèle"]
+pages=["Présentation du contexte - Objectifs du projet", "Collecte et Exploration des Données", "Analyse des Données (DataViz)", "Préparation les données - Preprocessing", "Présentation du modèle"]
 page=st.sidebar.radio("Aller vers", pages)
 
 
