@@ -93,9 +93,6 @@ if page == pages[3] :
     <br>
     <br>
     """, unsafe_allow_html=True)
-
-    
-   
     st.write("### Traitement des valeurs manquantes :")
     st.write("Exemple de texte")
     st.write("### Formatage des données :")
