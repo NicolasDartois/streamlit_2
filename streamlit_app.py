@@ -96,5 +96,7 @@ if page == pages[3] :
         <li>Mise en oeuvre d'un score acteurs, d'un score réalisateurs, d'un score scenaristes, d'un score distributeur</li>
         <li>Description schématique du score Acteurs :</li>
     </ul>
+    <br>
+    <br>
     """, unsafe_allow_html=True)
     st.image('images/score_acteur.png')
