@@ -7,7 +7,7 @@ from sklearn.metrics import confusion_matrix
 from sklearn.preprocessing import StandardScaler
 from sklearn.model_selection import train_test_split
 import joblib
-import plotly.express as px
+import plotly.graph_objects as go
 
 
 
@@ -67,10 +67,14 @@ if page == pages[2] :
     autres = pays_counts[8:].sum()
     top_pays['Autres'] = autres
     
-    fig = px.pie(values=top_pays, names=top_pays.index, hole=0.4, title='Répartition des films par pays')
+    fig = go.Figure(data=[go.Pie(labels=top_pays.index, values=top_pays.values, hole=.3)])
     fig.update_traces(textposition='inside', textinfo='percent+label')
-    fig.update_layout(legend_title="Pays")
-    st.pyplot(fig)
+    fig.update_layout(
+    title_text='Répartition des films par pays',
+    annotations=[dict(text='Pays', x=0.5, y=0.5, font_size=20, showarrow=False)],
+    legend_title="Pays"
+    )
+    st.plotly_chart(fig)
 
     
 
