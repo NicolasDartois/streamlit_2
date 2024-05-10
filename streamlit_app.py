@@ -85,13 +85,10 @@ if page == pages[3] :
     st.write("Le prétraitement (preprocessing) des données vise à préparer les données brutes pour que notre modèle futur soit le plus performant possible  :")
     st.markdown("""
     <ul>
-        <li>Nettoyant les données en éliminant les valeurs aberrantes (réaliser juste avant la modélisation), et en gérant les valeurs manquantes. NB : le dédoublonnage n'était pas necessaire</li>
+        <li>Nettoyant les données en éliminant les valeurs aberrantes (réalisé juste avant la modélisation), et en gérant les valeurs manquantes. NB : le dédoublonnage n'était pas nécessaire.</li>
         <li>Transformant les features en formats compatibles avec les algorithmes d'apprentissage automatique, tels que la normalisation des valeurs et les onehotencoding.</li>
         <li>En améliorant la qualité des données en calculant des scores afin d'optimiser les performances des modèles et de garantir des résultats plus fiables.</li>
-
     </ul>
-    <br>
-    <br>
     """, unsafe_allow_html=True)
     st.write("### Traitement des valeurs manquantes :")
     st.write("Exemple de texte")
