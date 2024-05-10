@@ -82,7 +82,7 @@ if page == pages[2] :
 
 if page == pages[3] :
     st.write("### Introduction :")
-    st.write("Pour réaliser les étapes du preprocessing nous avons utilisé les procédures habituelles telles que nous les avons apprises en formation.")
+    st.write("Dans le cadre de notre projet, nous avons mis en œuvre diverses étapes de prétraitement des données, en appliquant des techniques et des méthodes standardisées telles que celles enseignées lors de notre formation. Cette phase critique permet de préparer efficacement les données pour les analyses et modélisations ultérieures. Nous avons commencé par la nettoyage des données, qui consiste à éliminer ou corriger les données erronées, incomplètes ou incohérentes. Ensuite, nous avons procédé à la normalisation, visant à uniformiser les différentes échelles des variables pour ne pas biaiser les résultats des modèles statistiques. Une autre étape importante a été la gestion des valeurs manquantes, pour laquelle nous avons utilisé plusieurs techniques telles que l'imputation par la moyenne, la médiane ou des méthodes plus complexes basées sur des modèles prédictifs. Enfin, nous avons appliqué des méthodes de transformation des données, comme la standardisation ou la discrétisation, pour adapter nos données aux exigences spécifiques des algorithmes de machine learning que nous avons décidé d'utiliser. Chaque étape a été méticuleusement documentée et justifiée afin de garantir la transparence et la reproductibilité de notre processus de prétraitement.")
     st.write("### Traitement des valeurs manquantes :")
     st.write("Exemple de texte")
     st.write("### Formatage des données :")
