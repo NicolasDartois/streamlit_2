@@ -81,5 +81,12 @@ if page == pages[2] :
     
 
 if page == pages[3] :
-    st.write("")
+    st.write("Introduction :")
+    st.write("Pour réaliser les étapes du preprocessing nous avons utilisé les procédures habituelles telles que nous les avons apprises en formation à savoir :")
+    st.write("Onehotencoding des genres")
+    st.write("Onehotencoding de l'origine du pays du film (en ayant retenu que 3 catégories : France ou USA ou autre (si France et USA sont en False)")
+    st.write("conversion et reformatage des données budgets : identification de toutes les devises différentes, conversion en euros en utilisant le taux de change à date de chaque devise")
+    st.write("extraction des jours, jours_semaine, mois de la date de sortie des films, puis standardisation cyclique des variables obtenues")
+    st.write("Mise en oeuvre d'un score acteurs, d'un score réalisateurs, d'un score scenaristes, d'un score distributeur")
+    st.write("Description schématique du score Acteurs :")
     st.image('images/score_acteur.png')
