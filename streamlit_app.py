@@ -39,20 +39,11 @@ if page == pages[0] :
         st.write("En intégrant Streamlit, nous avons non seulement amélioré l'interactivité et l'impact visuel de notre présentation, mais aussi enrichi notre expérience d'apprentissage avec une application technologique en pleine expansion. Cette démarche nous a permis de nous approprier efficacement cet outil moderne, en vue de l'utiliser plus tard dans nos futures carrières.")
     
 
-    
-    #st.image('199468.jpg')
-    #st.dataframe(df.head())
-    #st.write(df.shape)
-    #st.dataframe(df.describe())
-
-    #if st.checkbox("Afficher les NA") :
-        #st.dataframe(df.isna().sum())
-
 if page == pages[1] : 
     st.write("### Notre jeu de donnée lors du démarrage et son évolution")
     st.write("Au cours de l'analyse initiale de notre jeu de données et à la lumière de nos premiers acquis en matière de formation, nous avons constaté que nos données étaient insuffisantes pour élaborer un modèle de machine learning robuste. Plusieurs défis se sont présentés : d'abord, notre jeu de données contenait un nombre excessif de valeurs manquantes. De plus, nous hésitions encore sur la variable cible à prédire, hésitant entre les revenus générés et les votes des spectateurs.")       
     st.write("Par ailleurs, notre jeu de données couvrait le marché mondial, ce qui nous a rapidement motivé a nous focaliser sur le marché français, necessitant de trouver de nouvelles sources de données.")
-    st.image('images/Heatmap_NaN.jpg')
+    st.image('images/Heatmap_NaN.png')
     st.write("Pour enrichir notre base, nous avons mis en place plusieurs actions :")
     st.write("‣ Nous avons contacté CBO BOX OFFICE, une société fournissant des données aux professionnels du cinéma. Malgré une proposition contractuelle exposant le contexte non lucratif et éducatif de notre projet, notre demande est restée sans réponse.")
     st.write("‣ Nous avons exploré d'autres plateformes telles que KAGGLE pour trouver des jeux de données robustes et adaptées à nos besoins, mais sans succès.")
