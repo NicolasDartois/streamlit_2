@@ -7,6 +7,7 @@ from sklearn.metrics import confusion_matrix
 from sklearn.preprocessing import StandardScaler
 from sklearn.model_selection import train_test_split
 import joblib
+import plotly.express as px
 
 
 
@@ -65,9 +66,12 @@ if page == pages[2] :
     top_pays = pays_counts[:8]
     autres = pays_counts[8:].sum()
     top_pays['Autres'] = autres
+    
     fig = plt.figure(figsize=(10, 8))
-    wedges, texts, autotexts = plt.gcf(top_pays, autopct='%1.1f%%', startangle=140, pctdistance=0.9)
+    wedges, texts, autotexts = plt.pie(top_pays, autopct='%1.1f%%', startangle=140, pctdistance=0.9)
     plt.legend(wedges, top_pays.index, title="Pays", loc="center left", bbox_to_anchor=(1, 0, 0.5, 1))
+    fig.update_traces(textposition='inside', textinfo='percent+label')
+    fig.update_layout(legend_title="Pays")
     plt.title('Répartition des films par pays')
     plt.axis('equal')
     st.pyplot(fig)
