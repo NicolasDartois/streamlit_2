@@ -82,6 +82,19 @@ if page == pages[2] :
 
 if page == pages[3] :
     st.write("### Introduction :")
+    st.write("Le prétraitement (preprocessing) des données vise à préparer les données brutes pour que notre modèle futur soit le plus performant possible  :")
+    st.markdown("""
+    <ul>
+        <li>Nettoyant les données en éliminant les valeurs aberrantes (réaliser juste avant la modélisation), et en gérant les valeurs manquantes. NB : le dédoublonnage n'était pas necessaire</li>
+        <li>Transformant les features en formats compatibles avec les algorithmes d'apprentissage automatique, tels que la normalisation des valeurs et les onehotencoding.</li>
+        <li>En améliorant la qualité des données en calculant des scores afin d'optimiser les performances des modèles et de garantir des résultats plus fiables.</li>
+
+    </ul>
+    <br>
+    <br>
+    """, unsafe_allow_html=True)
+
+    
     st.write("Dans le cadre de notre projet, nous avons mis en œuvre diverses étapes de prétraitement des données, en appliquant des techniques et des méthodes standardisées telles que celles enseignées lors de notre formation. Cette phase critique permet de préparer efficacement les données pour les analyses et modélisations ultérieures. Nous avons commencé par la nettoyage des données, qui consiste à éliminer ou corriger les données erronées, incomplètes ou incohérentes. Ensuite, nous avons procédé à la normalisation, visant à uniformiser les différentes échelles des variables pour ne pas biaiser les résultats des modèles statistiques. Une autre étape importante a été la gestion des valeurs manquantes, pour laquelle nous avons utilisé plusieurs techniques telles que l'imputation par la moyenne, la médiane ou des méthodes plus complexes basées sur des modèles prédictifs. Enfin, nous avons appliqué des méthodes de transformation des données, comme la standardisation ou la discrétisation, pour adapter nos données aux exigences spécifiques des algorithmes de machine learning que nous avons décidé d'utiliser. Chaque étape a été méticuleusement documentée et justifiée afin de garantir la transparence et la reproductibilité de notre processus de prétraitement.")
     st.write("### Traitement des valeurs manquantes :")
     st.write("Exemple de texte")
