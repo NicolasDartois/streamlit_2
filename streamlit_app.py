@@ -82,6 +82,8 @@ if page == pages[2] :
 
 if page == pages[3] :
     st.write("### Introduction :")
+    st.write("### Traitement des valeurs manquantes :")
+    st.write("### Formatage des données :")
     st.write("Pour réaliser les étapes du preprocessing nous avons utilisé les procédures habituelles telles que nous les avons apprises en formation à savoir :")
     st.markdown("""
     <ul>
