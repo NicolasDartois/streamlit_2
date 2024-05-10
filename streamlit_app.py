@@ -81,5 +81,4 @@ if page == pages[2] :
     
 
 if page == pages[3] :
-    st.write("### Page test")
-    
+    st.image('images/score_acteur.png')
