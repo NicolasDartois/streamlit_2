@@ -90,20 +90,15 @@ if page == pages[3] :
 </ul>
 """, unsafe_allow_html=True)
     st.write("### Introduction :")
+    st.write("Pour réaliser les étapes du preprocessing nous avons utilisé les procédures habituelles telles que nous les avons apprises en formation à savoir :")
     st.markdown("""
     <ul>
-        <ul>
-            <li>Élément 1</li>
-        </ul>
-        <li>Élément 2</li>
-        <li>Élément 3</li>
+        <li>Onehotencoding des genres</li>
+        <li>Onehotencoding de l'origine du pays du film (en ayant retenu que 3 catégories : France ou USA ou autre (si France et USA sont en False)</li>
+        <li>conversion et reformatage des données budgets : identification de toutes les devises différentes, conversion en euros en utilisant le taux de change à date de chaque devise</li>
+        <li>extraction des jours, jours_semaine, mois de la date de sortie des films, puis standardisation cyclique des variables obtenues</li>
+        <li>Mise en oeuvre d'un score acteurs, d'un score réalisateurs, d'un score scenaristes, d'un score distributeur</li>
+        <li>Description schématique du score Acteurs :</li>
     </ul>
     """, unsafe_allow_html=True)
-    st.write("Pour réaliser les étapes du preprocessing nous avons utilisé les procédures habituelles telles que nous les avons apprises en formation à savoir :")
-    st.write("‣ Onehotencoding des genres")
-    st.write("‣ Onehotencoding de l'origine du pays du film (en ayant retenu que 3 catégories : France ou USA ou autre (si France et USA sont en False)")
-    st.write("‣ conversion et reformatage des données budgets : identification de toutes les devises différentes, conversion en euros en utilisant le taux de change à date de chaque devise")
-    st.write("‣ extraction des jours, jours_semaine, mois de la date de sortie des films, puis standardisation cyclique des variables obtenues")
-    st.write("‣ Mise en oeuvre d'un score acteurs, d'un score réalisateurs, d'un score scenaristes, d'un score distributeur")
-    st.write("‣ Description schématique du score Acteurs :")
     st.image('images/score_acteur.png')
