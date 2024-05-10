@@ -81,6 +81,14 @@ if page == pages[2] :
     
 
 if page == pages[3] :
+
+    st.markdown("""
+<ul>
+  <li>Élément 1</li>
+  <li>Élément 2</li>
+  <li>Élément 3</li>
+</ul>
+""")
     st.write("### Introduction :")
     st.write("Pour réaliser les étapes du preprocessing nous avons utilisé les procédures habituelles telles que nous les avons apprises en formation à savoir :")
     st.write("‣ Onehotencoding des genres")
