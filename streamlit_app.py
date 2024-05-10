@@ -11,7 +11,7 @@ import joblib
 
 
 
-st.set_page_config(page_title="Projet Ciné", layout="wide") 
+st.set_page_config(page_title="Projet Ciné", layout="centered") 
 
 st.title("L'IA au service de la production cinématographique !")
 
