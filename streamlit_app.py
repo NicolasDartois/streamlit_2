@@ -90,6 +90,15 @@ if page == pages[3] :
 </ul>
 """, unsafe_allow_html=True)
     st.write("### Introduction :")
+    st.markdown("""
+    <ul>
+        <ul>
+            <li>Élément 1</li>
+        </ul>
+        <li>Élément 2</li>
+        <li>Élément 3</li>
+    </ul>
+    """, unsafe_allow_html=True)
     st.write("Pour réaliser les étapes du preprocessing nous avons utilisé les procédures habituelles telles que nous les avons apprises en formation à savoir :")
     st.write("‣ Onehotencoding des genres")
     st.write("‣ Onehotencoding de l'origine du pays du film (en ayant retenu que 3 catégories : France ou USA ou autre (si France et USA sont en False)")
