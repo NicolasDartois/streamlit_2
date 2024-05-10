@@ -62,12 +62,11 @@ if page == pages[1] :
 if page == pages[2] :
     allocine = pd.read_csv('data/allocine_V1.csv')
     pays_counts = allocine['pays'].value_counts()
-
     top_pays = pays_counts[:8]
     autres = pays_counts[8:].sum()
     top_pays['Autres'] = autres
     fig = plt.figure(figsize=(10, 8))
-    wedges, texts, autotexts = plt.pie(top_pays, autopct='%1.1f%%', startangle=140, pctdistance=0.9)
+    wedges, texts, autotexts = plt.gcf(top_pays, autopct='%1.1f%%', startangle=140, pctdistance=0.9)
     plt.legend(wedges, top_pays.index, title="Pays", loc="center left", bbox_to_anchor=(1, 0, 0.5, 1))
     plt.title('Répartition des films par pays')
     plt.axis('equal')
