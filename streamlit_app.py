@@ -60,11 +60,12 @@ if page == pages[1] :
 #########################################################    
 if page == pages[2] :
     allocine = pd.read_csv('data/allocine_V1.csv')
-    pays_counts = allocine['pays'].dropna().value_counts()
+
+    #---------------
+    pays_counts = allocine['pays'].value_counts()
     top_pays = pays_counts[:8]
     autres = pays_counts[8:].sum()
-    top_pays['Autres'] = autres
-    
+    top_pays['Autres'] = autres    
     fig = go.Figure(data=[go.Pie(labels=top_pays.index, values=top_pays.values, hole=.3)])
     fig.update_traces(textposition='inside', textinfo='percent+label')
     fig.update_layout(
@@ -74,6 +75,31 @@ if page == pages[2] :
     annotations=[dict(text='Pays', x=0.5, y=0.5, font_size=20, showarrow=False)],
     legend_title="Pays"
     )
+    st.plotly_chart(fig)
+    #---------------
+    
+    filtered_data = allocine[(allocine['release_year'] > 2000) & (allocine['release_year'] <= 2023)]
+
+
+    fig = px.histogram(
+    filtered_data,
+    x='release_year',
+    nbins=len(filtered_data['release_year'].unique()),  # Nombre de barres basé sur le nombre d'années uniques
+    title='Nombre de films sortis par année en France (2001-2023)',
+    labels={'release_year': 'Année de sortie', 'count': 'Nombre de films'}
+    )
+
+
+    fig.update_layout(
+    xaxis=dict(
+        tickmode='array',
+        ticktext=[str(year) for year in filtered_data['release_year'].unique()][::2]
+    ),
+    xaxis_title="Année de sortie",
+    yaxis_title="Nombre de films",
+    bargap=0.2,
+    )
+
     st.plotly_chart(fig)
     
 #########################################################
