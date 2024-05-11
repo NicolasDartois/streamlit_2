@@ -107,8 +107,7 @@ if page == pages[2] :
     title=f'Corrélation entre le cumul en France et la première semaine en France: {correlation:.2f}',
     labels={'cumul_france': 'Cumul en France', 'premiere_semaine_france': 'Première semaine en France'},
     opacity=0.5,
-    trendline='ols',
-    trendline_color='red'
+    trendline='ols'
     )
     fig.update_traces(selector=dict(type='scatter', mode='lines'), line=dict(color='red'))
     fig4.update_layout(margin={'l': 40, 'b': 40, 't': 80, 'r': 40}, hovermode='closest')
