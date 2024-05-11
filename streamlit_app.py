@@ -142,7 +142,7 @@ if page == pages[4] :
         elif choice == 'MAE':
             return mean_absolute_error(y_test, clf.predict(X_test))
     
-    choix = ['Random Forest', 'SVC', 'Logistic Regression']
+    choix = ['Random Forest', 'Linear Regression', 'Decision Tree', 'Gradient Boosting', 'XGBoost']
     option = st.selectbox('Choix du modèle', choix)
     st.write('Le modèle choisi est :', option)
 
