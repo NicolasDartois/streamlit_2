@@ -109,7 +109,7 @@ if page == pages[2] :
     opacity=0.5,
     trendline='ols'
     )
-    fig4.update_traces(selector=dict(type='scatter', mode='lines'), line=dict(color='red'))
+    fig4.data[1].line.color = 'red'
     fig4.update_layout(margin={'l': 40, 'b': 40, 't': 80, 'r': 40}, hovermode='closest')
     fig4.update_xaxes(showgrid=True, title='Cumul en France')
     fig4.update_yaxes(showgrid=True, title='Première semaine en France')
