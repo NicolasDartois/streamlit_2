@@ -7,6 +7,7 @@ from sklearn.metrics import confusion_matrix
 from sklearn.preprocessing import StandardScaler
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import mean_absolute_error, r2_score
+from xgboost import XGBRegressor
 import joblib
 import plotly.graph_objects as go
 
