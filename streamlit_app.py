@@ -122,7 +122,7 @@ if page == pages[2] :
     
     genres_color = {'Drame' : 'blue', 'Comédie' : 'red', 'Action' : 'orange', 'Comédie dramatique' : 'purple', 'Aventure' : 'yellow', 
                      'Documentaire' : 'grey', 'Biopic' : 'green', 'Animation' : 'pink', 'Policier' : 'brown', 'Epouvante-horreur' : 'black', 
-                     'Thriller' : 'beige', 'Fantastique' : 'turquoise'}
+                     'Thriller' : 'aqua', 'Fantastique' : 'turquoise'}
     
     allocine['genre'] = allocine['genre'].str.split(', ')
     allocine = allocine.explode('genre')
