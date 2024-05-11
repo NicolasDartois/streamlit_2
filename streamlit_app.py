@@ -121,7 +121,7 @@ if page == pages[2] :
                      'Thriller', 'Fantastique']
     
     genres_color = {'Drame' : 'blue', 'Comédie' : 'red', 'Action' : 'orange', 'Comédie dramatique' : 'purple', 'Aventure' : 'yellow', 
-                     'Documentaire' : 'grey', 'Biopic' : 'green', 'Animation' : 'rose', 'Policier' : 'brown', 'Epouvante-horreur' : 'black', 
+                     'Documentaire' : 'grey', 'Biopic' : 'green', 'Animation' : 'pink', 'Policier' : 'brown', 'Epouvante-horreur' : 'black', 
                      'Thriller' : 'beige', 'Fantastique' : 'turquoise'}
     
     allocine['genre'] = allocine['genre'].str.split(', ')
