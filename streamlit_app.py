@@ -84,6 +84,7 @@ if page == pages[2] :
              title='Analyse de la distribution de notre target: première semaine en France',
              labels={'premiere_semaine_france': 'Première semaine en France'})
     fig2.update_layout(width=1200, height=500)
+    fig2.update_layout(xaxis=dict(showgrid=True, gridwidth=1, gridcolor='lightgrey'))
     st.plotly_chart(fig2)
     
     #---------------#
@@ -93,6 +94,9 @@ if page == pages[2] :
     fig3 = go.Figure(data=[go.Bar(x=film_counts.index, y=film_counts, marker=dict(color=film_counts, colorscale=colorscale, cmin=0, cmax=film_counts.max()))])
     fig3.update_layout(title='Nombre de films sortis par année en France (après 2000)', xaxis_title='Année de sortie', yaxis_title='Nombre de films')
     st.plotly_chart(fig3)
+
+    #---------------#
+    
 #########################################################
 if page == pages[3] :
     st.write("### Introduction :")
