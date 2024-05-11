@@ -78,18 +78,18 @@ if page == pages[2] :
     )
     st.plotly_chart(fig)
     #---------------
-    filtered_data = allocine[(allocine['release_year'] > 2000) & (allocine['release_year'] <= 2023)]
+    filtered_data = allocine[(allocine['annee'] > 2000) & (allocine['annee'] <= 2023)]
     fig = px.histogram(
         filtered_data,
-        x='release_year',
-        nbins=len(filtered_data['release_year'].unique()),  # Nombre de barres basé sur le nombre d'années uniques
+        x='annee',
+        nbins=len(filtered_data['annee'].unique()),  # Nombre de barres basé sur le nombre d'années uniques
         title='Nombre de films sortis par année en France (2001-2023)',
-        labels={'release_year': 'Année de sortie', 'count': 'Nombre de films'}
+        labels={'annee': 'Année de sortie', 'count': 'Nombre de films'}
     )
     fig.update_layout(
         xaxis=dict(
             tickmode='array',
-            ticktext=[str(year) for year in filtered_data['release_year'].unique()][::2]
+            ticktext=[str(year) for year in filtered_data['annee'].unique()][::2]
         ),
         xaxis_title="Année de sortie",
         yaxis_title="Nombre de films",
