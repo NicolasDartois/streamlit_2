@@ -123,15 +123,15 @@ if page == pages[4] :
 
     def prediction(classifier):
         if classifier == 'Random Forest':
-            clf = joblib.load("models/RF")
+            clf = joblib.load("models/RF.joblib")
         elif classifier == 'Linear Regression':
-            clf = joblib.load("models/LR")
+            clf = joblib.load("models/LR.joblib")
         elif classifier == 'Decision Tree':
-            clf = joblib.load("models/DT")
+            clf = joblib.load("models/DT.joblib")
         elif classifier == 'Gradient Boosting':
-            clf = joblib.load("models/GB")
+            clf = joblib.load("models/GB.joblib")
         elif classifier == 'XGBoost':
-            clf = joblib.load("models/XGB")
+            clf = joblib.load("models/XGB.joblib")
         clf.fit(X_train, y_train)
         return clf
     
