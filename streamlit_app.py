@@ -20,7 +20,7 @@ st.sidebar.title("Sommaire")
 pages=["Présentation du projet", "Collecte et Exploration des Données", "Analyse des Données (DataViz)", "Préparation les données - Preprocessing", "Présentation du modèle", "DEMONSTRATION"]
 page=st.sidebar.radio("Aller vers", pages)
 
-
+#########################################################
 if page == pages[0] : 
 
     col1, col2 = st.columns(2)
@@ -39,7 +39,7 @@ if page == pages[0] :
         st.write("Au-delà des fonctionnalités de base de cet applicatif, qui contribuent à rendre nos présentations plus dynamiques et visuellement impactantes, il est important de souligner que le choix de Streamlit pour présenter notre projet a également répondu à plusieurs objectifs pédagogiques. En effet, Streamlit est un outil de plus en plus prisé au sein des entreprises.")
         st.write("En intégrant Streamlit, nous avons non seulement amélioré l'interactivité et l'impact visuel de notre présentation, mais aussi enrichi notre expérience d'apprentissage avec une application technologique en pleine expansion. Cette démarche nous a permis de nous approprier efficacement cet outil moderne, en vue de l'utiliser plus tard dans nos futures carrières.")
     
-
+#########################################################
 if page == pages[1] : 
     st.write("### Notre jeu de donnée lors du démarrage et son évolution")
     st.write("Au cours de l'analyse initiale de notre jeu de données et à la lumière de nos premiers acquis en matière de formation, nous avons constaté que nos données étaient insuffisantes pour élaborer un modèle de machine learning robuste. Plusieurs défis se sont présentés : d'abord, notre jeu de données contenait un nombre excessif de valeurs manquantes. De plus, nous hésitions encore sur la variable cible à prédire, hésitant entre les revenus générés et les votes des spectateurs.")       
@@ -57,9 +57,8 @@ if page == pages[1] :
     col1, col2, col3 = st.columns([1, 3, 1])
     with col2:
         st.image('images/Schema_budget.png')
-   
 
-    
+#########################################################    
 if page == pages[2] :
     allocine = pd.read_csv('data/allocine_V1.csv')
     pays_counts = allocine['pays'].dropna().value_counts()
@@ -77,9 +76,8 @@ if page == pages[2] :
     legend_title="Pays"
     )
     st.plotly_chart(fig)
-
     
-
+#########################################################
 if page == pages[3] :
     st.write("### Introduction :")
     st.write("Le prétraitement (preprocessing) des données vise à préparer les données brutes pour que notre modèle futur soit le plus performant possible  :")
@@ -107,3 +105,56 @@ if page == pages[3] :
     <br>
     """, unsafe_allow_html=True)
     st.image('images/score_acteur.png')
+    
+#########################################################
+if page == pages[4] :  
+    st.write("### Modélisations :")
+    
+    df = read_csv('data/Allocine_v3.csv')
+    
+    X = df.drop(columns=['premiere_semaine_france'])
+    y = df['premiere_semaine_france']
+    
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+    
+    scaler = StandardScaler()
+    X_train[['budget_euro', 'acteur', 'realisateur', 'scenariste', 'distributeur', 'note_presse', 'duree']] = scaler.fit_transform(X_train[['budget_euro', 'acteur', 'realisateur', 'scenariste', 'distributeur', 'note_presse', 'duree']])
+    X_test[['budget_euro', 'acteur', 'realisateur', 'scenariste', 'distributeur', 'note_presse', 'duree']] = scaler.transform(X_test[['budget_euro', 'acteur', 'realisateur', 'scenariste', 'distributeur', 'note_presse', 'duree']])
+
+    def prediction(classifier):
+        if classifier == 'Random Forest':
+            clf = joblib.load("models/RF")
+        elif classifier == 'Linear Regression':
+            clf = joblib.load("models/LR")
+        elif classifier == 'Decision Tree':
+            clf = joblib.load("models/DT")
+        elif classifier == 'Gradient Boosting':
+            clf = joblib.load("models/GB")
+        elif classifier == 'XGBoost':
+            clf = joblib.load("models/XGB")
+        clf.fit(X_train, y_train)
+        return clf
+    
+    def scores(clf, choice):
+        if choice == 'Accuracy':
+            return clf.score(X_test, y_test)
+        elif choice == 'Confusion matrix':
+            return confusion_matrix(y_test, clf.predict(X_test))
+    
+    choix = ['Random Forest', 'SVC', 'Logistic Regression']
+    option = st.selectbox('Choix du modèle', choix)
+    st.write('Le modèle choisi est :', option)
+
+    clf = prediction(option)
+    import joblib
+    joblib.dump(clf, "model")
+    display = st.radio('Que souhaitez-vous montrer ?', ('Accuracy', 'Confusion matrix'))
+    if display == 'Accuracy':
+        st.write(scores(clf, display))
+    elif display == 'Confusion matrix':
+        st.dataframe(scores(clf, display))
+
+
+
+
+    
