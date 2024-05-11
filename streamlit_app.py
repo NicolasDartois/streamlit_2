@@ -116,9 +116,30 @@ if page == pages[2] :
     st.plotly_chart(fig4)
 
     #---------------#
-    plt.figure(figsize=(16, 6))
-    fig5 = sns.lmplot(x='cumul_france',y='premiere_semaine_france',data=allocine, ci=90, line_kws={'color': 'red'});
-    st.pyplot(fig5)
+    genres_to_include = ['Drame', 'Comedie', 'Action', 'Comedie dramatique', 'Aventure', 
+                     'Documentaire', 'Biopic', 'Animation', 'Policier', 'Epouvante-horreur', 
+                     'Thriller', 'Fantastique']
+    allocine['genre_1'] = allocine['genre_1'].str.strip()
+    allocine['genre_1'] = allocine['genre_1'].str.capitalize()
+    filtered_data = allocine[allocine['genre_1'].isin(genres_to_include)].copy()
+    filtered_data['premiere_semaine_france'] = pd.to_numeric(filtered_data['premiere_semaine_france'], errors='coerce')
+    filtered_data.dropna(subset=['premiere_semaine_france', 'genre_1'], inplace=True)
+
+    fig5 = px.box(filtered_data, x='genre_1', y='premiere_semaine_france', 
+             color='genre_1', 
+             labels={'genre_1': 'Genre', 'premiere_semaine_france': 'Entrées en première semaine'},
+             title='Distribution du nombre d\'entrées en première semaine en France par Genre')
+
+    fig5.update_layout(
+    xaxis_title='Genre',
+    yaxis_title='Entrées en première semaine',
+    xaxis={'categoryorder':'total descending'},
+    height=800
+    )
+    fig5.update_xaxes(tickangle=45)
+    st.plotly_chart(fig5)
+
+
     #---------------#
 
     #---------------#
