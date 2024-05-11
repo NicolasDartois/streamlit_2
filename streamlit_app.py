@@ -145,13 +145,14 @@ if page == pages[4] :
     st.write('Le modèle choisi est :', option)
 
     clf = prediction(option)
-    import joblib
-    joblib.dump(clf, "model")
     display = st.radio('Que souhaitez-vous montrer ?', ('R²', 'MAE'))
     if display == 'R²':
         st.write(scores(clf, display))
     elif display == 'MAE':
         st.write(scores(clf, display))
+
+#########################################################
+if page == pages[5] : 
 
 
 
