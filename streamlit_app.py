@@ -116,10 +116,14 @@ if page == pages[2] :
     st.plotly_chart(fig4)
 
     #---------------#
-    genres_to_include = ['Drame', 'Comedie', 'Action', 'Comedie dramatique', 'Aventure', 
+    genres_to_include = ['Drame', 'Comédie', 'Action', 'Comédie dramatique', 'Aventure', 
                      'Documentaire', 'Biopic', 'Animation', 'Policier', 'Epouvante-horreur', 
                      'Thriller', 'Fantastique']
-
+    
+    genres_color = {'Drame' : 'blue', 'Comédie' : 'red', 'Action' : 'orange', 'Comédie dramatique' : 'purple', 'Aventure' : 'yellow', 
+                     'Documentaire' : 'grey', 'Biopic' : 'green', 'Animation' : 'rose', 'Policier' : 'brown', 'Epouvante-horreur' : 'black', 
+                     'Thriller' : 'beige', 'Fantastique' : 'turquoise'}
+    
     allocine['genre'] = allocine['genre'].str.split(', ')
     allocine = allocine.explode('genre')
     
@@ -133,7 +137,8 @@ if page == pages[2] :
     
     fig5 = px.bar(median_data, x='genre', y='premiere_semaine_france',
               labels={'genre': 'Genre', 'premiere_semaine_france': 'Médiane des entrées en première semaine'},
-              title='Médiane des entrées en première semaine en France par genre')
+              title='Médiane des entrées en première semaine en France par genre',
+              color=genres_color)
 
     fig5.update_layout(
     xaxis_title='Genre',
