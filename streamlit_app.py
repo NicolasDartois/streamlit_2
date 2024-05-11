@@ -82,9 +82,9 @@ if page == pages[2] :
     plt.figure(figsize=(20, 20))
     fig = px.box(allocine, x="premiere_semaine_france",
              hover_data=['titre_original'],
-             title='Distribution de la première semaine en France',
+             title='Analyse de la distribution de notre target: première semaine en France',
              labels={'premiere_semaine_france': 'Première semaine en France'})
-    fig.update_layout(width=1800, height=1000)
+    fig.update_layout(width=1800, height=500)
     st.plotly_chart(fig)
     
     #---------------#
