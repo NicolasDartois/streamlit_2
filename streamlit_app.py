@@ -138,7 +138,8 @@ if page == pages[2] :
     fig5 = px.bar(median_data, x='genre', y='premiere_semaine_france',
               labels={'genre': 'Genre', 'premiere_semaine_france': 'Médiane des entrées en première semaine'},
               title='Médiane des entrées en première semaine en France par genre',
-              color=genres_color)
+              color='genre',
+              color_discrete_map=genres_color)
 
     fig5.update_layout(
     xaxis_title='Genre',
