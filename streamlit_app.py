@@ -84,7 +84,7 @@ if page == pages[2] :
     #---------------#
     filtered_data = allocine[(allocine['annee'] > 2000) & (allocine['annee'] <= 2023)]
     film_counts = filtered_data['annee'].value_counts().sort_index()
-    colorscale = [[0, 'yellow'], [1, 'red']]
+    colorscale = [[0, 'blue'], [1, 'orange']]
     fig = go.Figure(data=[go.Bar(x=film_counts.index, y=film_counts, marker=dict(color=film_counts, colorscale=colorscale, cmin=0, cmax=film_counts.max()))])
     fig.update_layout(title='Nombre de films sortis par année en France (après 2000)', xaxis_title='Année de sortie', yaxis_title='Nombre de films')
     st.plotly_chart(fig)
