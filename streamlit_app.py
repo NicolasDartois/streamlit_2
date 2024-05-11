@@ -152,7 +152,37 @@ if page == pages[2] :
 
 
     #---------------#
+    allocine['genre'] = allocine['genre'].str.split(', ')
+    allocine = allocine.explode('genre')
 
+    genres_to_include = ['Drame', 'Comédie', 'Action', 'Comédie dramatique', 'Aventure', 
+                     'Documentaire', 'Biopic', 'Animation', 'Policier', 'Epouvante-horreur', 
+                     'Thriller', 'Fantastique']
+
+    genres_color = {'Drame': 'blue', 'Comédie': 'red', 'Action': 'orange', 'Comédie dramatique': 'purple', 'Aventure': 'yellow', 
+                'Documentaire': 'grey', 'Biopic': 'green', 'Animation': 'pink', 'Policier': 'brown', 'Epouvante-horreur': 'black', 
+                'Thriller': 'coral', 'Fantastique': 'turquoise'}
+
+    allocine = allocine[allocine['genre'].isin(genres_to_include)]
+
+    grouped_data = allocine.groupby(['genre', 'mois', 'mois_nom']).size().reset_index(name='counts')
+
+    display(grouped_data)
+
+    rows, cols = 3, 4
+    fig5 = make_subplots(rows=rows, cols=cols, subplot_titles=genres_to_include)
+
+    positions = [(i, j) for i in range(1, rows+1) for j in range(1, cols+1)]
+
+    for genre, pos in zip(genres_to_include, positions):
+        data = grouped_data[grouped_data['genre'] == genre]
+        trace = go.Bar(x=data['mois'], y=data['counts'], name=genre, marker_color=genres_color[genre])
+        fig5.add_trace(trace, row=pos[0], col=pos[1])
+    fig5.update_xaxes(tickvals=allocine['mois'], ticktext=allocine['mois_nom'])
+    fig5.update_layout(height=600, width=1400, title_text="Occurrences de films par mois et par genre", showlegend=False)
+    fig5.update_xaxes(tickangle=45)
+
+    st.plotly_chart(fig5)
     #---------------#
 
     #---------------#
