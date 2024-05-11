@@ -62,7 +62,7 @@ if page == pages[1] :
 if page == pages[2] :
     allocine = pd.read_csv('data/allocine_V1.csv')
 
-    #---------------
+    #---------------#
     pays_counts = allocine['pays'].value_counts()
     top_pays = pays_counts[:8]
     autres = pays_counts[8:].sum()
@@ -77,11 +77,14 @@ if page == pages[2] :
     legend_title="Pays"
     )
     st.plotly_chart(fig)
-    #---------------
+    
+    #---------------#
     filtered_data = allocine[(allocine['annee'] > 2000) & (allocine['annee'] <= 2023)]
-    fig = px.histogram(filtered_data, x='annee', nbins=len(filtered_data['annee'].unique()), title='Nombre de films sortis par année en France (2001-2023)', labels={'annee': 'Année de sortie', 'count': 'Nombre de films'})
+    fig = px.histogram(filtered_data, x='annee', nbins=len(filtered_data['annee'].unique()), title='Nombre de films sortis par année en France (2001-2023)', labels={'annee': 'Année de sortie', 'count': 'Nombre de films'}, color_continuous_scale='Bluered_r')
     fig.update_layout(xaxis=dict(tickmode='array', ticktext=[str(year) for year in filtered_data['annee'].unique()][::2]), xaxis_title="Année de sortie", yaxis_title="Nombre de films", bargap=0.2)
     st.plotly_chart(fig)
+    
+    #---------------#
     
 #########################################################
 if page == pages[3] :
