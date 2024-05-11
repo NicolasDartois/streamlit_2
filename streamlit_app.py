@@ -92,7 +92,7 @@ if page == pages[2] :
     film_counts = filtered_data['annee'].value_counts().sort_index()
     colorscale = [[0, 'blue'], [1, 'orange']]
     fig = go.Figure(data=[go.Bar(x=film_counts.index, y=film_counts, marker=dict(color=film_counts, colorscale=colorscale, cmin=0, cmax=film_counts.max()))])
-    fig.update_layout(width=800, height=600)
+    fig.update_layout(width=1800, height=1600)
     st.plotly_chart(fig)
 #########################################################
 if page == pages[3] :
