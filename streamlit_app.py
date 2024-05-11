@@ -84,7 +84,7 @@ if page == pages[2] :
              hover_data=['titre_original'],
              title='Distribution de la première semaine en France',
              labels={'premiere_semaine_france': 'Première semaine en France'})
-    fig.update_layout(title='Nombre de films sortis par année en France (après 2000)', xaxis_title='Année de sortie', yaxis_title='Nombre de films')
+    fig.update_layout(width=1800, height=1600)
     st.plotly_chart(fig)
     
     #---------------#
@@ -92,7 +92,7 @@ if page == pages[2] :
     film_counts = filtered_data['annee'].value_counts().sort_index()
     colorscale = [[0, 'blue'], [1, 'orange']]
     fig = go.Figure(data=[go.Bar(x=film_counts.index, y=film_counts, marker=dict(color=film_counts, colorscale=colorscale, cmin=0, cmax=film_counts.max()))])
-    fig.update_layout(width=1800, height=1600)
+    fig.update_layout(title='Nombre de films sortis par année en France (après 2000)', xaxis_title='Année de sortie', yaxis_title='Nombre de films')
     st.plotly_chart(fig)
 #########################################################
 if page == pages[3] :
