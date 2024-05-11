@@ -60,7 +60,8 @@ if page == pages[1] :
 
 #########################################################    
 if page == pages[2] :
-    allocine = pd.read_csv('data/allocine_V1.csv')
+    allocine = pd.read_csv('data/allocine.csv')
+    
 
     #---------------#
     pays_counts = allocine['pays'].value_counts()
