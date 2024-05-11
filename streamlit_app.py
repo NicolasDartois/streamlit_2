@@ -85,7 +85,12 @@ if page == pages[2] :
     st.plotly_chart(fig)
     
     #---------------#
-    
+    filtered_data = allocine[(allocine['release_year'] > 2000) & (allocine['release_year'] <= 2023)]
+    film_counts = filtered_data['release_year'].value_counts().sort_index()
+    colorscale = [[0, 'yellow'], [1, 'red']]
+    fig = go.Figure(data=[go.Bar(x=film_counts.index, y=film_counts, marker=dict(color=film_counts, colorscale=colorscale, cmin=0, cmax=film_counts.max()))])
+    fig.update_layout(title='Nombre de films sortis par année en France (après 2000)', xaxis_title='Année de sortie', yaxis_title='Nombre de films')
+    st.plotly_chart(fig)
 #########################################################
 if page == pages[3] :
     st.write("### Introduction :")
