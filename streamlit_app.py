@@ -79,7 +79,11 @@ if page == pages[2] :
     st.plotly_chart(fig)
     
     #---------------#
-    
+    fig = px.box(allocine, x="premiere_semaine_france",
+             hover_data=['titre_original'],
+             title='Distribution de la première semaine en France',
+             labels={'premiere_semaine_france': 'Première semaine en France'})
+    st.plotly_chart(fig)
     
     #---------------#
     filtered_data = allocine[(allocine['annee'] > 2000) & (allocine['annee'] <= 2023)]
