@@ -181,7 +181,7 @@ if page == pages[2] :
             trace = go.Bar(x=data['mois'], y=data['counts'], name=genre, marker_color=genres_color[genre])
             fig5.add_trace(trace, row=pos[0], col=pos[1])
         fig5.update_xaxes(tickvals=allocine['mois'], ticktext=allocine['mois_nom'])
-        fig5.update_layout(height=600, width=1400, title_text="Occurrences de films par mois et par genre", showlegend=False)
+        fig5.update_layout(height=800, width=1400, title_text="Occurrences de films par mois et par genre", showlegend=False)
         fig5.update_xaxes(tickangle=45)
 
         st.plotly_chart(fig5)
