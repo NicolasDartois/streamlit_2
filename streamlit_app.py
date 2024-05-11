@@ -4,13 +4,13 @@ import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
 import plotly.graph_objects as go
+import plotly.express as px
 from sklearn.metrics import confusion_matrix
 from sklearn.preprocessing import StandardScaler
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import mean_absolute_error, r2_score
 from xgboost import XGBRegressor
-import joblib
-import plotly.graph_objects as go
+import joblibo
 
 st.set_page_config(page_title="Projet Ciné", layout="wide") 
 
