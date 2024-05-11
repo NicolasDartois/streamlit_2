@@ -110,7 +110,7 @@ if page == pages[3] :
 if page == pages[4] :  
     st.write("### Modélisations :")
     
-    df = read_csv('data/Allocine_v3.csv')
+    df = pd.read_csv('data/Allocine_v3.csv')
     
     X = df.drop(columns=['premiere_semaine_france'])
     y = df['premiere_semaine_france']
