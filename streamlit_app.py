@@ -67,33 +67,32 @@ if page == pages[2] :
     top_pays = pays_counts[:8]
     autres = pays_counts[8:].sum()
     top_pays['Autres'] = autres    
-    fig = go.Figure(data=[go.Pie(labels=top_pays.index, values=top_pays.values, hole=.3)])
-    fig.update_traces(textposition='inside', textinfo='percent+label')
-    fig.update_layout(
+    fig1 = go.Figure(data=[go.Pie(labels=top_pays.index, values=top_pays.values, hole=.3)])
+    fig1.update_traces(textposition='inside', textinfo='percent+label')
+    fig1.update_layout(
     width=800,
     height=600,
     title_text='Répartition des films par pays',
     annotations=[dict(text='Pays', x=0.5, y=0.5, font_size=20, showarrow=False)],
     legend_title="Pays"
     )
-    st.plotly_chart(fig)
+    st.plotly_chart(fig1)
     
     #---------------#
-    plt.figure(figsize=(20, 20))
-    fig = px.box(allocine, x="premiere_semaine_france",
+    fig2 = px.box(allocine, x="premiere_semaine_france",
              hover_data=['titre_original'],
              title='Analyse de la distribution de notre target: première semaine en France',
              labels={'premiere_semaine_france': 'Première semaine en France'})
-    fig.update_layout(width=1200, height=500)
-    st.plotly_chart(fig)
+    fig2.update_layout(width=1200, height=500)
+    st.plotly_chart(fig2)
     
     #---------------#
     filtered_data = allocine[(allocine['annee'] > 2000) & (allocine['annee'] <= 2023)]
     film_counts = filtered_data['annee'].value_counts().sort_index()
     colorscale = [[0, 'blue'], [1, 'orange']]
-    fig = go.Figure(data=[go.Bar(x=film_counts.index, y=film_counts, marker=dict(color=film_counts, colorscale=colorscale, cmin=0, cmax=film_counts.max()))])
-    fig.update_layout(title='Nombre de films sortis par année en France (après 2000)', xaxis_title='Année de sortie', yaxis_title='Nombre de films')
-    st.plotly_chart(fig)
+    fig3 = go.Figure(data=[go.Bar(x=film_counts.index, y=film_counts, marker=dict(color=film_counts, colorscale=colorscale, cmin=0, cmax=film_counts.max()))])
+    fig3.update_layout(title='Nombre de films sortis par année en France (après 2000)', xaxis_title='Année de sortie', yaxis_title='Nombre de films')
+    st.plotly_chart(fig3)
 #########################################################
 if page == pages[3] :
     st.write("### Introduction :")
