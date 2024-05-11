@@ -148,7 +148,7 @@ if page == pages[4] :
     clf = prediction(option)
     import joblib
     joblib.dump(clf, "model")
-    display = st.radio('Que souhaitez-vous montrer ?', ('Le score R²', 'Le score MAE'))
+    display = st.radio('Que souhaitez-vous montrer ?', ('R²', 'MAE'))
     if display == 'R²':
         st.write(scores(clf, display))
     elif display == 'MAE':
