@@ -119,6 +119,10 @@ if page == pages[2] :
     genres_to_include = ['Drame', 'Comedie', 'Action', 'Comedie dramatique', 'Aventure', 
                      'Documentaire', 'Biopic', 'Animation', 'Policier', 'Epouvante-horreur', 
                      'Thriller', 'Fantastique']
+
+    allocine['genre'] = allocine['genre'].str.split(', ')
+    allocine = allocine.explode('genre')
+    
     allocine['genre'] = allocine['genre'].str.strip()
     allocine['genre'] = allocine['genre'].str.capitalize()
     filtered_data = allocine[allocine['genre'].isin(genres_to_include)].copy()
