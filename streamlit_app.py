@@ -98,7 +98,7 @@ if page == pages[2] :
     st.plotly_chart(fig3)
 
     #---------------#
-     correlation = allocine['cumul_france'].corr(allocine['premiere_semaine_france'])
+    correlation = allocine['cumul_france'].corr(allocine['premiere_semaine_france'])
     fig4 = px.scatter(
     allocine, 
     x='cumul_france', 
