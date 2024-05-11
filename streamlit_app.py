@@ -125,14 +125,15 @@ if page == pages[2] :
     filtered_data['premiere_semaine_france'] = pd.to_numeric(filtered_data['premiere_semaine_france'], errors='coerce')
     filtered_data.dropna(subset=['premiere_semaine_france', 'genre'], inplace=True)
 
-    fig5 = px.box(filtered_data, x='genre', y='premiere_semaine_france', 
-             color='genre', 
-             labels={'genre': 'Genre', 'premiere_semaine_france': 'Entrées en première semaine'},
-             title='Distribution du nombre d\'entrées en première semaine en France par Genre')
+    median_data = filtered_data.groupby('genre')['premiere_semaine_france'].median().reset_index()
+    
+    fig5 = px.bar(median_data, x='genre', y='premiere_semaine_france',
+              labels={'genre': 'Genre', 'premiere_semaine_france': 'Médiane des entrées en première semaine'},
+              title='Médiane des entrées en première semaine en France par genre')
 
     fig5.update_layout(
     xaxis_title='Genre',
-    yaxis_title='Entrées en première semaine',
+    yaxis_title='Médiane des entrées en première semaine',
     xaxis={'categoryorder':'total descending'},
     height=800
     )
