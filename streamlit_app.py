@@ -116,7 +116,8 @@ if page == pages[2] :
     st.plotly_chart(fig4)
 
     #---------------#
-    
+    fig5 = sns.lmplot(x='cumul_france',y='premiere_semaine_france',data=df);
+    st.plotly_chart(fig5)
     #---------------#
 
     #---------------#
