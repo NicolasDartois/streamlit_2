@@ -168,8 +168,6 @@ if page == pages[2] :
 
     grouped_data = allocine.groupby(['genre', 'mois', 'mois_nom']).size().reset_index(name='counts')
 
-    display(grouped_data)
-
     rows, cols = 3, 4
     fig5 = make_subplots(rows=rows, cols=cols, subplot_titles=genres_to_include)
 
