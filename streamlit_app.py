@@ -101,7 +101,7 @@ if page == pages[2] :
     
 
     #---------------#
-    fig5 = sns.lmplot(x='cumul_france',y='premiere_semaine_france',data=allocine,ci=100,line_kws={'color': 'red'},);
+    fig5 = sns.lmplot(x='cumul_france',y='premiere_semaine_france',data=allocine,ci=100,line_kws={'color': 'red'});
     st.plotly_chart(fig5)
     #---------------#
 
