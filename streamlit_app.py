@@ -3,6 +3,7 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
+import plotly.graph_objects as go
 from sklearn.metrics import confusion_matrix
 from sklearn.preprocessing import StandardScaler
 from sklearn.model_selection import train_test_split
@@ -77,29 +78,23 @@ if page == pages[2] :
     )
     st.plotly_chart(fig)
     #---------------
-    
     filtered_data = allocine[(allocine['release_year'] > 2000) & (allocine['release_year'] <= 2023)]
-
-
     fig = px.histogram(
-    filtered_data,
-    x='release_year',
-    nbins=len(filtered_data['release_year'].unique()),  # Nombre de barres basé sur le nombre d'années uniques
-    title='Nombre de films sortis par année en France (2001-2023)',
-    labels={'release_year': 'Année de sortie', 'count': 'Nombre de films'}
+        filtered_data,
+        x='release_year',
+        nbins=len(filtered_data['release_year'].unique()),  # Nombre de barres basé sur le nombre d'années uniques
+        title='Nombre de films sortis par année en France (2001-2023)',
+        labels={'release_year': 'Année de sortie', 'count': 'Nombre de films'}
     )
-
-
     fig.update_layout(
-    xaxis=dict(
-        tickmode='array',
-        ticktext=[str(year) for year in filtered_data['release_year'].unique()][::2]
-    ),
-    xaxis_title="Année de sortie",
-    yaxis_title="Nombre de films",
-    bargap=0.2,
+        xaxis=dict(
+            tickmode='array',
+            ticktext=[str(year) for year in filtered_data['release_year'].unique()][::2]
+        ),
+        xaxis_title="Année de sortie",
+        yaxis_title="Nombre de films",
+        bargap=0.2,  # Espace entre les barres
     )
-
     st.plotly_chart(fig)
     
 #########################################################
