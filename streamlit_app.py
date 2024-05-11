@@ -119,15 +119,15 @@ if page == pages[2] :
     genres_to_include = ['Drame', 'Comedie', 'Action', 'Comedie dramatique', 'Aventure', 
                      'Documentaire', 'Biopic', 'Animation', 'Policier', 'Epouvante-horreur', 
                      'Thriller', 'Fantastique']
-    allocine['genre_1'] = allocine['genre_1'].str.strip()
-    allocine['genre_1'] = allocine['genre_1'].str.capitalize()
-    filtered_data = allocine[allocine['genre_1'].isin(genres_to_include)].copy()
+    allocine['genre'] = allocine['genre'].str.strip()
+    allocine['genre'] = allocine['genre'].str.capitalize()
+    filtered_data = allocine[allocine['genre'].isin(genres_to_include)].copy()
     filtered_data['premiere_semaine_france'] = pd.to_numeric(filtered_data['premiere_semaine_france'], errors='coerce')
-    filtered_data.dropna(subset=['premiere_semaine_france', 'genre_1'], inplace=True)
+    filtered_data.dropna(subset=['premiere_semaine_france', 'genre'], inplace=True)
 
-    fig5 = px.box(filtered_data, x='genre_1', y='premiere_semaine_france', 
-             color='genre_1', 
-             labels={'genre_1': 'Genre', 'premiere_semaine_france': 'Entrées en première semaine'},
+    fig5 = px.box(filtered_data, x='genre', y='premiere_semaine_france', 
+             color='genre', 
+             labels={'genre': 'Genre', 'premiere_semaine_france': 'Entrées en première semaine'},
              title='Distribution du nombre d\'entrées en première semaine en France par Genre')
 
     fig5.update_layout(
