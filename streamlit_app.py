@@ -79,10 +79,7 @@ if page == pages[2] :
     st.plotly_chart(fig)
     
     #---------------#
-    filtered_data = allocine[(allocine['annee'] > 2000) & (allocine['annee'] <= 2023)]
-    fig = px.histogram(filtered_data, x='annee', nbins=len(filtered_data['annee'].unique()), title='Nombre de films sortis par année en France (2001-2023)', labels={'annee': 'Année de sortie', 'count': 'Nombre de films'}, color_continuous_scale='Bluered_r')
-    fig.update_layout(xaxis=dict(tickmode='array', ticktext=[str(year) for year in filtered_data['annee'].unique()][::2]), xaxis_title="Année de sortie", yaxis_title="Nombre de films", bargap=0.2)
-    st.plotly_chart(fig)
+    
     
     #---------------#
     filtered_data = allocine[(allocine['release_year'] > 2000) & (allocine['release_year'] <= 2023)]
