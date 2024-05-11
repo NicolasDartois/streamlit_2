@@ -98,33 +98,22 @@ if page == pages[2] :
     st.plotly_chart(fig3)
 
     #---------------#
-    correlation = allocine['cumul_france'].corr(allocine['premiere_semaine_france'])
-    
-    x = allocine['cumul_france']
-    y = allocine['premiere_semaine_france']
-    x = sm.add_constant(x)
-
-    model = sm.OLS(y, x)
-    results = model.fit()
-
-    predictions = results.get_prediction(x)
-    frame = predictions.summary_frame(alpha=0.05)
-
-    fig4 = px.scatter(allocine, x='cumul_france', y='premiere_semaine_france',
-                 hover_data=['titre_original'], opacity=0.5)
-    fig4.add_trace(go.Scatter(x=allocine['cumul_france'], y=frame['mean'],
-                         mode='lines', name='Régression', line=dict(color='red')))
-    fig4.add_trace(go.Scatter(x=allocine['cumul_france'], y=frame['obs_ci_lower'],
-                         mode='lines', name='Intervalle de confiance inférieur',
-                         line=dict(width=0)))
-    fig4.add_trace(go.Scatter(x=allocine['cumul_france'], y=frame['obs_ci_upper'],
-                         mode='lines', name='Intervalle de confiance supérieur',
-                         fill='tonexty', line=dict(width=0), fillcolor='rgba(255,0,0,0.3)'))
-
-    fig4.update_layout(title='Corrélation entre le cumul en France et la première semaine en France',
-                  xaxis_title='Cumul en France', yaxis_title='Première semaine en France')
-    st.plotly_chart(fig4)
-
+    corrélation  =  allocine [ 'cumul_france' ]. corr ( allocine [ 'premiere_semaine_france' ])
+    fig4  =  px . dispersion (
+    allocine ,
+    x = 'cumul_france' ,
+    y = 'première_semaine_france' ,
+    hover_data = [ 'titre_original' ],
+    title = f'Corrélation entre le cumul en France et la première semaine en France : { corrélation :.2f } ' ,
+    labels = { 'cumul_france' : 'Cumul en France' , 'premiere_semaine_france' : 'Première semaine en France' },
+    opacité = 0,5 ,
+    ligne de tendance = 'ols' 
+    )
+    fig4 . données [ 1 ]. doubler . couleur  =  'rouge'
+    fig4 . update_layout ( margin = { 'l' : 40 , 'b' : 40 , 't' : 80 , 'r' : 40 }, hovermode = 'closest' )
+    fig4 . update_xaxes ( showgrid = True , title = 'Cumul en France' )
+    fig4 . update_yaxes ( showgrid = True , title = 'Première semaine en France' )
+    St . plotly_chart ( fig4 )
 
     #---------------#
     
