@@ -84,7 +84,7 @@ if page == pages[2] :
              hover_data=['titre_original'],
              title='Distribution de la première semaine en France',
              labels={'premiere_semaine_france': 'Première semaine en France'})
-    fig.update_layout(width=1800, height=1600)
+    fig.update_layout(width=1800, height=1000)
     st.plotly_chart(fig)
     
     #---------------#
