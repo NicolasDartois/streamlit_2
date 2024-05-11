@@ -117,71 +117,74 @@ if page == pages[2] :
     st.plotly_chart(fig4)
 
     #---------------#
-    genres_to_include = ['Drame', 'Comédie', 'Action', 'Comédie dramatique', 'Aventure', 
+    col1, col2 = st.columns([2, 4])
+    with col1:
+        genres_to_include = ['Drame', 'Comédie', 'Action', 'Comédie dramatique', 'Aventure', 
                      'Documentaire', 'Biopic', 'Animation', 'Policier', 'Epouvante-horreur', 
                      'Thriller', 'Fantastique']
     
-    genres_color = {'Drame' : 'blue', 'Comédie' : 'red', 'Action' : 'orange', 'Comédie dramatique' : 'purple', 'Aventure' : 'yellow', 
+        genres_color = {'Drame' : 'blue', 'Comédie' : 'red', 'Action' : 'orange', 'Comédie dramatique' : 'purple', 'Aventure' : 'yellow', 
                      'Documentaire' : 'grey', 'Biopic' : 'green', 'Animation' : 'pink', 'Policier' : 'brown', 'Epouvante-horreur' : 'black', 
                      'Thriller' : 'coral', 'Fantastique' : 'turquoise'}
     
-    allocine['genre'] = allocine['genre'].str.split(', ')
-    allocine = allocine.explode('genre')
+        allocine['genre'] = allocine['genre'].str.split(', ')
+        allocine = allocine.explode('genre')
     
-    allocine['genre'] = allocine['genre'].str.strip()
-    allocine['genre'] = allocine['genre'].str.capitalize()
-    filtered_data = allocine[allocine['genre'].isin(genres_to_include)].copy()
-    filtered_data['premiere_semaine_france'] = pd.to_numeric(filtered_data['premiere_semaine_france'], errors='coerce')
-    filtered_data.dropna(subset=['premiere_semaine_france', 'genre'], inplace=True)
+        allocine['genre'] = allocine['genre'].str.strip()
+        allocine['genre'] = allocine['genre'].str.capitalize()
+        filtered_data = allocine[allocine['genre'].isin(genres_to_include)].copy()
+        filtered_data['premiere_semaine_france'] = pd.to_numeric(filtered_data['premiere_semaine_france'], errors='coerce')
+        filtered_data.dropna(subset=['premiere_semaine_france', 'genre'], inplace=True)
 
-    median_data = filtered_data.groupby('genre')['premiere_semaine_france'].median().reset_index()
+        median_data = filtered_data.groupby('genre')['premiere_semaine_france'].median().reset_index()
     
-    fig5 = px.bar(median_data, x='genre', y='premiere_semaine_france',
+        fig5 = px.bar(median_data, x='genre', y='premiere_semaine_france',
               labels={'genre': 'Genre', 'premiere_semaine_france': 'Médiane des entrées en première semaine'},
               title='Médiane des entrées en première semaine en France par genre',
               color='genre',
               color_discrete_map=genres_color)
 
-    fig5.update_layout(
-    xaxis_title='Genre',
-    yaxis_title='Médiane des entrées en première semaine',
-    xaxis={'categoryorder':'total descending'},
-    height=800
-    )
-    fig5.update_xaxes(tickangle=45)
-    st.plotly_chart(fig5)
+        fig5.update_layout(
+        xaxis_title='Genre',
+        yaxis_title='Médiane des entrées en première semaine',
+        xaxis={'categoryorder':'total descending'},
+        height=800
+        )
+        fig5.update_xaxes(tickangle=45)
+        st.plotly_chart(fig5)
 
 
     #---------------#
-    allocine['genre'] = allocine['genre'].str.split(', ')
-    allocine = allocine.explode('genre')
+    with col2:
+        allocine['genre'] = allocine['genre'].str.split(', ')
+        allocine = allocine.explode('genre')
 
-    genres_to_include = ['Drame', 'Comédie', 'Action', 'Comédie dramatique', 'Aventure', 
+        genres_to_include = ['Drame', 'Comédie', 'Action', 'Comédie dramatique', 'Aventure', 
                      'Documentaire', 'Biopic', 'Animation', 'Policier', 'Epouvante-horreur', 
                      'Thriller', 'Fantastique']
 
-    genres_color = {'Drame': 'blue', 'Comédie': 'red', 'Action': 'orange', 'Comédie dramatique': 'purple', 'Aventure': 'yellow', 
+        genres_color = {'Drame': 'blue', 'Comédie': 'red', 'Action': 'orange', 'Comédie dramatique': 'purple', 'Aventure': 'yellow', 
                 'Documentaire': 'grey', 'Biopic': 'green', 'Animation': 'pink', 'Policier': 'brown', 'Epouvante-horreur': 'black', 
                 'Thriller': 'coral', 'Fantastique': 'turquoise'}
 
-    allocine = allocine[allocine['genre'].isin(genres_to_include)]
+        allocine = allocine[allocine['genre'].isin(genres_to_include)]
 
-    grouped_data = allocine.groupby(['genre', 'mois', 'mois_nom']).size().reset_index(name='counts')
+        grouped_data = allocine.groupby(['genre', 'mois', 'mois_nom']).size().reset_index(name='counts')
 
-    rows, cols = 3, 4
-    fig5 = make_subplots(rows=rows, cols=cols, subplot_titles=genres_to_include)
+        rows, cols = 3, 4
+        fig5 = make_subplots(rows=rows, cols=cols, subplot_titles=genres_to_include)
 
-    positions = [(i, j) for i in range(1, rows+1) for j in range(1, cols+1)]
+        positions = [(i, j) for i in range(1, rows+1) for j in range(1, cols+1)]
 
-    for genre, pos in zip(genres_to_include, positions):
-        data = grouped_data[grouped_data['genre'] == genre]
-        trace = go.Bar(x=data['mois'], y=data['counts'], name=genre, marker_color=genres_color[genre])
-        fig5.add_trace(trace, row=pos[0], col=pos[1])
-    fig5.update_xaxes(tickvals=allocine['mois'], ticktext=allocine['mois_nom'])
-    fig5.update_layout(height=600, width=1400, title_text="Occurrences de films par mois et par genre", showlegend=False)
-    fig5.update_xaxes(tickangle=45)
+        for genre, pos in zip(genres_to_include, positions):
+            data = grouped_data[grouped_data['genre'] == genre]
+            trace = go.Bar(x=data['mois'], y=data['counts'], name=genre, marker_color=genres_color[genre])
+            fig5.add_trace(trace, row=pos[0], col=pos[1])
+        fig5.update_xaxes(tickvals=allocine['mois'], ticktext=allocine['mois_nom'])
+        fig5.update_layout(height=600, width=1400, title_text="Occurrences de films par mois et par genre", showlegend=False)
+        fig5.update_xaxes(tickangle=45)
 
-    st.plotly_chart(fig5)
+        st.plotly_chart(fig5)
     #---------------#
 
     #---------------#
