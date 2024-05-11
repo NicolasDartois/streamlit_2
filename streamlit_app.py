@@ -79,6 +79,7 @@ if page == pages[2] :
     st.plotly_chart(fig)
     
     #---------------#
+    plt.figure(figsize=(20, 20))
     fig = px.box(allocine, x="premiere_semaine_france",
              hover_data=['titre_original'],
              title='Distribution de la première semaine en France',
