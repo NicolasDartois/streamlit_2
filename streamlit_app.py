@@ -136,10 +136,10 @@ if page == pages[4] :
         return clf
     
     def scores(clf, choice):
-        if choice == 'Accuracy':
-            return clf.score(X_test, y_test)
-        elif choice == 'Confusion matrix':
-            return confusion_matrix(y_test, clf.predict(X_test))
+        if choice == 'R²':
+            return clf.r2_score(y_test, clf.predict(X_test))
+        elif choice == 'MAE':
+            return mean_absolute_error(y_test, clf.predict(X_test))
     
     choix = ['Random Forest', 'SVC', 'Logistic Regression']
     option = st.selectbox('Choix du modèle', choix)
