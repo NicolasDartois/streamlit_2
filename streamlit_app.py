@@ -137,7 +137,7 @@ if page == pages[4] :
     
     def scores(clf, choice):
         if choice == 'R²':
-            return clf.r2_score(y_test, clf.predict(X_test))
+            return r2_score(y_test, clf.predict(X_test))
         elif choice == 'MAE':
             return mean_absolute_error(y_test, clf.predict(X_test))
     
@@ -148,11 +148,11 @@ if page == pages[4] :
     clf = prediction(option)
     import joblib
     joblib.dump(clf, "model")
-    display = st.radio('Que souhaitez-vous montrer ?', ('Accuracy', 'Confusion matrix'))
-    if display == 'Accuracy':
+    display = st.radio('Que souhaitez-vous montrer ?', ('Le score R²', 'Le score MAE'))
+    if display == 'R²':
         st.write(scores(clf, display))
-    elif display == 'Confusion matrix':
-        st.dataframe(scores(clf, display))
+    elif display == 'MAE':
+        st.write(scores(clf, display))
 
 
 
