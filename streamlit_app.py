@@ -186,7 +186,27 @@ if page == pages[2] :
 
         st.plotly_chart(fig5)
     #---------------#
+        actors_columns = ['acteur_1', 'acteur_2', 'acteur_3', 'acteur_4']
+        melted_actors = pd.melt(allocine, id_vars=['premiere_semaine_france'], value_vars=actors_columns, value_name='actor').dropna().drop(columns='variable', axis=1)
 
+        display(melted_actors)
+
+        top_10_actors = melted_actors.groupby('actor')['premiere_semaine_france'].sum().nlargest(10)
+
+        fig6 = px.bar(top_10_actors, x=top_10_actors.values, y=top_10_actors.index, orientation='h',
+             text=top_10_actors.values,
+             labels={'y': 'Acteurs', 'x': 'Nombre total d\'entrées première semaine France'},
+             color_discrete_sequence=['green'],
+             title='Top 10 des acteurs avec le plus grand nombre d\'entrées en première semaine France')
+
+        fig6.update_traces(texttemplate='%{text:.3s}', textposition='inside', hovertemplate='<b>%{y}</b><br>Nombre total d\'entrées première semaine: %{x}<extra></extra>')
+        fig6.update_layout(
+            xaxis_title='Nombre total d\'entrées première semaine France',
+            yaxis_title='Acteurs',
+            uniformtext_minsize=8, uniformtext_mode='hide',
+            height=400, width=800, yaxis_autorange='reversed'
+        )
+        st.plotly_chart(fig6)
     #---------------#
 
     #---------------#
