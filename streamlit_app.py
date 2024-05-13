@@ -189,8 +189,6 @@ if page == pages[2] :
         actors_columns = ['acteur_1', 'acteur_2', 'acteur_3', 'acteur_4']
         melted_actors = pd.melt(allocine, id_vars=['premiere_semaine_france'], value_vars=actors_columns, value_name='actor').dropna().drop(columns='variable', axis=1)
 
-        display(melted_actors)
-
         top_10_actors = melted_actors.groupby('actor')['premiere_semaine_france'].sum().nlargest(10)
 
         fig6 = px.bar(top_10_actors, x=top_10_actors.values, y=top_10_actors.index, orientation='h',
