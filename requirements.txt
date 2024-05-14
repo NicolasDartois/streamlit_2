@@ -6,6 +6,6 @@ joblib
 seaborn
 streamlit
 plotly
-bokeh
+bokeh==2.4.3
 xgboost
 statsmodels
