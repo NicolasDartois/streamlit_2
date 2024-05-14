@@ -260,7 +260,7 @@ if page == pages[2] :
         return f'{x / 1e6}M'
     formatter = FuncFormatter(millions_formatter)
     
-    plt.figure(figsize=(15, 10))
+    plt.figure(figsize=(20, 10))
     
     sns.regplot(x='budget_euro', y='premiere_semaine_france', data=allocine_budget)
     plt.xlabel('Budget du film')
@@ -269,7 +269,7 @@ if page == pages[2] :
     plt.gca().yaxis.set_major_formatter(formatter)
     plt.gca().xaxis.set_major_formatter(formatter)
     
-    col1, col2, col3 = st.columns(3)
+    col1, col2, col3 = st.columns([2, 1, 1])
     with col1:
         st.pyplot(plt)
     #---------------#
