@@ -238,7 +238,7 @@ if page == pages[2] :
     p2.add_tools(hover_p2)
     
     p3.legend.location = "top_right"
-    st.bokeh_chart(row(p1, p2, p3), use_container_width=True)
+    st.bokeh_chart(p1, use_container_width=True)
     
     #---------------#
 
