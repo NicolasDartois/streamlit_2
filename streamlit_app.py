@@ -2,20 +2,26 @@ import streamlit as st
 import statsmodels.api as sm
 import pandas as pd
 import numpy as np
+
 import matplotlib.pyplot as plt
+from matplotlib.ticker import FuncFormatter
+
 import seaborn as sns
+
 import plotly.graph_objects as go
 import plotly.express as px
 from plotly.subplots import make_subplots
+
 from sklearn.metrics import confusion_matrix
 from sklearn.preprocessing import StandardScaler
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import mean_absolute_error, r2_score
 from xgboost import XGBRegressor
+import joblib
+
 from bokeh.plotting import figure, show, output_notebook
 from bokeh.layouts import row
 from bokeh.models import HoverTool
-import joblib
 
 st.set_page_config(page_title="Projet Ciné", layout="wide") 
 
@@ -247,7 +253,21 @@ if page == pages[2] :
         st.bokeh_chart(p3, use_container_width=True)
     
     #---------------#
-
+    correlation = allocine_budget['premiere_semaine_france'].corr(allocine_budget['budget_euro'])
+    
+    def millions_formatter(x, pos):
+        return f'{x / 1e6}M'
+    formatter = FuncFormatter(millions_formatter)
+    
+    plt.figure(figsize=(15, 10))
+    
+    sns.regplot(x='budget_euro', y='premiere_semaine_france', data=allocine_budget)
+    plt.xlabel('Budget du film')
+    plt.ylabel('Première semaine en France (nombre de spectateurs)')
+    plt.title(f'Corrélation entre le budget du film et la première semaine en France. Pearson : {round(correlation, 3)}')
+    plt.gca().yaxis.set_major_formatter(formatter)
+    plt.gca().xaxis.set_major_formatter(formatter)
+    st.pyplot(plt)
     #---------------#
 
     #---------------#
