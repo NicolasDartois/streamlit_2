@@ -268,7 +268,10 @@ if page == pages[2] :
     plt.title(f'Corrélation entre le budget du film et la première semaine en France. Pearson : {round(correlation, 3)}')
     plt.gca().yaxis.set_major_formatter(formatter)
     plt.gca().xaxis.set_major_formatter(formatter)
-    st.pyplot(plt)
+    
+    col1, col2, col3 = st.columns(3)
+    with col1:
+        st.pyplot(plt)
     #---------------#
 
     #---------------#
