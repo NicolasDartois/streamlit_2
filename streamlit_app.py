@@ -12,6 +12,9 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import mean_absolute_error, r2_score
 from xgboost import XGBRegressor
+from bokeh.plotting import figure, show, output_notebook
+from bokeh.layouts import row
+from bokeh.models import HoverTool
 import joblib
 
 st.set_page_config(page_title="Projet Ciné", layout="wide") 
@@ -186,27 +189,57 @@ if page == pages[2] :
 
         st.plotly_chart(fig5)
     #---------------#
-        actors_columns = ['acteur_1', 'acteur_2', 'acteur_3', 'acteur_4']
-        melted_actors = pd.melt(allocine, id_vars=['premiere_semaine_france'], value_vars=actors_columns, value_name='actor').dropna().drop(columns='variable', axis=1)
-
-        top_10_actors = melted_actors.groupby('actor')['premiere_semaine_france'].sum().nlargest(10)
-
-        fig6 = px.bar(top_10_actors, x=top_10_actors.values, y=top_10_actors.index, orientation='h',
-             text=top_10_actors.values,
-             labels={'y': 'Acteurs', 'x': 'Nombre total d\'entrées première semaine France'},
-             color_discrete_sequence=['green'],
-             title='Top 10 des acteurs avec le plus grand nombre d\'entrées en première semaine France')
-
-        fig6.update_traces(texttemplate='%{text:.3s}', textposition='inside', hovertemplate='<b>%{y}</b><br>Nombre total d\'entrées première semaine: %{x}<extra></extra>')
-        fig6.update_layout(
-            xaxis_title='Nombre total d\'entrées première semaine France',
-            yaxis_title='Acteurs',
-            uniformtext_minsize=8, uniformtext_mode='hide',
-            height=400, width=800, yaxis_autorange='reversed'
-        )
-        st.plotly_chart(fig6)
+    actors_columns = ['acteur_1', 'acteur_2', 'acteur_3', 'acteur_4']
+    melted_actors = pd.melt(allocine, id_vars=['premiere_semaine_france'], value_vars=actors_columns, value_name='actor').dropna().drop(columns='variable', axis=1)
+    
+    top_10_actors = melted_actors.groupby('actor')['premiere_semaine_france'].sum().nlargest(10)
+    
+    fig6 = px.bar(top_10_actors, x=top_10_actors.values, y=top_10_actors.index, orientation='h',
+    text=top_10_actors.values,
+    labels={'y': 'Acteurs', 'x': 'Nombre total d\'entrées première semaine France'},
+    color_discrete_sequence=['green'],
+    title='Top 10 des acteurs avec le plus grand nombre d\'entrées en première semaine France')
+    
+    fig6.update_traces(texttemplate='%{text:.3s}', textposition='inside', hovertemplate='<b>%{y}</b><br>Nombre total d\'entrées première semaine: %{x}<extra></extra>')
+    fig6.update_layout(
+        xaxis_title='Nombre total d\'entrées première semaine France',
+        yaxis_title='Acteurs',
+        uniformtext_minsize=8, uniformtext_mode='hide',
+        height=400, width=800, yaxis_autorange='reversed'
+    )
+    st.plotly_chart(fig6)
     #---------------#
-
+    allocine_notes = allocine[['note_presse', 'note_spectateurs']].apply(lambda x: x.str.replace(',', '.').astype(float))
+    
+    press_histogram, press_edges = np.histogram(allocine_notes['note_presse'], bins=np.linspace(1, 5, 9))
+    spect_histogram, spect_edges = np.histogram(allocine_notes['note_spectateurs'], bins=np.linspace(1, 5, 9))
+    
+    press_percentage = (press_histogram / press_histogram.sum())*100
+    spect_percentage = (spect_histogram / spect_histogram.sum())*100
+    
+    p1 = figure(title="Distribution des notes de la presse", tools="", x_range=(1, 5), y_range=(0, 35))
+    p2 = figure(title="Distribution des notes des spectateurs", tools="", x_range=(1, 5), y_range=(0, 35))
+    p3 = figure(title="Comparaison de la distribution", tools="", x_range=(1, 5), y_range=(0, 35))
+    
+    for p in [p1, p2, p3]:
+        p.xaxis.axis_label = "Notes"
+        p.yaxis.axis_label = "Pourcentage de Films (%)"
+        p.grid.grid_line_color = "whitesmoke"
+    
+    p1.vbar(x=press_edges+0.25, top=press_percentage, width=0.5, fill_color='cornflowerblue', line_color='white')
+    p2.vbar(x=spect_edges+0.25, top=spect_percentage, width=0.5, fill_color='burlywood', line_color='white')
+    
+    p3.vbar(x=press_edges+0.25, top=press_percentage, width=0.5, fill_color=None, line_color='cornflowerblue', line_width=3)
+    p3.vbar(x=spect_edges+0.25, top=spect_percentage, width=0.5, fill_color=None, line_color='burlywood', line_width=3)
+    
+    hover_p1 = HoverTool(tooltips=[("Pourcentage de Films", "@top{0.2f} %")])
+    hover_p2 = HoverTool(tooltips=[("Pourcentage de Films", "@top{0.2f} %")])
+    p1.add_tools(hover_p1)
+    p2.add_tools(hover_p2)
+    
+    p3.legend.location = "top_right"
+    st.bokeh_chart(row(p1, p2, p3), use_container_width=True)
+    
     #---------------#
 
     #---------------#
