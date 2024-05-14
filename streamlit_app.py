@@ -253,6 +253,7 @@ if page == pages[2] :
         st.bokeh_chart(p3, use_container_width=True)
     
     #---------------#
+    allocine_budget = pd.read_csv('data/Allocine_v2_8.csv')
     correlation = allocine_budget['premiere_semaine_france'].corr(allocine_budget['budget_euro'])
     
     def millions_formatter(x, pos):
