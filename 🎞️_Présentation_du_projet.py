@@ -1,8 +1,23 @@
 import streamlit as st
 import streamlit.components.v1 as components
 
-st.set_page_config(page_title="Projet Ciné", layout="wide") 
+st.markdown(
+    """
+    <style>
+    .box {
+        background-color: white;
+        padding: 20px;
+        margin: 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+        text-align: left;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
 
+st.set_page_config(page_title="Projet Ciné", layout="wide") 
 st.title("L'IA au service de la production cinématographique !")
 
 col1, col2, col3, col4, col5, col6 = st.columns([5,1,5,1,5,2])
