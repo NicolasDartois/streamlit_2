@@ -35,7 +35,7 @@ fig2 = px.box(allocine, x="premiere_semaine_france",
             hover_data=['titre_original'],
             title='Analyse de la distribution de notre target: première semaine en France',
             labels={'premiere_semaine_france': 'Première semaine en France'})
-fig2.update_layout(width=1200, height=500)
+fig2.update_layout(width=800, height=500)
 fig2.update_layout(xaxis=dict(showgrid=True, gridwidth=1, gridcolor='lightgrey'))
 st.plotly_chart(fig2)
 
