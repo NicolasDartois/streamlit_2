@@ -54,7 +54,7 @@ fig1.update_layout(
             legend_title="Pays"
             )
 st.plotly_chart(fig1)
-st.markdown('<div class="box"><p></p></div>', unsafe_allow_html=True)
+st.markdown("<div class="box"><p></p></div>", unsafe_allow_html=True)
 #---------------#
 
 fig2 = px.box(allocine, x="premiere_semaine_france",
