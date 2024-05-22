@@ -56,10 +56,11 @@ st.markdown(background_image, unsafe_allow_html=True)
 df_modele = pd.read_csv('data/score.csv')
 
 st.markdown("""
+    <body>
     <label for="toggleCheckbox" style="cursor: pointer;">{test}</label>
     <input type="checkbox" id="toggleCheckbox" class="hidden-checkbox">
     <p id="hiddenText">Voici le texte qui apparaît après le clic.</p>
-    
+    </body>
 """, unsafe_allow_html=True)
 
     
