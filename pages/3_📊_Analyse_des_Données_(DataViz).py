@@ -165,7 +165,7 @@ fig5.update_xaxes(tickangle=45)
 fig5.update_layout(width=800, height=600)
 st.plotly_chart(fig5)
 
-st.markdown('<div class="box"><p>         </p></div>', unsafe_allow_html=True)
+st.markdown('<div class="box"><p>On remarque qu'en France, en première semaine, ce sont les films d’action qui génèrent le plus de spectateurs, suivis de près par les films d’aventures. Le drame, genre très représenté chaque année, est loin d'attirer le plus de spectateurs. Ainsi, le lien entre un genre et le succès d’un film est à nuancer notamment par la surreprésentation de certains genres ou encore la perception que nous pouvons en avoir.</p></div>', unsafe_allow_html=True)
 
 #---------------#
 
