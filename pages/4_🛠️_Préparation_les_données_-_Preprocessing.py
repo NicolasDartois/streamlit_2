@@ -29,6 +29,12 @@ background_image = '''
         border-radius: 10px;
         text-align: justify;
     }
+    .fit-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Peut aussi être 'contain' selon le besoin */
+    display: block;
+    }
     </style>
     '''
 st.markdown(background_image, unsafe_allow_html=True)
@@ -60,7 +66,7 @@ st.markdown("""
     <p>• Extraction des jours, jours_semaine, mois de la date de sortie des films, puis standardisation cyclique des variables obtenues.</p>
     <p>• Mise en oeuvre d'un score acteurs, d'un score réalisateurs, d'un score scenaristes, d'un score distributeur.</p>
     <p>Description schématique du score Acteurs :</p>
-    <img src="https://github.com/NicolasDartois/streamlit_2/blob/main/images/score_acteur.png?raw=true" />
+    <img src="https://github.com/NicolasDartois/streamlit_2/blob/main/images/score_acteur.png?raw=true"  class="fit-img"/>
 </div>
 """, unsafe_allow_html=True)
 
