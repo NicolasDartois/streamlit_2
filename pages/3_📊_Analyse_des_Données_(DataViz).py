@@ -260,7 +260,7 @@ st.bokeh_chart(p1, use_container_width=True)
 st.bokeh_chart(p2, use_container_width=True)
 st.bokeh_chart(p3, use_container_width=True)
 
-st.markdown('<div class="box"><p>         </p></div>', unsafe_allow_html=True)
+st.markdown('<div class="box"><p>On observe que les deux distributions se ressemblent. La presse semble attribuer plus facilement des notes moyennes que les spectateurs.</p></div>', unsafe_allow_html=True)
 
 #---------------#
 
