@@ -8,7 +8,7 @@ st.sidebar.markdown("Manon FOUQUET")
 st.sidebar.markdown("Sylvain BRAIZET")
 st.sidebar.markdown("Nicolas DARTOIS")
 
-st.header("🛠️Préparation les données - Preprocessing🛠️")
+st.header("🛠️Préparation les données-Preprocessing🛠️")
 
 background_image = '''
     <style>
