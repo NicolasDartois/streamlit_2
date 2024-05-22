@@ -34,7 +34,7 @@ background_image = '''
 st.markdown(background_image, unsafe_allow_html=True)
 
 st.markdown("""
-<div class="box"><h3> Introduction :</h3>
+<div class="box"><h3>Introduction :</h3>
     <p>Le prétraitement (preprocessing) des données vise à préparer les données brutes pour que notre modèle futur soit le plus performant possible  :</p>
     <p>• Nettoyant les données en éliminant les valeurs aberrantes (réalisé juste avant la modélisation), et en gérant les valeurs manquantes. NB : le dédoublonnage n'était pas nécessaire.</p>
     <p>• Transformant les features en formats compatibles avec les algorithmes d'apprentissage automatique, tels que la normalisation des valeurs et les onehotencoding.</p>
@@ -45,20 +45,22 @@ st.markdown("""
 </div>
 """, unsafe_allow_html=True)
 
-st.write("### Traitement des valeurs manquantes :")
-st.write("Exemple de texte")
-st.write("### Formatage des données :")
-st.write("Les étapes de formatage des données :")
 st.markdown("""
-<ul>
-    <li>Onehotencoding des genres</li>
-    <li>Onehotencoding de l'origine du pays du film (en ayant retenu que 3 catégories : France ou USA ou autre (si France et USA sont en False)</li>
-    <li>conversion et reformatage des données budgets : identification de toutes les devises différentes, conversion en euros en utilisant le taux de change à date de chaque devise</li>
-    <li>extraction des jours, jours_semaine, mois de la date de sortie des films, puis standardisation cyclique des variables obtenues</li>
-    <li>Mise en oeuvre d'un score acteurs, d'un score réalisateurs, d'un score scenaristes, d'un score distributeur</li>
-    <li>Description schématique du score Acteurs :</li>
-</ul>
-<br>
-<br>
+<div class="box"><h3>Traitement des valeurs manquantes :</h3>
+    <p>Exemple de texte</p>
+</div>
 """, unsafe_allow_html=True)
+
+st.markdown("""
+<div class="box"><h3>Formatage des données :</h3>
+    <p>Les étapes de formatage des données :</p>
+    <p>• Onehotencoding des genres.</p>
+    <p>• Onehotencoding de l'origine du pays du film (en ayant retenu que 3 catégories : France ou USA ou autre (si France et USA sont en False).</p>
+    <p>• Conversion et reformatage des données budgets : identification de toutes les devises différentes, conversion en euros en utilisant le taux de change à date de chaque devise.</p>
+    <p>• Extraction des jours, jours_semaine, mois de la date de sortie des films, puis standardisation cyclique des variables obtenues.</p>
+    <p>• Mise en oeuvre d'un score acteurs, d'un score réalisateurs, d'un score scenaristes, d'un score distributeur.</p>
+    <p>Description schématique du score Acteurs :</p>
+</div>
+""", unsafe_allow_html=True)
+
 st.image('images/score_acteur.png')
