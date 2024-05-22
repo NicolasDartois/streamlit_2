@@ -99,7 +99,7 @@ distrib = {
     2023: 712
 }
 colorscale = [[0, 'blue'], [1, 'orange']]
-fig3 = go.Figure(data=[go.Bar(x=distrib.keys(), y=distrib.values(), marker=dict(color=film_counts, colorscale=colorscale, cmin=0, cmax=film_counts.max()))])
+fig3 = go.Figure(data=[go.Bar(x=distrib.keys(), y=distrib.values(), marker=dict(color=distrib.values(), colorscale=colorscale, cmin=0, cmax=distrib.values().max()))])
 fig3.update_layout(width=800, height=400)
 fig3.update_layout(title='🎞️ Nombre de films sortis par année en France (après 2000)', xaxis_title='Année de sortie', yaxis_title='Nombre de films')
 st.plotly_chart(fig3)
