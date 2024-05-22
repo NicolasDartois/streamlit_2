@@ -3,7 +3,7 @@ import streamlit.components.v1 as components
 st.set_page_config(page_title="Projet Ciné", layout="centered") 
 st.title("🎥 L'IA au service de la production cinématographique ! 🎥")
 
-st.sidebar.subtitle("🎥oct23_cda_exploitation-cinématographique🎥")
+st.sidebar.subheader("🎥oct23_cda_exploitation-cinématographique🎥")
 st.sidebar.markdown("_____________________")
 st.sidebar.markdown("Manon FOUQUET")
 st.sidebar.markdown("Sylvain BRAIZET")
