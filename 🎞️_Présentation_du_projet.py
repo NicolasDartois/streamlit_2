@@ -7,6 +7,7 @@ background_image = '''
     <style>
     body {
         background-image: url("https://github.com/NicolasDartois/streamlit_2/blob/main/images/background.jpg?raw=true");
+        background-color: black;
         background-size: cover;
     }
     .box {
