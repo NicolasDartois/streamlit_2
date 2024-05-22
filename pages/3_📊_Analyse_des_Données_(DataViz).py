@@ -38,7 +38,7 @@ allocine = pd.read_csv('data/allocine.csv')
 
 
 #---------------#
-st.markdown('<div class="box"><p>', unsafe_allow_html=True)
+st.markdown('<div class="box">', unsafe_allow_html=True)
             
 pays_counts = allocine['pays'].value_counts()
 top_pays = pays_counts[:8]
@@ -55,7 +55,7 @@ fig1.update_layout(
             )
 st.plotly_chart(fig1)
 
-st.markdown('</p></div>', unsafe_allow_html=True)
+st.markdown('</div>', unsafe_allow_html=True)
 #---------------#
 
 fig2 = px.box(allocine, x="premiere_semaine_france",
