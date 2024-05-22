@@ -1,5 +1,13 @@
 import streamlit as st
 
+for i in range(25):
+    st.sidebar.markdown("<br>", unsafe_allow_html=True)
+st.sidebar.subheader("🎥oct23_cda_exploitation-cinématographique🎥")
+st.sidebar.markdown("_____________________")
+st.sidebar.markdown("Manon FOUQUET")
+st.sidebar.markdown("Sylvain BRAIZET")
+st.sidebar.markdown("Nicolas DARTOIS")
+
 st.header("🔍Collecte et Exploration des données🔍")
 
 background_image = '''
