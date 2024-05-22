@@ -11,7 +11,7 @@ page_bg_css = """
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center;
-  opacity: 0.8; /* Niveau de transparence */
+  opacity: 0.2; /* Niveau de transparence */
 }
 </style>
 """
