@@ -81,6 +81,8 @@ def scores(clf, choice):
     elif choice == 'MAE':
         return mean_absolute_error(y_test, clf.predict(X_test))
 
+
+test = "bien"
 st.markdown("""
 <html lang="en">
 <head>
@@ -100,7 +102,7 @@ st.markdown("""
     </style>
 </head>
 <body>
-    <label for="toggleCheckbox" style="cursor: pointer;">Cliquez ici pour afficher le texte</label>
+    <label for="toggleCheckbox" style="cursor: pointer;">{test}</label>
     <input type="checkbox" id="toggleCheckbox" class="hidden-checkbox">
     <p id="hiddenText">Voici le texte qui apparaît après le clic.</p>
 </body>
@@ -115,6 +117,11 @@ st.markdown("""
 
 
 choix = ['Random Forest', 'Linear Regression', 'Decision Tree', 'Gradient Boosting', 'XGBoost']
+
+for i in choix:
+    
+
+
 option = st.selectbox('Choix du modèle', choix)
 st.write('Le modèle choisi est :', option)
 
