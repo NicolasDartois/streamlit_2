@@ -62,30 +62,6 @@ st.markdown("""
     
 """, unsafe_allow_html=True)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-st.dataframe(df_modele)
     
 test = "bien"
 st.markdown(f"""<p>{test}</p>""", unsafe_allow_html=True)
