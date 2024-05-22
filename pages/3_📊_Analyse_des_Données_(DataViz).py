@@ -69,7 +69,7 @@ fig2.update_layout(width=800, height=400)
 fig2.update_layout(xaxis=dict(showgrid=True, gridwidth=1, gridcolor='lightgrey'))
 st.plotly_chart(fig2)
 
-st.markdown('<div class="box"><p>         </p></div>', unsafe_allow_html=True)
+st.markdown('<div class="box"><p>Ces données suggèrent une forte asymétrie dans la distribution des performances des films. La présence de quelques films avec des résultats exceptionnels lors de la première semaine indique que ces films peuvent être des moteurs significatifs pour l\'industrie, tandis que la majorité des films affichent des performances beaucoup plus modestes.</p></div>', unsafe_allow_html=True)
 
 #---------------#
 
