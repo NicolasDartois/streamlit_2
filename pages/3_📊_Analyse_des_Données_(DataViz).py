@@ -51,7 +51,7 @@ fig1.update_traces(textposition='inside', textinfo='percent+label')
 fig1.update_layout(
             width=800,
             height=600,
-            title_text='Répartition des films par pays',
+            title_text='🌎 Répartition des films par pays',
             annotations=[dict(text='Pays', x=0.5, y=0.5, font_size=20, showarrow=False)],
             legend_title="Pays"
             )
@@ -63,7 +63,7 @@ st.markdown('<div class="box"><p>La France (38,9%) et les U.S.A (30,7%) se parta
 
 fig2 = px.box(allocine, x="premiere_semaine_france",
             hover_data=['titre_original'],
-            title='Analyse de la distribution de notre target: première semaine en France',
+            title='🎫 Analyse de la distribution de notre target: première semaine en France',
             labels={'premiere_semaine_france': 'Première semaine en France'})
 fig2.update_layout(width=800, height=400)
 fig2.update_layout(xaxis=dict(showgrid=True, gridwidth=1, gridcolor='lightgrey'))
@@ -78,7 +78,7 @@ film_counts = filtered_data['annee'].value_counts().sort_index()
 colorscale = [[0, 'blue'], [1, 'orange']]
 fig3 = go.Figure(data=[go.Bar(x=film_counts.index, y=film_counts, marker=dict(color=film_counts, colorscale=colorscale, cmin=0, cmax=film_counts.max()))])
 fig3.update_layout(width=800, height=400)
-fig3.update_layout(title='Nombre de films sortis par année en France (après 2000)', xaxis_title='Année de sortie', yaxis_title='Nombre de films')
+fig3.update_layout(title='🎞️ Nombre de films sortis par année en France (après 2000)', xaxis_title='Année de sortie', yaxis_title='Nombre de films')
 st.plotly_chart(fig3)
 
 st.markdown('<div class="box"><p>         </p></div>', unsafe_allow_html=True)
@@ -91,7 +91,7 @@ fig4 = px.scatter(
             x='cumul_france', 
             y='premiere_semaine_france',
             hover_data=['titre_original'],
-            title=f'Corrélation entre le cumul en France et la première semaine en France: {correlation:.2f}',
+            title=f'📈 Corrélation entre le cumul en France et la première semaine en France: {correlation:.2f}',
             labels={'cumul_france': 'Cumul en France', 'premiere_semaine_france': 'Première semaine en France'},
             opacity=0.5,
             trendline='ols'
@@ -127,7 +127,7 @@ median_data = filtered_data.groupby('genre')['premiere_semaine_france'].median()
 
 fig5 = px.bar(median_data, x='genre', y='premiere_semaine_france',
 labels={'genre': 'Genre', 'premiere_semaine_france': 'Médiane des entrées en première semaine'},
-title='Médiane des entrées en première semaine en France par genre',
+title='🎞️ Médiane des entrées en première semaine en France par genre',
 color='genre',
 color_discrete_map=genres_color)
 
@@ -170,7 +170,7 @@ for genre, pos in zip(genres_to_include, positions):
             trace = go.Bar(x=data['mois'], y=data['counts'], name=genre, marker_color=genres_color[genre])
             fig5.add_trace(trace, row=pos[0], col=pos[1])
 fig5.update_xaxes(tickvals=allocine['mois'], ticktext=allocine['mois_nom'])
-fig5.update_layout(height=1600, width=800, title_text="Occurrences de films par mois et par genre", showlegend=False)
+fig5.update_layout(height=1600, width=800, title_text="🎞️ Occurrences de films par mois et par genre", showlegend=False)
 fig5.update_xaxes(tickangle=45)
 
 st.plotly_chart(fig5)
@@ -188,7 +188,7 @@ fig6 = px.bar(top_10_actors, x=top_10_actors.values, y=top_10_actors.index, orie
 text=top_10_actors.values,
 labels={'y': 'Acteurs', 'x': 'Nombre total d\'entrées première semaine France'},
 color_discrete_sequence=['green'],
-title='Top 10 des acteurs avec le plus grand nombre d\'entrées en première semaine France')
+title='🧑 Top 10 des acteurs avec le plus grand nombre d\'entrées en première semaine France')
 
 fig6.update_traces(texttemplate='%{text:.3s}', textposition='inside', hovertemplate='<b>%{y}</b><br>Nombre total d\'entrées première semaine: %{x}<extra></extra>')
 fig6.update_layout(
@@ -211,9 +211,9 @@ spect_histogram, spect_edges = np.histogram(allocine_notes['note_spectateurs'], 
 press_percentage = (press_histogram / press_histogram.sum())*100
 spect_percentage = (spect_histogram / spect_histogram.sum())*100
 
-p1 = figure(plot_height=250, plot_width=800, title="Distribution des notes de la presse", tools="", x_range=(1, 5), y_range=(0, 35))
-p2 = figure(plot_height=250, plot_width=800, title="Distribution des notes des spectateurs", tools="", x_range=(1, 5), y_range=(0, 35))
-p3 = figure(plot_height=250, plot_width=800, title="Comparaison de la distribution", tools="", x_range=(1, 5), y_range=(0, 35))
+p1 = figure(plot_height=250, plot_width=800, title="✍️ Distribution des notes de la presse", tools="", x_range=(1, 5), y_range=(0, 35))
+p2 = figure(plot_height=250, plot_width=800, title="✍️ Distribution des notes des spectateurs", tools="", x_range=(1, 5), y_range=(0, 35))
+p3 = figure(plot_height=250, plot_width=800, title="✍️ Comparaison de la distribution", tools="", x_range=(1, 5), y_range=(0, 35))
 
 for p in [p1, p2, p3]:
     p.xaxis.axis_label = "Notes"
