@@ -5,6 +5,49 @@ from sklearn.model_selection import train_test_split
 from sklearn.metrics import mean_absolute_error, r2_score
 import joblib
 
+for i in range(25):
+    st.sidebar.markdown("<br>", unsafe_allow_html=True)
+st.sidebar.subheader("🎥oct23_cda_exploitation-cinématographique🎥")
+st.sidebar.markdown("_____________________")
+st.sidebar.markdown("Manon FOUQUET")
+st.sidebar.markdown("Sylvain BRAIZET")
+st.sidebar.markdown("Nicolas DARTOIS")
+
+st.header("🤖Présentation du modèle🤖")
+
+background_image = '''
+    <style>
+    .stApp {
+        background-color: white;
+        background-image: url("https://github.com/NicolasDartois/streamlit_2/blob/main/images/background.jpg?raw=true");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-position: center;
+    }
+    .box {
+        background-color: white;
+        padding: 20px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        box-shadow: 0 10px 12px rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+        text-align: justify;
+    }
+    .fit-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Peut aussi être 'contain' selon le besoin */
+    display: block;
+    }
+    </style>
+    '''
+st.markdown(background_image, unsafe_allow_html=True)
+
+
+
+
+
 st.write("### Modélisations :")
 
 df = pd.read_csv('data/Allocine_v3.csv')
@@ -37,6 +80,38 @@ def scores(clf, choice):
         return r2_score(y_test, clf.predict(X_test))
     elif choice == 'MAE':
         return mean_absolute_error(y_test, clf.predict(X_test))
+
+st.markdown("""
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Afficher le texte au clic</title>
+    <style>
+        #hiddenText {
+            display: none;
+        }
+        #toggleCheckbox:checked + #hiddenText {
+            display: block;
+        }
+        .hidden-checkbox {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <label for="toggleCheckbox" style="cursor: pointer;">Cliquez ici pour afficher le texte</label>
+    <input type="checkbox" id="toggleCheckbox" class="hidden-checkbox">
+    <p id="hiddenText">Voici le texte qui apparaît après le clic.</p>
+</body>
+</html>
+""", unsafe_allow_html=True)
+
+
+
+
+
+
 
 choix = ['Random Forest', 'Linear Regression', 'Decision Tree', 'Gradient Boosting', 'XGBoost']
 option = st.selectbox('Choix du modèle', choix)
