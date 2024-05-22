@@ -45,7 +45,7 @@ background_image = '''
 st.markdown(background_image, unsafe_allow_html=True)
 
 test = "bien"
-st.markdown("""
+st.markdown(f"""
 <html lang="en">
 <head>
     <meta charset="UTF-8">
