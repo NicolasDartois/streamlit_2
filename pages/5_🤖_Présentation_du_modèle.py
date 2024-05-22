@@ -59,17 +59,14 @@ for modèle, r2, MAE in zip(df_modele['modèle'], df_modele['r2'], df_modele['MA
     st.markdown(f"""
         <body>
         <div class="box"> 
-        <label for="toggleCheckbox{modèle}" style="cursor: pointer;">{modèle}</label>
-        <input type="checkbox" id="toggleCheckbox{modèle}" class="hidden-checkbox">
+        <label for="toggleCheckbox" style="cursor: pointer;">{modèle}</label>
+        <input type="checkbox" id="toggleCheckbox" class="hidden-checkbox">
         <p id="hiddenText">R2 : {r2}</p>
         <p id="hiddenText">MAE : {MAE}</p>
         </div>
         </body>
     """, unsafe_allow_html=True)
 
-    
-test = "bien"
-st.markdown(f"""<p>{test}</p>""", unsafe_allow_html=True)
 
 
 
