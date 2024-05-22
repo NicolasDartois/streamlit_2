@@ -3,21 +3,15 @@ import streamlit.components.v1 as components
 st.set_page_config(page_title="Projet Ciné", layout="centered") 
 st.title("🎥 L'IA au service de la production cinématographique ! 🎥")
 
-page_bg_css = """
-<style>
-.stApp {
-  background-image: url("https://static.vecteezy.com/system/resources/previews/020/673/207/original/seamless-pattern-of-movie-filming-and-production-is-made-of-various-element-vector.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-position: center;
-  opacity: 0.2; /* Niveau de transparence */
-}
-</style>
-"""
-
-# Inject CSS with HTML
-st.markdown(page_bg_css, unsafe_allow_html=True)
+background_image = '''
+    <style>
+    body {
+        background-image: url("images/background.jpg");
+        background-size: cover;
+    }
+    </style>
+    '''
+st.markdown(background_image, unsafe_allow_html=True)
 
 st.markdown(
     """
