@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #ffffff;
+            font-family: 'Roboto', sans-serif;
+            color: #31333f;
+        }
+        strong {
+            text-align: center;
+            font-size: 1.6em;
+            font-family: 'Roboto', sans-serif;
+        }
+        .carousel-wheel-container {
+            width: 800px;
+            height: 600px;
+            overflow: hidden;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .carousel-wheel {
+            width: 600px;
+            height: 600px;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 1s;
+        }
+
+        .carousel-item {
+            position: absolute;
+            width: auto;
+            height: 600px;
+            background-color: #f0f2f6;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid #ddd;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            font-size: 1em;
+            padding: 20px;
+            box-sizing: border-box;
+            overflow: hidden;
+            backface-visibility: hidden;
+            line-height: 1.9;
+        }
+
+        .carousel-item p {
+            margin: 0;
+        }
+
+        .carousel-item strong {
+            font-weight: 700;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .carousel-item:nth-child(1) { transform: rotateY(0deg) translateZ(300px); }
+        .carousel-item:nth-child(2) { transform: rotateY(120deg) translateZ(300px); }
+        .carousel-item:nth-child(3) { transform: rotateY(240deg) translateZ(300px); }
+
+        .prev, .next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: #fff;
+            color: #333;
+            border: 2px solid #ddd;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 50%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .prev {
+            left: 10px;
+        }
+
+        .next {
+            right: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="carousel-wheel-container">
+    <div class="carousel-wheel">
+        <div class="carousel-item">
+            <p>
+                <strong>Le contexte :</strong>
+                Le projet que nous présentons dans ce document est le fruit de notre propre initiative. Inspiré par une idée originale d'un des membres de notre groupe, ce projet s'est développé autour d'une ambition commune : transformer radicalement l'industrie du cinéma !<br><br>
+                Traditionnellement, il est courant que les producteurs et les professionnels du cinéma fassent des paris amicaux sur le nombre de spectateurs qu'un film attirera à la fin de sa première semaine en salle. Cette pratique, à la fois ludique et ancrée dans les mœurs du secteur, a été le catalyseur de notre projet. Notre objectif est de mettre au point un modèle de machine learning capable de prédire avec la plus grande précision possible le nombre d'entrées qu'un film réalisera. Ce modèle s'appuiera sur des données préalablement collectées, alliant des critères quantitatifs et qualitatifs pour établir ses prévisions.
+            </p>
+        </div>
+        <div class="carousel-item">
+            <p>
+                <strong>L'objectif du projet :</strong>
+                L'objectif central de notre projet est de développer un outil accessible et convivial, permettant à tout utilisateur de prévoir le nombre de spectateurs d'un film à la fin de sa première semaine en salle. En renseignant des paramètres spécifiques de son choix, l'utilisateur pourra obtenir rapidement une estimation précise des entrées en salle.
+            </p>
+        </div>
+        <div class="carousel-item">
+            <p>
+                <strong>Pourquoi avoir choisi Streamlit ?</strong>
+                Au-delà des fonctionnalités de base de cet applicatif, qui contribuent à rendre nos présentations plus dynamiques et visuellement impactantes, il est important de souligner que le choix de Streamlit pour présenter notre projet a également répondu à plusieurs objectifs pédagogiques. En effet, Streamlit est un outil de plus en plus prisé au sein des entreprises.<br><br>
+                En intégrant Streamlit, nous avons non seulement amélioré l'interactivité et l'impact visuel de notre présentation, mais aussi enrichi notre expérience d'apprentissage avec une application technologique en pleine expansion. Cette démarche nous a permis de nous approprier efficacement cet outil moderne, en vue de l'utiliser plus tard dans nos futures carrières.
+            </p>
+        </div>
+    </div>
+    <button class="prev">&#10094;</button>
+    <button class="next">&#10095;</button>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const carouselWheel = document.querySelector('.carousel-wheel');
+        let angle = 0;
+        const angleStep = 120; // 360 degrees / 3 items
+
+        document.querySelector('.next').addEventListener('click', () => {
+            angle -= angleStep;
+            updateCarousel();
+        });
+
+        document.querySelector('.prev').addEventListener('click', () => {
+            angle += angleStep;
+            updateCarousel();
+        });
+
+        function updateCarousel() {
+            carouselWheel.style.transform = `rotateY(${angle}deg)`;
+        }
+    });
+</script>
+
+</body>
+</html>
