@@ -60,7 +60,7 @@ st.markdown("""
     <p>• Extraction des jours, jours_semaine, mois de la date de sortie des films, puis standardisation cyclique des variables obtenues.</p>
     <p>• Mise en oeuvre d'un score acteurs, d'un score réalisateurs, d'un score scenaristes, d'un score distributeur.</p>
     <p>Description schématique du score Acteurs :</p>
-    <img src="images/score_acteur.png" />
+    <img src="https://github.com/NicolasDartois/streamlit_2/blob/main/images/score_acteur.png?raw=true" />
 </div>
 """, unsafe_allow_html=True)
 
