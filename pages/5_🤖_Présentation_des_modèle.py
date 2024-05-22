@@ -1,9 +1,5 @@
 import streamlit as st
 import pandas as pd
-from sklearn.preprocessing import StandardScaler
-from sklearn.model_selection import train_test_split
-from sklearn.metrics import mean_absolute_error, r2_score
-import joblib
 
 for i in range(25):
     st.sidebar.markdown("<br>", unsafe_allow_html=True)
