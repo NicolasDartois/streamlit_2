@@ -129,9 +129,9 @@ fig5 = make_subplots(rows=rows, cols=cols, subplot_titles=genres_to_include)
 positions = [(i, j) for i in range(1, rows+1) for j in range(1, cols+1)]
 
 for genre, pos in zip(genres_to_include, positions):
-data = grouped_data[grouped_data['genre'] == genre]
-trace = go.Bar(x=data['mois'], y=data['counts'], name=genre, marker_color=genres_color[genre])
-fig5.add_trace(trace, row=pos[0], col=pos[1])
+            data = grouped_data[grouped_data['genre'] == genre]
+            trace = go.Bar(x=data['mois'], y=data['counts'], name=genre, marker_color=genres_color[genre])
+            fig5.add_trace(trace, row=pos[0], col=pos[1])
 fig5.update_xaxes(tickvals=allocine['mois'], ticktext=allocine['mois_nom'])
 fig5.update_layout(height=800, width=1400, title_text="Occurrences de films par mois et par genre", showlegend=False)
 fig5.update_xaxes(tickangle=45)
