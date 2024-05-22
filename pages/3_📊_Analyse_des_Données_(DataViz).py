@@ -12,6 +12,14 @@ from plotly.io import to_html
 from bokeh.plotting import figure
 from bokeh.models import HoverTool
 
+for i in range(25):
+    st.sidebar.markdown("<br>", unsafe_allow_html=True)
+st.sidebar.subheader("🎥oct23_cda_exploitation-cinématographique🎥")
+st.sidebar.markdown("_____________________")
+st.sidebar.markdown("Manon FOUQUET")
+st.sidebar.markdown("Sylvain BRAIZET")
+st.sidebar.markdown("Nicolas DARTOIS")
+
 st.header("📊 Analyse des Données (DataViz) 📊")
 
 background_image = '''
