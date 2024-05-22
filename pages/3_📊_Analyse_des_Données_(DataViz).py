@@ -137,7 +137,9 @@ fig5.update_layout(height=1600, width=800, title_text="Occurrences de films par 
 fig5.update_xaxes(tickangle=45)
 
 st.plotly_chart(fig5)
+
 #---------------#
+
 actors_columns = ['acteur_1', 'acteur_2', 'acteur_3', 'acteur_4']
 melted_actors = pd.melt(allocine, id_vars=['premiere_semaine_france'], value_vars=actors_columns, value_name='actor').dropna().drop(columns='variable', axis=1)
 
@@ -154,10 +156,12 @@ fig6.update_layout(
     xaxis_title='Nombre total d\'entrées première semaine France',
     yaxis_title='Acteurs',
     uniformtext_minsize=8, uniformtext_mode='hide',
-    height=400, width=800, yaxis_autorange='reversed'
+    height=600, width=800, yaxis_autorange='reversed'
 )
 st.plotly_chart(fig6)
+
 #---------------#
+
 allocine_notes = allocine[['note_presse', 'note_spectateurs']].apply(lambda x: x.str.replace(',', '.').astype(float))
 
 press_histogram, press_edges = np.histogram(allocine_notes['note_presse'], bins=np.linspace(1, 5, 9))
@@ -166,7 +170,7 @@ spect_histogram, spect_edges = np.histogram(allocine_notes['note_spectateurs'], 
 press_percentage = (press_histogram / press_histogram.sum())*100
 spect_percentage = (spect_histogram / spect_histogram.sum())*100
 
-p1 = figure(title="Distribution des notes de la presse", tools="", x_range=(1, 5), y_range=(0, 35))
+p1 = figure(plot_height=250, title="Distribution des notes de la presse", tools="", x_range=(1, 5), y_range=(0, 35))
 p2 = figure(title="Distribution des notes des spectateurs", tools="", x_range=(1, 5), y_range=(0, 35))
 p3 = figure(title="Comparaison de la distribution", tools="", x_range=(1, 5), y_range=(0, 35))
 
