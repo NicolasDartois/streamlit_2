@@ -9,11 +9,6 @@ background_image = '''
         background-image: url("https://img.freepik.com/premium-vector/vector-seamless-pattern-movie-filming-production-is-made-various-element_387335-860.jpg");
         background-size: cover;
     }
-    </style>
-    '''
-
-background_image = '''
-    <style>
     .box {
         background-color: white;
         padding: 20px;
