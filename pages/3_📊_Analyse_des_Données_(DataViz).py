@@ -54,7 +54,8 @@ fig1.update_layout(
             legend_title="Pays"
             )
 st.plotly_chart(fig1)
-
+st.markdown('<div class="box"><p>C’est la France qui est le pays le plus représenté (38,3%) dans notre jeu de données. En effet, la France est connue pour sa production dynamique, notamment liée au mécanisme de financement des films et aux nombreuses aides à la production disponibles.</p></div>', unsafe_allow_html=True)
+st.markdown('<div class="box"><p></p></div>', unsafe_allow_html=True)
 #---------------#
 
 fig2 = px.box(allocine, x="premiere_semaine_france",
