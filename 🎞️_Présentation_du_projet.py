@@ -11,7 +11,6 @@ background_image = '''
       background-repeat: no-repeat;
       background-attachment: fixed;
       background-position: center;
-      opacity: 0.8; /* Niveau de transparence */
     }
     .box {
         background-color: white;
