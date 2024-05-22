@@ -18,8 +18,6 @@ st.markdown(
     <style>
     .box {
         background-color: white;
-        padding: 20px;
-        margin: 20px;
         box-shadow: 0 10px 12px rgba(0, 0, 0, 0.1);
         border-radius: 10px;
         text-align: left;
