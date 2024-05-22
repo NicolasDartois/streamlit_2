@@ -54,7 +54,9 @@ fig1.update_layout(
             legend_title="Pays"
             )
 st.plotly_chart(fig1)
+
 st.markdown('<div class="box"><p>La France (38,9%) et les U.S.A (30,7%) se partagent une importante part du marché cinématographique français. On remarque l\'incroyable exportabilité des films américains qui égalise presque le volume de films produits par le pays d\'où sont issues les données.</p></div>', unsafe_allow_html=True)
+
 #---------------#
 
 fig2 = px.box(allocine, x="premiere_semaine_france",
@@ -64,6 +66,8 @@ fig2 = px.box(allocine, x="premiere_semaine_france",
 fig2.update_layout(width=800, height=400)
 fig2.update_layout(xaxis=dict(showgrid=True, gridwidth=1, gridcolor='lightgrey'))
 st.plotly_chart(fig2)
+
+st.markdown('<div class="box"><p>         </p></div>', unsafe_allow_html=True)
 
 #---------------#
 
@@ -75,7 +79,10 @@ fig3.update_layout(width=800, height=400)
 fig3.update_layout(title='Nombre de films sortis par année en France (après 2000)', xaxis_title='Année de sortie', yaxis_title='Nombre de films')
 st.plotly_chart(fig3)
 
+st.markdown('<div class="box"><p>         </p></div>', unsafe_allow_html=True)
+
 #---------------#
+
 correlation = allocine['cumul_france'].corr(allocine['premiere_semaine_france'])
 fig4 = px.scatter(
             allocine, 
@@ -93,6 +100,8 @@ fig4.update_layout(margin={'l': 40, 'b': 40, 't': 80, 'r': 40}, hovermode='close
 fig4.update_xaxes(showgrid=True, title='Cumul en France')
 fig4.update_yaxes(showgrid=True, title='Première semaine en France')
 st.plotly_chart(fig4)
+
+st.markdown('<div class="box"><p>         </p></div>', unsafe_allow_html=True)
 
 #---------------#
 genres_to_include = ['Drame', 'Comédie', 'Action', 'Comédie dramatique', 'Aventure', 
@@ -130,6 +139,8 @@ fig5.update_xaxes(tickangle=45)
 fig5.update_layout(width=800, height=600)
 st.plotly_chart(fig5)
 
+st.markdown('<div class="box"><p>         </p></div>', unsafe_allow_html=True)
+
 #---------------#
 
 allocine['genre'] = allocine['genre'].str.split(', ')
@@ -162,6 +173,8 @@ fig5.update_xaxes(tickangle=45)
 
 st.plotly_chart(fig5)
 
+st.markdown('<div class="box"><p>         </p></div>', unsafe_allow_html=True)
+
 #---------------#
 
 actors_columns = ['acteur_1', 'acteur_2', 'acteur_3', 'acteur_4']
@@ -183,6 +196,8 @@ fig6.update_layout(
     height=400, width=800, yaxis_autorange='reversed'
 )
 st.plotly_chart(fig6)
+
+st.markdown('<div class="box"><p>         </p></div>', unsafe_allow_html=True)
 
 #---------------#
 
@@ -219,7 +234,10 @@ st.bokeh_chart(p1, use_container_width=True)
 st.bokeh_chart(p2, use_container_width=True)
 st.bokeh_chart(p3, use_container_width=True)
 
+st.markdown('<div class="box"><p>         </p></div>', unsafe_allow_html=True)
+
 #---------------#
+
 allocine_budget = pd.read_csv('data/Allocine_v2_8.csv')
 correlation = allocine_budget['premiere_semaine_france'].corr(allocine_budget['budget_euro'])
 
@@ -236,4 +254,7 @@ plt.title(f'Corrélation entre le budget du film et la première semaine en Fran
 plt.gca().yaxis.set_major_formatter(formatter)
 plt.gca().xaxis.set_major_formatter(formatter)
 st.pyplot(plt)
+
+st.markdown('<div class="box"><p>         </p></div>', unsafe_allow_html=True)
+
 #---------------#
