@@ -156,7 +156,7 @@ fig6.update_layout(
     xaxis_title='Nombre total d\'entrées première semaine France',
     yaxis_title='Acteurs',
     uniformtext_minsize=8, uniformtext_mode='hide',
-    height=600, width=800, yaxis_autorange='reversed'
+    height=400, width=800, yaxis_autorange='reversed'
 )
 st.plotly_chart(fig6)
 
