@@ -12,7 +12,7 @@ from plotly.io import to_html
 from bokeh.plotting import figure
 from bokeh.models import HoverTool
 
-st.title("📊Analyse des Données (DataViz)📊")
+st.header("📊Analyse des Données (DataViz)📊")
 
 background_image = '''
     <style>
