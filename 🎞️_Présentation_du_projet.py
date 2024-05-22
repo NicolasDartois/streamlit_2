@@ -6,10 +6,14 @@ st.title("🎥 L'IA au service de la production cinématographique ! 🎥")
 background_image = '''
     <style>
     body {
-        background-color: black;
-        background-image: url("https://github.com/NicolasDartois/streamlit_2/blob/main/images/background.jpg?raw=true");
+        background-image: url("https://img.freepik.com/premium-vector/vector-seamless-pattern-movie-filming-production-is-made-various-element_387335-860.jpg");
         background-size: cover;
     }
+    </style>
+    '''
+
+background_image = '''
+    <style>
     .box {
         background-color: white;
         padding: 20px;
