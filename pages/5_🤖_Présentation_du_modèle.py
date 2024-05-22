@@ -112,7 +112,6 @@ st.markdown("""
 
 
 
-st.markdown("""<div class="box">""", unsafe_allow_html=True)
 
 
 choix = ['Random Forest', 'Linear Regression', 'Decision Tree', 'Gradient Boosting', 'XGBoost']
@@ -126,7 +125,15 @@ if display == 'R²':
 elif display == 'MAE':
     st.write(scores(clf, display))
 
-st.markdown("""</div>""", unsafe_allow_html=True)
+st.markdown(
+    html_code.format(
+        selectbox=st.selectbox('Choix du modèle', choix),
+        chosen_model=st.write('Le modèle choisi est :', option),
+        radio=st.radio('Que souhaitez-vous montrer ?', ('R²', 'MAE')),
+        result=st.write(scores(clf, display))
+    ),
+    unsafe_allow_html=True
+)
 
 
     
