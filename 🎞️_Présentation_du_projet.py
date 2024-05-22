@@ -7,5 +7,5 @@ st.title("L'IA au service de la production cinématographique !")
 
 with open('include/carousel.html', 'r', encoding='utf-8') as f:
     carousel_html = f.read()
-if page == pages[0] : 
-    components.html(carousel_html, height=600, width=800)
+    
+components.html(carousel_html, height=600, width=800)
