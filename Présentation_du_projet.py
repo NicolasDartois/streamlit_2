@@ -1,0 +1,377 @@
+import streamlit as st
+import statsmodels.api as sm
+import streamlit.components.v1 as components
+import pandas as pd
+import numpy as np
+import sys
+import os
+import importlib.util
+
+def load_module(module_name, file_path):
+    spec = importlib.util.spec_from_file_location(module_name, file_path)
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    return module
+
+pages_dir = os.path.join(os.path.dirname(__file__), 'pages')
+
+pages={
+    "page1" : "Présentation du projet",
+    "page2" : "Collecte et Exploration des Données",
+    "page3" : "Analyse des Données (DataViz)",
+    "page4" : "Préparation les données - Preprocessing",
+    "page5" : "Présentation du modèle",
+    "page6" : "DEMONSTRATION"
+    }
+
+page_modules = {}
+for i, j in pages.items():
+    module = load_module(i, os.path.join(pages_dir, f'{i}.py'))
+    page_modules[j] = module
+    st.write(page_modules)
+
+
+import matplotlib.pyplot as plt
+from matplotlib.ticker import FuncFormatter
+
+import seaborn as sns
+
+import plotly.graph_objects as go
+import plotly.express as px
+from plotly.subplots import make_subplots
+
+from sklearn.metrics import confusion_matrix
+from sklearn.preprocessing import StandardScaler
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import mean_absolute_error, r2_score
+from xgboost import XGBRegressor
+import joblib
+
+from bokeh.plotting import figure, show, output_notebook
+from bokeh.layouts import row
+from bokeh.models import HoverTool
+
+st.set_page_config(page_title="Projet Ciné", layout="centered") 
+
+st.title("L'IA au service de la production cinématographique !")
+
+
+
+
+#########################################################
+if page == pages[0] : 
+    components.html(carousel_html, height=600, width=800)
+    
+#########################################################
+if page == pages[1] : 
+    st.write("### Notre jeu de donnée lors du démarrage et son évolution")
+    st.write("Au cours de l'analyse initiale de notre jeu de données et à la lumière de nos premiers acquis en matière de formation, nous avons constaté que nos données étaient insuffisantes pour élaborer un modèle de machine learning robuste. Plusieurs défis se sont présentés : d'abord, notre jeu de données contenait un nombre excessif de valeurs manquantes. De plus, nous hésitions encore sur la variable cible à prédire, hésitant entre les revenus générés et les votes des spectateurs.")       
+    st.write("Par ailleurs, notre jeu de données couvrait le marché mondial, ce qui nous a rapidement motivé a nous focaliser sur le marché français, necessitant de trouver de nouvelles sources de données.")
+    col1, col2, col3 = st.columns([1,2,1])
+    with col2:
+        st.image('images/Heatmap_NaN.png')
+    st.write("Pour enrichir notre base, nous avons mis en place plusieurs actions :")
+    st.write("‣ Nous avons contacté CBO BOX OFFICE, une société fournissant des données aux professionnels du cinéma. Malgré une proposition contractuelle exposant le contexte non lucratif et éducatif de notre projet, notre demande est restée sans réponse.")
+    st.write("‣ Nous avons exploré d'autres plateformes telles que KAGGLE pour trouver des jeux de données robustes et adaptées à nos besoins, mais sans succès.")
+    st.write("‣ Nous avons décidé de procéder au Webscraping de données sur des sites réputés bien administrés, tels qu'Allociné, IMDB PRO (gratuit le premier mois), et JPBOX Office. Avec le soutien de notre chef de cohorte, qui a débloqué un sprint complet dédié au web scraping, nous avons utilisé Beautiful Soup pour extraire et compléter notre jeu de données pour le marché français. Nous avons ainsi obtenu la liste des films sur Allociné avec leurs box-office et titres originaux, qui nous serviront plus tard comme clés d'indexation. Nous avons enrichi ces films avec des caractéristiques telles que la note des spectateurs, la note de la presse, les acteurs principaux, les réalisateurs, les scénaristes, les distributeurs, la date de sortie, la nationalité, le budget et le genre.")
+    st.write("‣ Sur IMDB, nous avons récupéré un fichier global contenant les identifiants IMDB des films, leur durée et leurs titres originaux (toujours dans l'optique de l'utiliser comme clé d'indexation).")
+    st.write("‣ Enfin, nous avons décidé de scraper sur IMDB et Allociné des données permettant de construire un score de notoriété pour chaque acteur, réalisateur ou scénariste, en nous basant sur le Starmeter, le nombre de récompenses reçues, le nombre de films réalisés et la durée de leur carrière.")
+    st.write("Ces démarches nous ont permis de bâtir un jeu de données plus complet et pertinent pour le développement de notre modèle prédictif du nombre d'entrées sur le marché français.")
+    col1, col2, col3 = st.columns([1, 3, 1])
+    with col2:
+        st.image('images/Schema_budget.png')
+
+#########################################################    
+if page == pages[2] :
+    allocine = pd.read_csv('data/allocine.csv')
+    
+
+    #---------------#
+    pays_counts = allocine['pays'].value_counts()
+    top_pays = pays_counts[:8]
+    autres = pays_counts[8:].sum()
+    top_pays['Autres'] = autres    
+    fig1 = go.Figure(data=[go.Pie(labels=top_pays.index, values=top_pays.values, hole=.3)])
+    fig1.update_traces(textposition='inside', textinfo='percent+label')
+    fig1.update_layout(
+    width=800,
+    height=600,
+    title_text='Répartition des films par pays',
+    annotations=[dict(text='Pays', x=0.5, y=0.5, font_size=20, showarrow=False)],
+    legend_title="Pays"
+    )
+    st.plotly_chart(fig1)
+    
+    #---------------#
+    fig2 = px.box(allocine, x="premiere_semaine_france",
+             hover_data=['titre_original'],
+             title='Analyse de la distribution de notre target: première semaine en France',
+             labels={'premiere_semaine_france': 'Première semaine en France'})
+    fig2.update_layout(width=1200, height=500)
+    fig2.update_layout(xaxis=dict(showgrid=True, gridwidth=1, gridcolor='lightgrey'))
+    st.plotly_chart(fig2)
+    
+    #---------------#
+    filtered_data = allocine[(allocine['annee'] > 2000) & (allocine['annee'] <= 2023)]
+    film_counts = filtered_data['annee'].value_counts().sort_index()
+    colorscale = [[0, 'blue'], [1, 'orange']]
+    fig3 = go.Figure(data=[go.Bar(x=film_counts.index, y=film_counts, marker=dict(color=film_counts, colorscale=colorscale, cmin=0, cmax=film_counts.max()))])
+    fig3.update_layout(title='Nombre de films sortis par année en France (après 2000)', xaxis_title='Année de sortie', yaxis_title='Nombre de films')
+    st.plotly_chart(fig3)
+
+    #---------------#
+    correlation = allocine['cumul_france'].corr(allocine['premiere_semaine_france'])
+    fig4 = px.scatter(
+    allocine, 
+    x='cumul_france', 
+    y='premiere_semaine_france',
+    hover_data=['titre_original'],
+    title=f'Corrélation entre le cumul en France et la première semaine en France: {correlation:.2f}',
+    labels={'cumul_france': 'Cumul en France', 'premiere_semaine_france': 'Première semaine en France'},
+    opacity=0.5,
+    trendline='ols'
+    )
+    fig4.data[1].line.color = 'red'
+    fig4.update_layout(margin={'l': 40, 'b': 40, 't': 80, 'r': 40}, hovermode='closest')
+    fig4.update_xaxes(showgrid=True, title='Cumul en France')
+    fig4.update_yaxes(showgrid=True, title='Première semaine en France')
+    st.plotly_chart(fig4)
+
+    #---------------#
+    col1, col2 = st.columns([2, 4])
+    with col1:
+        genres_to_include = ['Drame', 'Comédie', 'Action', 'Comédie dramatique', 'Aventure', 
+                     'Documentaire', 'Biopic', 'Animation', 'Policier', 'Epouvante-horreur', 
+                     'Thriller', 'Fantastique']
+    
+        genres_color = {'Drame' : 'blue', 'Comédie' : 'red', 'Action' : 'orange', 'Comédie dramatique' : 'purple', 'Aventure' : 'yellow', 
+                     'Documentaire' : 'grey', 'Biopic' : 'green', 'Animation' : 'pink', 'Policier' : 'brown', 'Epouvante-horreur' : 'black', 
+                     'Thriller' : 'coral', 'Fantastique' : 'turquoise'}
+    
+        allocine['genre'] = allocine['genre'].str.split(', ')
+        allocine = allocine.explode('genre')
+    
+        allocine['genre'] = allocine['genre'].str.strip()
+        allocine['genre'] = allocine['genre'].str.capitalize()
+        filtered_data = allocine[allocine['genre'].isin(genres_to_include)].copy()
+        filtered_data['premiere_semaine_france'] = pd.to_numeric(filtered_data['premiere_semaine_france'], errors='coerce')
+        filtered_data.dropna(subset=['premiere_semaine_france', 'genre'], inplace=True)
+
+        median_data = filtered_data.groupby('genre')['premiere_semaine_france'].median().reset_index()
+    
+        fig5 = px.bar(median_data, x='genre', y='premiere_semaine_france',
+              labels={'genre': 'Genre', 'premiere_semaine_france': 'Médiane des entrées en première semaine'},
+              title='Médiane des entrées en première semaine en France par genre',
+              color='genre',
+              color_discrete_map=genres_color)
+
+        fig5.update_layout(
+        xaxis_title='Genre',
+        yaxis_title='Médiane des entrées en première semaine',
+        xaxis={'categoryorder':'total descending'},
+        height=800
+        )
+        fig5.update_xaxes(tickangle=45)
+        st.plotly_chart(fig5)
+
+
+    #---------------#
+    with col2:
+        allocine['genre'] = allocine['genre'].str.split(', ')
+        allocine = allocine.explode('genre')
+
+        genres_to_include = ['Drame', 'Comédie', 'Action', 'Comédie dramatique', 'Aventure', 
+                     'Documentaire', 'Biopic', 'Animation', 'Policier', 'Epouvante-horreur', 
+                     'Thriller', 'Fantastique']
+
+        genres_color = {'Drame': 'blue', 'Comédie': 'red', 'Action': 'orange', 'Comédie dramatique': 'purple', 'Aventure': 'yellow', 
+                'Documentaire': 'grey', 'Biopic': 'green', 'Animation': 'pink', 'Policier': 'brown', 'Epouvante-horreur': 'black', 
+                'Thriller': 'coral', 'Fantastique': 'turquoise'}
+
+        allocine = allocine[allocine['genre'].isin(genres_to_include)]
+
+        grouped_data = allocine.groupby(['genre', 'mois', 'mois_nom']).size().reset_index(name='counts')
+
+        rows, cols = 3, 4
+        fig5 = make_subplots(rows=rows, cols=cols, subplot_titles=genres_to_include)
+
+        positions = [(i, j) for i in range(1, rows+1) for j in range(1, cols+1)]
+
+        for genre, pos in zip(genres_to_include, positions):
+            data = grouped_data[grouped_data['genre'] == genre]
+            trace = go.Bar(x=data['mois'], y=data['counts'], name=genre, marker_color=genres_color[genre])
+            fig5.add_trace(trace, row=pos[0], col=pos[1])
+        fig5.update_xaxes(tickvals=allocine['mois'], ticktext=allocine['mois_nom'])
+        fig5.update_layout(height=800, width=1400, title_text="Occurrences de films par mois et par genre", showlegend=False)
+        fig5.update_xaxes(tickangle=45)
+
+        st.plotly_chart(fig5)
+    #---------------#
+    actors_columns = ['acteur_1', 'acteur_2', 'acteur_3', 'acteur_4']
+    melted_actors = pd.melt(allocine, id_vars=['premiere_semaine_france'], value_vars=actors_columns, value_name='actor').dropna().drop(columns='variable', axis=1)
+    
+    top_10_actors = melted_actors.groupby('actor')['premiere_semaine_france'].sum().nlargest(10)
+    
+    fig6 = px.bar(top_10_actors, x=top_10_actors.values, y=top_10_actors.index, orientation='h',
+    text=top_10_actors.values,
+    labels={'y': 'Acteurs', 'x': 'Nombre total d\'entrées première semaine France'},
+    color_discrete_sequence=['green'],
+    title='Top 10 des acteurs avec le plus grand nombre d\'entrées en première semaine France')
+    
+    fig6.update_traces(texttemplate='%{text:.3s}', textposition='inside', hovertemplate='<b>%{y}</b><br>Nombre total d\'entrées première semaine: %{x}<extra></extra>')
+    fig6.update_layout(
+        xaxis_title='Nombre total d\'entrées première semaine France',
+        yaxis_title='Acteurs',
+        uniformtext_minsize=8, uniformtext_mode='hide',
+        height=400, width=800, yaxis_autorange='reversed'
+    )
+    st.plotly_chart(fig6)
+    #---------------#
+    allocine_notes = allocine[['note_presse', 'note_spectateurs']].apply(lambda x: x.str.replace(',', '.').astype(float))
+    
+    press_histogram, press_edges = np.histogram(allocine_notes['note_presse'], bins=np.linspace(1, 5, 9))
+    spect_histogram, spect_edges = np.histogram(allocine_notes['note_spectateurs'], bins=np.linspace(1, 5, 9))
+    
+    press_percentage = (press_histogram / press_histogram.sum())*100
+    spect_percentage = (spect_histogram / spect_histogram.sum())*100
+    
+    p1 = figure(title="Distribution des notes de la presse", tools="", x_range=(1, 5), y_range=(0, 35))
+    p2 = figure(title="Distribution des notes des spectateurs", tools="", x_range=(1, 5), y_range=(0, 35))
+    p3 = figure(title="Comparaison de la distribution", tools="", x_range=(1, 5), y_range=(0, 35))
+    
+    for p in [p1, p2, p3]:
+        p.xaxis.axis_label = "Notes"
+        p.yaxis.axis_label = "Pourcentage de Films (%)"
+        p.grid.grid_line_color = "whitesmoke"
+    
+    p1.vbar(x=press_edges+0.25, top=press_percentage, width=0.5, fill_color='cornflowerblue', line_color='white')
+    p2.vbar(x=spect_edges+0.25, top=spect_percentage, width=0.5, fill_color='burlywood', line_color='white')
+    
+    p3.vbar(x=press_edges+0.25, top=press_percentage, width=0.5, fill_color=None, line_color='cornflowerblue', line_width=3)
+    p3.vbar(x=spect_edges+0.25, top=spect_percentage, width=0.5, fill_color=None, line_color='burlywood', line_width=3)
+    
+    hover_p1 = HoverTool(tooltips=[("Pourcentage de Films", "@top{0.2f} %")])
+    hover_p2 = HoverTool(tooltips=[("Pourcentage de Films", "@top{0.2f} %")])
+    p1.add_tools(hover_p1)
+    p2.add_tools(hover_p2)
+    
+    p3.legend.location = "top_right"
+    col1, col2, col3 = st.columns(3)
+    with col1:
+        st.bokeh_chart(p1, use_container_width=True)
+    with col2:
+        st.bokeh_chart(p2, use_container_width=True)
+    with col3:
+        st.bokeh_chart(p3, use_container_width=True)
+    
+    #---------------#
+    allocine_budget = pd.read_csv('data/Allocine_v2_8.csv')
+    correlation = allocine_budget['premiere_semaine_france'].corr(allocine_budget['budget_euro'])
+    
+    def millions_formatter(x, pos):
+        return f'{x / 1e6}M'
+    formatter = FuncFormatter(millions_formatter)
+    
+    plt.figure(figsize=(20, 10))
+    
+    sns.regplot(x='budget_euro', y='premiere_semaine_france', data=allocine_budget)
+    plt.xlabel('Budget du film')
+    plt.ylabel('Première semaine en France (nombre de spectateurs)')
+    plt.title(f'Corrélation entre le budget du film et la première semaine en France. Pearson : {round(correlation, 3)}')
+    plt.gca().yaxis.set_major_formatter(formatter)
+    plt.gca().xaxis.set_major_formatter(formatter)
+    
+    col1, col2, col3 = st.columns([2, 1, 1])
+    with col1:
+        st.pyplot(plt)
+    #---------------#
+
+    #---------------#
+
+    #---------------#
+
+    #---------------#
+    
+#########################################################
+if page == pages[3] :
+    st.write("### Introduction :")
+    st.write("Le prétraitement (preprocessing) des données vise à préparer les données brutes pour que notre modèle futur soit le plus performant possible  :")
+    st.markdown("""
+    <ul>
+        <li>Nettoyant les données en éliminant les valeurs aberrantes (réalisé juste avant la modélisation), et en gérant les valeurs manquantes. NB : le dédoublonnage n'était pas nécessaire.</li>
+        <li>Transformant les features en formats compatibles avec les algorithmes d'apprentissage automatique, tels que la normalisation des valeurs et les onehotencoding.</li>
+        <li>En améliorant la qualité des données en calculant des scores afin d'optimiser les performances des modèles et de garantir des résultats plus fiables.</li>
+    </ul>
+    """, unsafe_allow_html=True)
+    st.write("### Traitement des valeurs manquantes :")
+    st.write("Exemple de texte")
+    st.write("### Formatage des données :")
+    st.write("Les étapes de formatage des données :")
+    st.markdown("""
+    <ul>
+        <li>Onehotencoding des genres</li>
+        <li>Onehotencoding de l'origine du pays du film (en ayant retenu que 3 catégories : France ou USA ou autre (si France et USA sont en False)</li>
+        <li>conversion et reformatage des données budgets : identification de toutes les devises différentes, conversion en euros en utilisant le taux de change à date de chaque devise</li>
+        <li>extraction des jours, jours_semaine, mois de la date de sortie des films, puis standardisation cyclique des variables obtenues</li>
+        <li>Mise en oeuvre d'un score acteurs, d'un score réalisateurs, d'un score scenaristes, d'un score distributeur</li>
+        <li>Description schématique du score Acteurs :</li>
+    </ul>
+    <br>
+    <br>
+    """, unsafe_allow_html=True)
+    st.image('images/score_acteur.png')
+    
+#########################################################
+if page == pages[4] :  
+    st.write("### Modélisations :")
+    
+    df = pd.read_csv('data/Allocine_v3.csv')
+    
+    X = df.drop(columns=['premiere_semaine_france'])
+    y = df['premiere_semaine_france']
+    
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+    
+    scaler = StandardScaler()
+    X_train[['budget_euro', 'acteur', 'realisateur', 'scenariste', 'distributeur', 'note_presse', 'duree']] = scaler.fit_transform(X_train[['budget_euro', 'acteur', 'realisateur', 'scenariste', 'distributeur', 'note_presse', 'duree']])
+    X_test[['budget_euro', 'acteur', 'realisateur', 'scenariste', 'distributeur', 'note_presse', 'duree']] = scaler.transform(X_test[['budget_euro', 'acteur', 'realisateur', 'scenariste', 'distributeur', 'note_presse', 'duree']])
+
+    def prediction(classifier):
+        if classifier == 'Random Forest':
+            clf = joblib.load("models/RF.joblib")
+        elif classifier == 'Linear Regression':
+            clf = joblib.load("models/LR.joblib")
+        elif classifier == 'Decision Tree':
+            clf = joblib.load("models/DT.joblib")
+        elif classifier == 'Gradient Boosting':
+            clf = joblib.load("models/GB.joblib")
+        elif classifier == 'XGBoost':
+            clf = joblib.load("models/XGB.joblib")
+        clf.fit(X_train, y_train)
+        return clf
+    
+    def scores(clf, choice):
+        if choice == 'R²':
+            return r2_score(y_test, clf.predict(X_test))
+        elif choice == 'MAE':
+            return mean_absolute_error(y_test, clf.predict(X_test))
+    
+    choix = ['Random Forest', 'Linear Regression', 'Decision Tree', 'Gradient Boosting', 'XGBoost']
+    option = st.selectbox('Choix du modèle', choix)
+    st.write('Le modèle choisi est :', option)
+
+    clf = prediction(option)
+    display = st.radio('Que souhaitez-vous montrer ?', ('R²', 'MAE'))
+    if display == 'R²':
+        st.write(scores(clf, display))
+    elif display == 'MAE':
+        st.write(scores(clf, display))
+
+#########################################################
+if page == pages[5] : 
+    st.write("### Modélisations :")
+
+
+
+
+    
