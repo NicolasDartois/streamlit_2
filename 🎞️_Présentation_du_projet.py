@@ -7,7 +7,7 @@ background_image = '''
     <style>
     .stApp {
         background-color: white;
-        background-image: url("https://github.com/NicolasDartois/streamlit_2/blob/main/images/background.jpg?raw=true");
+        background-image: url("https://w7.pngwing.com/pngs/681/451/png-transparent-abstract-art-camera-cinema-design-film-geometric-movie-pattern-perspective.png");
         background-size: cover;
         background-repeat: no-repeat;
         background-attachment: fixed;
