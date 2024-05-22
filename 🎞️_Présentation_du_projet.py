@@ -6,7 +6,7 @@ st.title("🎥 L'IA au service de la production cinématographique ! 🎥")
 background_image = '''
     <style>
     body {
-        background-image: url("https://github.com/NicolasDartois/streamlit_2/blob/main/images/background.jpg");
+        background-image: url("https://github.com/NicolasDartois/streamlit_2/blob/main/images/background.jpg?raw=true");
         background-size: cover;
     }
     .box {
