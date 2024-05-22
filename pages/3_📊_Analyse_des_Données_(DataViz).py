@@ -171,8 +171,8 @@ press_percentage = (press_histogram / press_histogram.sum())*100
 spect_percentage = (spect_histogram / spect_histogram.sum())*100
 
 p1 = figure(plot_height=250, plot_width=800, title="Distribution des notes de la presse", tools="", x_range=(1, 5), y_range=(0, 35))
-p2 = figure(title="Distribution des notes des spectateurs", tools="", x_range=(1, 5), y_range=(0, 35))
-p3 = figure(title="Comparaison de la distribution", tools="", x_range=(1, 5), y_range=(0, 35))
+p2 = figure(plot_height=250, plot_width=800, title="Distribution des notes des spectateurs", tools="", x_range=(1, 5), y_range=(0, 35))
+p3 = figure(plot_height=250, plot_width=800, title="Comparaison de la distribution", tools="", x_range=(1, 5), y_range=(0, 35))
 
 for p in [p1, p2, p3]:
     p.xaxis.axis_label = "Notes"
