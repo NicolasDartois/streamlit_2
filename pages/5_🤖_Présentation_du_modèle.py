@@ -17,11 +17,6 @@ st.header("🤖Présentation du modèle🤖")
 
 background_image = '''
     <style>
-    .box {
-        border: 2px solid #f00;
-        padding: 10px;
-        margin: 10px;
-    }
     .hidden-checkbox {
         display: none;
     }
