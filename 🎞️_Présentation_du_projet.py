@@ -19,9 +19,6 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-st.set_page_config(page_title="Projet Ciné", layout="wide") 
-st.title("L'IA au service de la production cinématographique !")
-
 col1, col2, col3, col4, col5, col6 = st.columns([5,1,5,1,5,2])
 
 with col1:
