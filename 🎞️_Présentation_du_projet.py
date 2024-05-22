@@ -6,7 +6,7 @@ st.title("🎥 L'IA au service de la production cinématographique ! 🎥")
 background_image = '''
     <style>
     body {
-        background-image: url("images/background.jpg");
+        background-image: url("/images/background.jpg");
         background-size: cover;
     }
     .box {
