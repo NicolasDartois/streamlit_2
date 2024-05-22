@@ -55,15 +55,17 @@ st.markdown(background_image, unsafe_allow_html=True)
 
 df_modele = pd.read_csv('data/score.csv')
 
-st.markdown("""
-    <body>
-    <div class="box"> 
-    <label for="toggleCheckbox" style="cursor: pointer;">{test}</label>
-    <input type="checkbox" id="toggleCheckbox" class="hidden-checkbox">
-    <p id="hiddenText">Voici le texte qui apparaît après le clic.</p>
-    </div>
-    </body>
-""", unsafe_allow_html=True)
+for modèle, r2, MAE in zip(df_modele['modèle'], df_modele['r2'], df_modele['MAE']):
+    st.markdown(f"""
+        <body>
+        <div class="box"> 
+        <label for="toggleCheckbox" style="cursor: pointer;">{i}</label>
+        <input type="checkbox" id="toggleCheckbox" class="hidden-checkbox">
+        <p id="hiddenText">R2 : {r2}</p>
+        <p id="hiddenText">MAE : {MAE}</p>
+        </div>
+        </body>
+    """, unsafe_allow_html=True)
 
     
 test = "bien"
