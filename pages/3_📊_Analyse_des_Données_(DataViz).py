@@ -54,7 +54,7 @@ fig1.update_layout(
             legend_title="Pays"
             )
 st.plotly_chart(fig1)
-st.markdown('<div class="box"><p>C’est la France qui est le pays le plus représenté (38,3%) dans notre jeu de données. En effet, la France est connue pour sa production dynamique, notamment liée au mécanisme de financement des films et aux nombreuses aides à la production disponibles.</p></div>', unsafe_allow_html=True)
+st.markdown('<div class="box"><p>La France (38,9%) et les U.S.A (30,7%) se partagent une importante part du marché cinématographique français. On remarque l'incroyable exportabilité des films américains qui égalise presque le volume de films produits par le pays d'où sont issues les données, la France.</p></div>', unsafe_allow_html=True)
 st.markdown('<div class="box"><p></p></div>', unsafe_allow_html=True)
 #---------------#
 
