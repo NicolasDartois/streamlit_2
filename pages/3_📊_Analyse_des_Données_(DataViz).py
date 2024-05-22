@@ -110,13 +110,12 @@ st.markdown('<div class="box"><p>On remarque une augmentation progressive du nom
 
 #---------------#
 
-correlation = allocine['cumul_france'].corr(allocine['premiere_semaine_france'])
 fig4 = px.scatter(
             allocine, 
             x='cumul_france', 
             y='premiere_semaine_france',
             hover_data=['titre_original'],
-            title=f'📈 Corrélation entre le cumul en France et la première semaine en France: {correlation:.2f}',
+            title=f'📈 Corrélation entre le cumul en France et la première semaine en France: 0.92',
             labels={'cumul_france': 'Cumul en France', 'premiere_semaine_france': 'Première semaine en France'},
             opacity=0.5,
             trendline='ols'
@@ -128,7 +127,7 @@ fig4.update_xaxes(showgrid=True, title='Cumul en France')
 fig4.update_yaxes(showgrid=True, title='Première semaine en France')
 st.plotly_chart(fig4)
 
-st.markdown('<div class="box"><p>         </p></div>', unsafe_allow_html=True)
+st.markdown('<div class="box"><p>En calculant la corrélation entre la première semaine et le cumul en France, on obtient un score de 0.92. La corrélation est donc positive et très élevée. Ainsi, si un film réalise de bonnes performances en première semaine en termes d’entrées, il a des chances de connaître le succès pendant toute son exploitation cinématographique. Cela suppose donc que le nombre d’entrées de la première semaine peuvent être utilisées pour estimer le nombre total d’entrées.</p></div>', unsafe_allow_html=True)
 
 #---------------#
 genres_to_include = ['Drame', 'Comédie', 'Action', 'Comédie dramatique', 'Aventure', 
