@@ -38,24 +38,25 @@ allocine = pd.read_csv('data/allocine.csv')
 
 
 #---------------#
-st.markdown('<div class="box">', unsafe_allow_html=True)
-            
-pays_counts = allocine['pays'].value_counts()
-top_pays = pays_counts[:8]
-autres = pays_counts[8:].sum()
-top_pays['Autres'] = autres    
-fig1 = go.Figure(data=[go.Pie(labels=top_pays.index, values=top_pays.values, hole=.3)])
-fig1.update_traces(textposition='inside', textinfo='percent+label')
-fig1.update_layout(
-            width=800,
-            height=600,
-            title_text='Répartition des films par pays',
-            annotations=[dict(text='Pays', x=0.5, y=0.5, font_size=20, showarrow=False)],
-            legend_title="Pays"
-            )
-st.plotly_chart(fig1)
-
-st.markdown('</div>', unsafe_allow_html=True)
+with st.container():
+    st.markdown('<div class="box">', unsafe_allow_html=True)
+                
+    pays_counts = allocine['pays'].value_counts()
+    top_pays = pays_counts[:8]
+    autres = pays_counts[8:].sum()
+    top_pays['Autres'] = autres    
+    fig1 = go.Figure(data=[go.Pie(labels=top_pays.index, values=top_pays.values, hole=.3)])
+    fig1.update_traces(textposition='inside', textinfo='percent+label')
+    fig1.update_layout(
+                width=800,
+                height=600,
+                title_text='Répartition des films par pays',
+                annotations=[dict(text='Pays', x=0.5, y=0.5, font_size=20, showarrow=False)],
+                legend_title="Pays"
+                )
+    st.plotly_chart(fig1)
+    
+    st.markdown('</div>', unsafe_allow_html=True)
 #---------------#
 
 fig2 = px.box(allocine, x="premiere_semaine_france",
