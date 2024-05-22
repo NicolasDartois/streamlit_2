@@ -61,9 +61,9 @@ for idx, (modèle, r2, MAE) in enumerate(zip(df_modele['modèle'], df_modele['r2
     
     st.markdown(f"""
         <div class="box">
-            <label for="{unique_id}" style="cursor: pointer;">{modèle}</label>
+            <label for="{unique_id}" style="cursor: pointer;"><h3>{modèle}</h3></label>
             <input type="checkbox" id="{unique_id}" class="hidden-checkbox">
-            <p id="{hidden_text_id}" class="hiddenText">R2 : {r2}<br>MAE : {MAE}</p>
+            <p id="{hidden_text_id}" class="hiddenText"><br>R2 : {r2}<br>MAE : {MAE}</p>
         </div>
     """, unsafe_allow_html=True)
 
