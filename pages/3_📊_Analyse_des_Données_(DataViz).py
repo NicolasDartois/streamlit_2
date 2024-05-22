@@ -15,6 +15,7 @@ allocine = pd.read_csv('data/allocine.csv')
 
 
 #---------------#
+
 pays_counts = allocine['pays'].value_counts()
 top_pays = pays_counts[:8]
 autres = pays_counts[8:].sum()
@@ -31,19 +32,22 @@ legend_title="Pays"
 st.plotly_chart(fig1)
 
 #---------------#
+
 fig2 = px.box(allocine, x="premiere_semaine_france",
             hover_data=['titre_original'],
             title='Analyse de la distribution de notre target: première semaine en France',
             labels={'premiere_semaine_france': 'Première semaine en France'})
-fig2.update_layout(width=800, height=500)
+fig2.update_layout(width=800, height=400)
 fig2.update_layout(xaxis=dict(showgrid=True, gridwidth=1, gridcolor='lightgrey'))
 st.plotly_chart(fig2)
 
 #---------------#
+
 filtered_data = allocine[(allocine['annee'] > 2000) & (allocine['annee'] <= 2023)]
 film_counts = filtered_data['annee'].value_counts().sort_index()
 colorscale = [[0, 'blue'], [1, 'orange']]
 fig3 = go.Figure(data=[go.Bar(x=film_counts.index, y=film_counts, marker=dict(color=film_counts, colorscale=colorscale, cmin=0, cmax=film_counts.max()))])
+fig3.update_layout(width=800, height=400)
 fig3.update_layout(title='Nombre de films sortis par année en France (après 2000)', xaxis_title='Année de sortie', yaxis_title='Nombre de films')
 st.plotly_chart(fig3)
 
