@@ -211,8 +211,5 @@ plt.ylabel('Première semaine en France (nombre de spectateurs)')
 plt.title(f'Corrélation entre le budget du film et la première semaine en France. Pearson : {round(correlation, 3)}')
 plt.gca().yaxis.set_major_formatter(formatter)
 plt.gca().xaxis.set_major_formatter(formatter)
-
-col1, col2, col3 = st.columns([2, 1, 1])
-with col1:
-    st.pyplot(plt)
+st.pyplot(plt)
 #---------------#
