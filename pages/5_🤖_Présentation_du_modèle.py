@@ -17,14 +17,19 @@ st.header("🤖Présentation du modèle🤖")
 
 background_image = '''
     <style>
-    #hiddenText {
-        display: none;
-    }
-    #toggleCheckbox:checked + #hiddenText {
-        display: block;
+    .box {
+        border: 2px solid #f00;
+        padding: 10px;
+        margin: 10px;
     }
     .hidden-checkbox {
         display: none;
+    }
+    .hiddenText {
+        display: none;
+    }
+    .hidden-checkbox:checked + .hiddenText {
+        display: block;
     }
     .stApp {
         background-color: white;
@@ -55,12 +60,15 @@ st.markdown(background_image, unsafe_allow_html=True)
 
 df_modele = pd.read_csv('data/score.csv')
 
-for modèle, r2, MAE in zip(df_modele['modèle'], df_modele['r2'], df_modele['MAE']):
+for idx, (modèle, r2, MAE) in enumerate(zip(df_modele['modèle'], df_modele['r2'], df_modele['MAE'])):
+    unique_id = f"toggleCheckbox_{idx}"
+    hidden_text_id = f"hiddenText_{idx}"
+    
     st.markdown(f"""
-        <div class="box"> 
-        <label for="toggleCheckbox" style="cursor: pointer;">{modèle}</label>
-        <input type="checkbox" id="toggleCheckbox" class="hidden-checkbox">
-        <p id="hiddenText">R2 : {r2}<br>MAE : {MAE}</p>
+        <div class="box">
+            <label for="{unique_id}" style="cursor: pointer;">{modèle}</label>
+            <input type="checkbox" id="{unique_id}" class="hidden-checkbox">
+            <p id="{hidden_text_id}" class="hiddenText">R2 : {r2}<br>MAE : {MAE}</p>
         </div>
     """, unsafe_allow_html=True)
 
