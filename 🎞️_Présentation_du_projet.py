@@ -28,7 +28,7 @@ background_image = '''
         margin-bottom: 20px;
         box-shadow: 0 10px 12px rgba(0, 0, 0, 0.1);
         border-radius: 10px;
-        text-align: justified;
+        text-align: justify;
     }
     </style>
     '''
