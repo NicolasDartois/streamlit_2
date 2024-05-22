@@ -57,7 +57,7 @@ fig1.update_layout(
             )
 st.plotly_chart(fig1)
 
-st.markdown('<div class="box"><p>La France (38,9%) et les U.S.A (30,7%) se partagent une importante part du marché cinématographique français. On remarque l\'incroyable exportabilité des films américains qui égalise presque le volume de films produits par le pays d\'où sont issues les données.</p></div>', unsafe_allow_html=True)
+st.markdown('<div class="box"><p>La France (38,9%) et les U.S.A (30,7%) se partagent une importante part du marché cinématographique français. On remarque l’incroyable exportabilité des films américains qui égalise presque le volume de films produits par le pays d’où sont issues les données.</p></div>', unsafe_allow_html=True)
 
 #---------------#
 
@@ -69,7 +69,7 @@ fig2.update_layout(width=800, height=400)
 fig2.update_layout(xaxis=dict(showgrid=True, gridwidth=1, gridcolor='lightgrey'))
 st.plotly_chart(fig2)
 
-st.markdown('<div class="box"><p>Ces données suggèrent une forte asymétrie dans la distribution des performances des films. La présence de quelques films avec des résultats exceptionnels lors de la première semaine indique que ces films peuvent être des moteurs significatifs pour l\'industrie, tandis que la majorité des films affichent des performances beaucoup plus modestes.</p></div>', unsafe_allow_html=True)
+st.markdown('<div class="box"><p>Ces données suggèrent une forte asymétrie dans la distribution des performances des films. La présence de quelques films avec des résultats exceptionnels lors de la première semaine indique que ces films peuvent être des moteurs significatifs pour l’industrie, tandis que la majorité des films affichent des performances beaucoup plus modestes.</p></div>', unsafe_allow_html=True)
 
 #---------------#
 distrib = {
@@ -106,7 +106,7 @@ fig3.update_layout(width=800, height=400)
 fig3.update_layout(title='🎞️ Nombre de films sortis par année en France (après 2000)', xaxis_title='Année de sortie', yaxis_title='Nombre de films')
 st.plotly_chart(fig3)
 
-st.markdown('<div class="box"><p>On remarque une augmentation progressive du nombre de films sortis chaque année, le pic étant atteint en 2019 avec 746 films sortis au cours de l\'année. Les effets de la pandémie mondiale en 2020 et 2021 sont également visibles sur ce graphique. L\'année dernière, 712 films sont sortis sur les écrans français, soit une moyenne de 13,7 films par semaine.</p></div>', unsafe_allow_html=True)
+st.markdown('<div class="box"><p>On remarque une augmentation progressive du nombre de films sortis chaque année, le pic étant atteint en 2019 avec 746 films sortis au cours de l’année. Les effets de la pandémie mondiale en 2020 et 2021 sont également visibles sur ce graphique. L’année dernière, 712 films sont sortis sur les écrans français, soit une moyenne de 13,7 films par semaine.</p></div>', unsafe_allow_html=True)
 
 #---------------#
 
@@ -165,7 +165,7 @@ fig5.update_xaxes(tickangle=45)
 fig5.update_layout(width=800, height=600)
 st.plotly_chart(fig5)
 
-st.markdown('<div class="box"><p>On remarque qu\'en France, en première semaine, ce sont les films d’action qui génèrent le plus de spectateurs, suivis de près par les films d’aventures. Le drame, genre très représenté chaque année, est loin d'attirer le plus de spectateurs. Ainsi, le lien entre un genre et le succès d’un film est à nuancer notamment par la surreprésentation de certains genres ou encore la perception que nous pouvons en avoir.</p></div>', unsafe_allow_html=True)
+st.markdown('<div class="box"><p>On remarque qu’en France, en première semaine, ce sont les films d’action qui génèrent le plus de spectateurs, suivis de près par les films d’aventures. Le drame, genre très représenté chaque année, est loin d’attirer le plus de spectateurs. Ainsi, le lien entre un genre et le succès d’un film est à nuancer notamment par la surreprésentation de certains genres ou encore la perception que nous pouvons en avoir.</p></div>', unsafe_allow_html=True)
 
 #---------------#
 
@@ -210,13 +210,13 @@ top_10_actors = melted_actors.groupby('actor')['premiere_semaine_france'].sum().
 
 fig6 = px.bar(top_10_actors, x=top_10_actors.values, y=top_10_actors.index, orientation='h',
 text=top_10_actors.values,
-labels={'y': 'Acteurs', 'x': 'Nombre total d\'entrées première semaine France'},
+labels={'y': 'Acteurs', 'x': 'Nombre total d’entrées première semaine France'},
 color_discrete_sequence=['green'],
-title='🧑 Top 10 des acteurs avec le plus grand nombre d\'entrées en première semaine France')
+title='🧑 Top 10 des acteurs avec le plus grand nombre d’entrées en première semaine France')
 
-fig6.update_traces(texttemplate='%{text:.3s}', textposition='inside', hovertemplate='<b>%{y}</b><br>Nombre total d\'entrées première semaine: %{x}<extra></extra>')
+fig6.update_traces(texttemplate='%{text:.3s}', textposition='inside', hovertemplate='<b>%{y}</b><br>Nombre total d’entrées première semaine: %{x}<extra></extra>')
 fig6.update_layout(
-    xaxis_title='Nombre total d\'entrées première semaine France',
+    xaxis_title='Nombre total d’entrées première semaine France',
     yaxis_title='Acteurs',
     uniformtext_minsize=8, uniformtext_mode='hide',
     height=400, width=800, yaxis_autorange='reversed'
