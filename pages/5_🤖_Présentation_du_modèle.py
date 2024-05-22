@@ -81,8 +81,8 @@ df_modele = pd.DataFrame(columns=["modèle", "r2", "MAE"])
 
 for i in choix:
     clf = prediction(i)
-    r2 = scores(clf, R²)
-    MAE = scores(clf, MAE)
+    r2 = scores(clf, 'R²')
+    MAE = scores(clf, 'MAE')
     df_modele = df_modele.append({'modèle': i, 'r2': r2, 'MAE': MAE}, ignore_index=True)
 
 st.dataframe(df_modele)
