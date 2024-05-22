@@ -5,7 +5,7 @@ st.title("L'IA au service de la production cinématographique !")
 
 st.markdown(f"""
     <div style="display: flex; align-items: center;">
-        <img src="images/tickets.png" width="50" style="margin-right: 10px;">
+        <img src="images/tickkets.png" width="50" style="margin-right: 10px;">
         <h1 style="display: inline;">L'IA au service de la production cinématographique !</h1>
     </div>
     """, unsafe_allow_html=True)
