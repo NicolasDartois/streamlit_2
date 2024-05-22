@@ -106,7 +106,7 @@ fig3.update_layout(width=800, height=400)
 fig3.update_layout(title='🎞️ Nombre de films sortis par année en France (après 2000)', xaxis_title='Année de sortie', yaxis_title='Nombre de films')
 st.plotly_chart(fig3)
 
-st.markdown('<div class="box"><p>On remarque une augmentation progressive du nombre de films sortis chaque année, le pic étant atteint en 2019 avec 746 films sortis au cours de l\’année. Les effets de la pandémie mondiale en 2020 et 2021 sont également visibles sur ce graphique. L\’année dernière, 712 films sont sortis sur les écrans français, soit une moyenne de 13,7 films par semaine.</p></div>', unsafe_allow_html=True)
+st.markdown('<div class="box"><p>On remarque une augmentation progressive du nombre de films sortis chaque année, le pic étant atteint en 2019 avec 746 films sortis au cours de l\'année. Les effets de la pandémie mondiale en 2020 et 2021 sont également visibles sur ce graphique. L\'année dernière, 712 films sont sortis sur les écrans français, soit une moyenne de 13,7 films par semaine.</p></div>', unsafe_allow_html=True)
 
 #---------------#
 
