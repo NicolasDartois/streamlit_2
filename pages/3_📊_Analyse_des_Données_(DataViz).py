@@ -199,7 +199,7 @@ fig5.update_xaxes(tickangle=45)
 
 st.plotly_chart(fig5)
 
-st.markdown('<div class="box"><p>         </p></div>', unsafe_allow_html=True)
+st.markdown('<div class="box"><p>Ici, nous n’avons représenté que les 12 genres ayant le plus d’occurrences. On remarque des pics de certains genres à des périodes clé. Notamment les films d'horreurs sont plus représentés en octobre (Halloween). Les films d’animation sont plus représentés pendant la période des fêtes de fin d'année (en décembre) et connaissent également des pics en février et octobre qui peuvent correspondre aux vacances scolaires. Il y a un pic de films d'action pendant l’été (traditionnellement période où sortent les blockbusters).</p></div>', unsafe_allow_html=True)
 
 #---------------#
 
