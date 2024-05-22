@@ -3,6 +3,8 @@ import streamlit.components.v1 as components
 st.set_page_config(page_title="Projet Ciné", layout="centered") 
 st.title("🎥 L'IA au service de la production cinématographique ! 🎥")
 
+st.sidebar.title("🎥 L'IA au service de la production cinématographique ! 🎥")
+
 background_image = '''
     <style>
     .stApp {
