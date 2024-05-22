@@ -17,6 +17,15 @@ st.header("🤖Présentation du modèle🤖")
 
 background_image = '''
     <style>
+    #hiddenText {
+        display: none;
+    }
+    #toggleCheckbox:checked + #hiddenText {
+        display: block;
+    }
+    .hidden-checkbox {
+        display: none;
+    }
     .stApp {
         background-color: white;
         background-image: url("https://github.com/NicolasDartois/streamlit_2/blob/main/images/background.jpg?raw=true");
@@ -45,6 +54,36 @@ background_image = '''
 st.markdown(background_image, unsafe_allow_html=True)
 
 df_modele = pd.read_csv('data/score.csv')
+
+st.markdown("""
+    <label for="toggleCheckbox" style="cursor: pointer;">{test}</label>
+    <input type="checkbox" id="toggleCheckbox" class="hidden-checkbox">
+    <p id="hiddenText">Voici le texte qui apparaît après le clic.</p>
+    
+""", unsafe_allow_html=True)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 st.dataframe(df_modele)
     
