@@ -112,6 +112,8 @@ st.markdown("""
 
 
 
+st.markdown("""<div class="box">""", unsafe_allow_html=True)
+
 
 choix = ['Random Forest', 'Linear Regression', 'Decision Tree', 'Gradient Boosting', 'XGBoost']
 option = st.selectbox('Choix du modèle', choix)
@@ -124,7 +126,7 @@ if display == 'R²':
 elif display == 'MAE':
     st.write(scores(clf, display))
 
-
+st.markdown("""</div>""", unsafe_allow_html=True)
 
 
     
