@@ -45,31 +45,7 @@ background_image = '''
 st.markdown(background_image, unsafe_allow_html=True)
 
 test = "bien"
-st.markdown(f"""
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Afficher le texte au clic</title>
-    <style>
-        #hiddenText {
-            display: none;
-        }
-        #toggleCheckbox:checked + #hiddenText {
-            display: block;
-        }
-        .hidden-checkbox {
-            display: none;
-        }
-    </style>
-</head>
-<body>
-    <label for="toggleCheckbox" style="cursor: pointer;">{test}</label>
-    <input type="checkbox" id="toggleCheckbox" class="hidden-checkbox">
-    <p id="hiddenText">Voici le texte qui apparaît après le clic.</p>
-</body>
-</html>
-""", unsafe_allow_html=True)
+st.markdown(f"""<p>{test}</p>""", unsafe_allow_html=True)
 
 
 
