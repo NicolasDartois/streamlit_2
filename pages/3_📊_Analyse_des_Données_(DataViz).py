@@ -281,6 +281,6 @@ plt.gca().yaxis.set_major_formatter(formatter)
 plt.gca().xaxis.set_major_formatter(formatter)
 st.pyplot(plt)
 
-st.markdown('<div class="box"><p>         </p></div>', unsafe_allow_html=True)
+st.markdown('<div class="box"><p>Ces graphiques illustrent la corrélation entre le budget d’un film et le nombre d’entrées en première semaine en France. On remarque une corrélation positive avec un coefficient de Pearson de 0,62.</p></div>', unsafe_allow_html=True)
 
 #---------------#
