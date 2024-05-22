@@ -1,4 +1,4 @@
-import streamlit as st
+simport streamlit as st
 import pandas as pd
 from sklearn.preprocessing import StandardScaler
 from sklearn.model_selection import train_test_split
@@ -13,7 +13,7 @@ st.sidebar.markdown("Manon FOUQUET")
 st.sidebar.markdown("Sylvain BRAIZET")
 st.sidebar.markdown("Nicolas DARTOIS")
 
-st.header("🤖Présentation du modèle🤖")
+st.header("🤖Présentation des modèles🤖")
 
 background_image = '''
     <style>
