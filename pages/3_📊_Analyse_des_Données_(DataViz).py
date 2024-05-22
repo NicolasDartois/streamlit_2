@@ -170,7 +170,7 @@ spect_histogram, spect_edges = np.histogram(allocine_notes['note_spectateurs'], 
 press_percentage = (press_histogram / press_histogram.sum())*100
 spect_percentage = (spect_histogram / spect_histogram.sum())*100
 
-p1 = figure(plot_height=250, title="Distribution des notes de la presse", tools="", x_range=(1, 5), y_range=(0, 35))
+p1 = figure(plot_height=250, plot_width=800, title="Distribution des notes de la presse", tools="", x_range=(1, 5), y_range=(0, 35))
 p2 = figure(title="Distribution des notes des spectateurs", tools="", x_range=(1, 5), y_range=(0, 35))
 p3 = figure(title="Comparaison de la distribution", tools="", x_range=(1, 5), y_range=(0, 35))
 
@@ -191,13 +191,9 @@ p1.add_tools(hover_p1)
 p2.add_tools(hover_p2)
 
 p3.legend.location = "top_right"
-col1, col2, col3 = st.columns(3)
-with col1:
-    st.bokeh_chart(p1, use_container_width=True)
-with col2:
-    st.bokeh_chart(p2, use_container_width=True)
-with col3:
-    st.bokeh_chart(p3, use_container_width=True)
+st.bokeh_chart(p1, use_container_width=True)
+st.bokeh_chart(p2, use_container_width=True)
+st.bokeh_chart(p3, use_container_width=True)
 
 #---------------#
 allocine_budget = pd.read_csv('data/Allocine_v2_8.csv')
