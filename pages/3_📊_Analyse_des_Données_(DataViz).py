@@ -72,11 +72,34 @@ st.plotly_chart(fig2)
 st.markdown('<div class="box"><p>Ces données suggèrent une forte asymétrie dans la distribution des performances des films. La présence de quelques films avec des résultats exceptionnels lors de la première semaine indique que ces films peuvent être des moteurs significatifs pour l\'industrie, tandis que la majorité des films affichent des performances beaucoup plus modestes.</p></div>', unsafe_allow_html=True)
 
 #---------------#
-
-filtered_data = allocine[(allocine['annee'] > 2000) & (allocine['annee'] <= 2023)]
-film_counts = filtered_data['annee'].value_counts().sort_index()
+distrib = {
+    2000: 532,
+    2001: 504,
+    2002: 487,
+    2003: 509,
+    2004: 559,
+    2005: 550,
+    2006: 589,
+    2007: 573,
+    2008: 555,
+    2009: 558,
+    2010: 579,
+    2011: 588,
+    2012: 614,
+    2013: 654,
+    2014: 663,
+    2015: 652,
+    2016: 716,
+    2017: 693,
+    2018: 683,
+    2019: 746,
+    2020: 364,
+    2021: 454,
+    2022: 681,
+    2023: 712
+}
 colorscale = [[0, 'blue'], [1, 'orange']]
-fig3 = go.Figure(data=[go.Bar(x=film_counts.index, y=film_counts, marker=dict(color=film_counts, colorscale=colorscale, cmin=0, cmax=film_counts.max()))])
+fig3 = go.Figure(data=[go.Bar(x=distrib.index, y=distrib, marker=dict(color=film_counts, colorscale=colorscale, cmin=0, cmax=film_counts.max()))])
 fig3.update_layout(width=800, height=400)
 fig3.update_layout(title='🎞️ Nombre de films sortis par année en France (après 2000)', xaxis_title='Année de sortie', yaxis_title='Nombre de films')
 st.plotly_chart(fig3)
