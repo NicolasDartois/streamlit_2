@@ -6,7 +6,7 @@ st.title("🎥 L'IA au service de la production cinématographique ! 🎥")
 background_image = '''
     <style>
     .stApp {
-      background-image: url("https://img.freepik.com/premium-vector/vector-seamless-pattern-movie-filming-production-is-made-various-element_387335-860.jpg");
+      background-image: url("images/background.jpg");
       background-size: cover;
       background-repeat: no-repeat;
       background-attachment: fixed;
