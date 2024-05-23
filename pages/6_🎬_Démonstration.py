@@ -34,6 +34,8 @@ country = st.selectbox('Sélectionnez le pays', ['USA', 'France', 'Autre'])
 
 genre = st.selectbox('Sélectionnez le genre', ['Comédie', 'Documentaire', 'Action'])
 
+budget = st.slider('Sélectionnez le budget', 1000000, 200000000, step=1000000, value=50000000)
+
 st.write(score_acteur)
 st.write(score_real)
 st.write(score_scenar)
