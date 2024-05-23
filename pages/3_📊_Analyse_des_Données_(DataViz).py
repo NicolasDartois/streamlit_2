@@ -55,7 +55,6 @@ with col4:
                         trendline='ols'
                         )
             fig4.data[1].line.color = 'red'
-            fig4.update_layout(width=800, height=600)
             fig4.update_layout(margin={'l': 40, 'b': 40, 't': 80, 'r': 40}, hovermode='closest')
             fig4.update_xaxes(showgrid=True, title='Cumul en France')
             fig4.update_yaxes(showgrid=True, title='Première semaine en France')
