@@ -17,9 +17,7 @@ st.set_page_config(page_title="Exploitation cinématographique", page_icon='🎬
 
 css_and_credit()
 
-col1, col2, col3 = st.columns([3, 3, 3])
-with col2:
-            st.header("📊Analyse des Données (DataViz)📊")
+st.header("📊Analyse des Données (DataViz)📊")
 
 st.markdown("<br><br><br>", unsafe_allow_html=True)
 allocine = pd.read_csv('data/allocine.csv')
