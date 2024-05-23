@@ -4,7 +4,7 @@ import pandas as pd
 import numpy as np
 from include.css_and_credit import css_and_credit
 from datetime import date
-st.set_page_config(page_title="Exploitation cinématographique", page_icon='🎬', layout="centered")
+st.set_page_config(page_title="Exploitation cinématographique", page_icon='🎬', layout="wide")
 
 css_and_credit()
 
