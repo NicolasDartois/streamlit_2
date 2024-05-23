@@ -24,9 +24,13 @@ score_acteur = (score_acteur1*1.125)+(score_acteur2*0.75)
 real = st.selectbox('Choisir le réalisateur :', df_real['realisateur'])
 score_real = df_real[df_real['realisateur'] == real]['score'].values[0]
 
+scenar = st.selectbox('Choisir le scénariste :', df_scenar['scenariste'])
+score_scenar = df_scenar[df_scenar['scenariste'] == scenar]['score'].values[0]
+
+
 st.write(score_acteur)
 st.write(score_real)
-
+st.write(score_scenar)
 
 
 
