@@ -1,38 +1,13 @@
 import streamlit as st
 import streamlit.components.v1 as components
+from include.common import css_and_credit
+
+css_and_credit()
+
 st.set_page_config(page_title="Projet Ciné", layout="centered") 
 st.title("🎥 L'IA au service de la production cinématographique ! 🎥")
 
-for i in range(25):
-    st.sidebar.markdown("<br>", unsafe_allow_html=True)
-st.sidebar.subheader("🎥oct23_cda_exploitation-cinématographique🎥")
-st.sidebar.markdown("_____________________")
-st.sidebar.markdown("Manon FOUQUET")
-st.sidebar.markdown("Sylvain BRAIZET")
-st.sidebar.markdown("Nicolas DARTOIS")
 
-background_image = '''
-    <style>
-    .stApp {
-        background-color: white;
-        background-image: url("https://github.com/NicolasDartois/streamlit_2/blob/main/images/background.jpg?raw=true");
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-attachment: fixed;
-        background-position: center;
-    }
-    .box {
-        background-color: white;
-        padding: 20px;
-        margin-top: 20px;
-        margin-bottom: 20px;
-        box-shadow: 0 10px 12px rgba(0, 0, 0, 0.1);
-        border-radius: 10px;
-        text-align: justify;
-    }
-    </style>
-    '''
-st.markdown(background_image, unsafe_allow_html=True)
 
 
 st.markdown('<div class="box"><h3>Le contexte :</h3><p>Le projet que nous présentons dans ce document est le fruit de notre propre initiative. Inspiré par une idée originale d\'un des membres de notre groupe, ce projet s\'est développé autour d\'une ambition commune : transformer radicalement l\'industrie du cinéma !</p><p>Traditionnellement, il est courant que les producteurs et les professionnels du cinéma fassent des paris amicaux sur le nombre de spectateurs qu\'un film attirera à la fin de sa première semaine en salle. Cette pratique, à la fois ludique et ancrée dans les mœurs du secteur, a été le catalyseur de notre projet. Notre objectif est de mettre au point un modèle de machine learning capable de prédire avec la plus grande précision possible le nombre d\'entrées qu\'un film réalisera. Ce modèle s\'appuiera sur des données préalablement collectées, alliant des critères quantitatifs et qualitatifs pour établir ses prévisions.</p></div>', unsafe_allow_html=True)
