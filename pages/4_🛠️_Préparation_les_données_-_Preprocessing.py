@@ -11,6 +11,7 @@ st.markdown("""
     <p>• Nettoyant les données en éliminant les valeurs aberrantes (réalisé juste avant la modélisation), et en gérant les valeurs manquantes. NB : le dédoublonnage n'était pas nécessaire.</p>
     <p>• Transformant les features en formats compatibles avec les algorithmes d'apprentissage automatique, tels que la normalisation des valeurs et les onehotencoding.</p>
     <p>• En améliorant la qualité des données en calculant des scores afin d'optimiser les performances des modèles et de garantir des résultats plus fiables.</p>
+    <p>• Suppression des colonnes n'ayant pas d'intérêt pour notre modèle ou étant composées majoritairement de valeurs manquantes.</p>
 </div>
 """, unsafe_allow_html=True)
 
