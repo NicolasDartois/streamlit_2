@@ -12,6 +12,9 @@ def css_and_credit():
     
     background_image = '''
         <style>
+    button[title="View fullscreen"] {
+        visibility: hidden;
+    }
     .hidden-checkbox {
         display: none;
     }
