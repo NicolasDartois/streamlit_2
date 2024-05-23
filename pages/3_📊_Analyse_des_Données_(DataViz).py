@@ -22,24 +22,49 @@ st.header("📊Analyse des Données (DataViz)📊")
 allocine = pd.read_csv('data/allocine.csv')
 
 
-#---------------#
-            
-pays_counts = allocine['pays'].value_counts()
-top_pays = pays_counts[:8]
-autres = pays_counts[8:].sum()
-top_pays['Autres'] = autres    
-fig1 = go.Figure(data=[go.Pie(labels=top_pays.index, values=top_pays.values, hole=.3)])
-fig1.update_traces(textposition='inside', textinfo='percent+label')
-fig1.update_layout(
-            width=800,
-            height=600,
-            title_text='🌎 Répartition des films par pays',
-            annotations=[dict(text='Pays', x=0.5, y=0.5, font_size=20, showarrow=False)],
-            legend_title="Pays"
-            )
-st.plotly_chart(fig1)
 
-st.markdown('<div class="box"><p>La France (38,9%) et les U.S.A (30,7%) se partagent une importante part du marché cinématographique français. On remarque l’incroyable exportabilité des films américains qui égalise presque le volume de films produits par le pays d’où sont issues les données.</p></div>', unsafe_allow_html=True)
+
+
+
+col1, col2 = st.columns(2)
+#---------------#
+with col1:            
+            pays_counts = allocine['pays'].value_counts()
+            top_pays = pays_counts[:8]
+            autres = pays_counts[8:].sum()
+            top_pays['Autres'] = autres    
+            fig1 = go.Figure(data=[go.Pie(labels=top_pays.index, values=top_pays.values, hole=.3)])
+            fig1.update_traces(textposition='inside', textinfo='percent+label')
+            fig1.update_layout(
+                        width=800,
+                        height=600,
+                        title_text='🌎 Répartition des films par pays',
+                        annotations=[dict(text='Pays', x=0.5, y=0.5, font_size=20, showarrow=False)],
+                        legend_title="Pays"
+                        )
+            st.plotly_chart(fig1)
+            
+            st.markdown('<div class="box"><p>La France (38,9%) et les U.S.A (30,7%) se partagent une importante part du marché cinématographique français. On remarque l’incroyable exportabilité des films américains qui égalise presque le volume de films produits par le pays d’où sont issues les données.</p></div>', unsafe_allow_html=True)
+#---------------#
+with col2:
+            fig4 = px.scatter(
+                        allocine, 
+                        x='cumul_france', 
+                        y='premiere_semaine_france',
+                        hover_data=['titre_original'],
+                        title=f'📈 Corrélation entre le cumul en France et la première semaine en France: 0.92',
+                        labels={'cumul_france': 'Cumul en France', 'premiere_semaine_france': 'Première semaine en France'},
+                        opacity=0.5,
+                        trendline='ols'
+                        )
+            fig4.data[1].line.color = 'red'
+            fig4.update_layout(width=800, height=600)
+            fig4.update_layout(margin={'l': 40, 'b': 40, 't': 80, 'r': 40}, hovermode='closest')
+            fig4.update_xaxes(showgrid=True, title='Cumul en France')
+            fig4.update_yaxes(showgrid=True, title='Première semaine en France')
+            st.plotly_chart(fig4)
+            
+            st.markdown('<div class="box"><p>En calculant la corrélation entre la première semaine et le cumul en France, on obtient un score de 0.92. La corrélation est donc positive et très élevée. Ainsi, si un film réalise de bonnes performances en première semaine en termes d’entrées, il a des chances de connaître le succès pendant toute son exploitation cinématographique. Cela suppose donc que le nombre d’entrées de la première semaine peuvent être utilisées pour estimer le nombre total d’entrées.</p></div>', unsafe_allow_html=True)
 
 #---------------#
 
@@ -89,27 +114,6 @@ fig3.update_layout(title='🎞️ Nombre de films sortis par année en France (a
 st.plotly_chart(fig3)
 
 st.markdown('<div class="box"><p>On remarque une augmentation progressive du nombre de films sortis chaque année, le pic étant atteint en 2019 avec 746 films sortis au cours de l’année. Les effets de la pandémie mondiale en 2020 et 2021 sont également visibles sur ce graphique. L’année dernière, 712 films sont sortis sur les écrans français, soit une moyenne de 13,7 films par semaine.</p></div>', unsafe_allow_html=True)
-
-#---------------#
-
-fig4 = px.scatter(
-            allocine, 
-            x='cumul_france', 
-            y='premiere_semaine_france',
-            hover_data=['titre_original'],
-            title=f'📈 Corrélation entre le cumul en France et la première semaine en France: 0.92',
-            labels={'cumul_france': 'Cumul en France', 'premiere_semaine_france': 'Première semaine en France'},
-            opacity=0.5,
-            trendline='ols'
-            )
-fig4.data[1].line.color = 'red'
-fig4.update_layout(width=800, height=400)
-fig4.update_layout(margin={'l': 40, 'b': 40, 't': 80, 'r': 40}, hovermode='closest')
-fig4.update_xaxes(showgrid=True, title='Cumul en France')
-fig4.update_yaxes(showgrid=True, title='Première semaine en France')
-st.plotly_chart(fig4)
-
-st.markdown('<div class="box"><p>En calculant la corrélation entre la première semaine et le cumul en France, on obtient un score de 0.92. La corrélation est donc positive et très élevée. Ainsi, si un film réalise de bonnes performances en première semaine en termes d’entrées, il a des chances de connaître le succès pendant toute son exploitation cinématographique. Cela suppose donc que le nombre d’entrées de la première semaine peuvent être utilisées pour estimer le nombre total d’entrées.</p></div>', unsafe_allow_html=True)
 
 #---------------#
 genres_to_include = ['Drame', 'Comédie', 'Action', 'Comédie dramatique', 'Aventure', 
