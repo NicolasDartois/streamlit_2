@@ -52,24 +52,24 @@ data_predict = {
     'scenariste': score_scenar,
     'distributeur': score_distrib,
     'duree': duree,
-    'USA': False,
-    'France': False,
+    'USA': True if pays == 'USA' else False,
+    'France': True if pays == 'France' else False,
     'Famille': False,
     'Comédie musicale': False,
     'Musical': False,
     'Comédie dramatique': False,
-    'Action': False,
+    'Action': True if genre == 'Action' else False,
     'Aventure': False,
     'Historique': False,
     'Biopic': False,
     'Guerre': False,
     'Drame': False,
-    'Documentaire': False,
+    'Documentaire': True if genre == 'Documentaire' else False,
     'Fantastique': False,
     'Espionnage': False,
     'Animation': False,
     'Romance': False,
-    'Comédie': False,
+    'Comédie': True if genre == 'Comédie' else False,
     'Policier': False,
     'Epouvante-horreur': False,
     'Thriller': False,
@@ -84,21 +84,12 @@ data_predict = {
 
 df_predict.loc[0] = data_predict
 
-if pays == 'USA' :
-    df_predict['USA'][0] = True
-if pays == 'France' :
-    df_predict['France'][0] = True
-
-if genre == 'Comédie' :
-    df_predict['Comédie'][0] = True
-if genre == 'Documentaire' :
-    df_predict['Documentaire'][0] = True
-if genre == 'Action' :
-    df_predict['Action'][0] = True
-
 st.dataframe(df_predict)
 
-
+if st.button('Faire une prédiction'):
+    input_data = df_predict
+    prediction = model.predict(input_data)
+    st.write('La prédiction est:', prediction[0])
 
 
 
