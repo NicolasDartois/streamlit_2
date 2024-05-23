@@ -277,7 +277,10 @@ with col3:
             st.bokeh_chart(p2, use_container_width=True)
 with col4:
             st.bokeh_chart(p3, use_container_width=True)
+            
+col1, col2, col3 = st.columns([2, 17, 2])
 
-st.markdown('<div class="box"><p>En examinant attentivement le graphique comparatif des notes attribuées par les spectateurs et la presse pour des films sortis au cinéma, on remarque que les deux distributions présentent des similitudes notables. la distribution des notes données par la presse est plus importante que celle des spéctateurs entre 2,5 et 3,5.Cela indique une tendance à attribuer des notes moyennes de manière plus fréquente.</p></div>', unsafe_allow_html=True)
+with col2:
+            st.markdown('<div class="box"><p>En examinant attentivement le graphique comparatif des notes attribuées par les spectateurs et la presse pour des films sortis au cinéma, on remarque que les deux distributions présentent des similitudes notables. la distribution des notes données par la presse est plus importante que celle des spéctateurs entre 2,5 et 3,5.Cela indique une tendance à attribuer des notes moyennes de manière plus fréquente.</p></div>', unsafe_allow_html=True)
 
 #---------------#
