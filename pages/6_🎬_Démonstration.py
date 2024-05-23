@@ -1,8 +1,9 @@
-import streamlit.components.v1 as components
 import streamlit as st
+from joblib import load
 
-with open('include/carousel.html', 'r', encoding='utf-8') as f:
-    carousel_html = f.read()
+clf = joblib.load("models/GB.joblib")
+df = pd.read_csv('data/score_acteur.csv')
+st.dataframe(df)
 
-def page1():
-    components.html(carousel_html, height=600, width=800)
+
+
