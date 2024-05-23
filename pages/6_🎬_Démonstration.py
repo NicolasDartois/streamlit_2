@@ -4,6 +4,7 @@ import pandas as pd
 import numpy as np
 from include.css_and_credit import css_and_credit
 from datetime import date
+from sklearn.linear_model import LinearRegression
 
 css_and_credit()
 
