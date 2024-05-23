@@ -77,7 +77,7 @@ with col2:
                         hover_data=['titre_original'],
                         title='🎫 Analyse de la distribution de notre target: première semaine en France',
                         labels={'premiere_semaine_france': 'Première semaine en France'})
-            fig2.update_layout(width=800, height=350)
+            fig2.update_layout(width=750, height=400)
             fig2.update_layout(xaxis=dict(showgrid=True, gridwidth=1, gridcolor='lightgrey'))
             st.plotly_chart(fig2)
             
@@ -114,7 +114,7 @@ with col4:
             valeurs = list(distrib.values())
             colorscale = [[0, 'blue'], [1, 'orange']]
             fig3 = go.Figure(data=[go.Bar(x=annees, y=valeurs, marker=dict(color=valeurs, colorscale='Viridis', cmin=0, cmax=max(valeurs)))])
-            fig3.update_layout(width=800, height=350)
+            fig3.update_layout(width=750, height=400)
             fig3.update_layout(title='🎞️ Nombre de films sortis par année en France (après 2000)', xaxis_title='Année de sortie', yaxis_title='Nombre de films')
             st.plotly_chart(fig3)
             
