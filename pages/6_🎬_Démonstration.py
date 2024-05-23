@@ -38,7 +38,7 @@ country = st.selectbox('Sélectionnez le pays', ['USA', 'France', 'Autre'])
 
 genre = st.selectbox('Sélectionnez le genre', ['Comédie', 'Documentaire', 'Action'])
 
-budget = st.slider('Sélectionnez le budget', 1000000, 200000000, step=1000000, value=50000000)
+budget = st.slider('Sélectionnez le budget en millions d\'euros', 1, 200, step=1, value=50)
 
 duree = st.slider('Sélectionnez la duree', 40, 200, step=20, value=100)
 
