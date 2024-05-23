@@ -238,6 +238,7 @@ with col4:
             st.markdown('<div class="box"><p>Ces graphiques illustrent la corrélation entre le budget d’un film et le nombre d’entrées en première semaine en France. On remarque une corrélation positive avec un coefficient de Pearson de 0,62.</p></div>', unsafe_allow_html=True)
 
 #---------------#
+
 allocine_notes = allocine[['note_presse', 'note_spectateurs']].apply(lambda x: x.str.replace(',', '.').astype(float))
 
 press_histogram, press_edges = np.histogram(allocine_notes['note_presse'], bins=np.linspace(1, 5, 9))
@@ -267,9 +268,15 @@ p1.add_tools(hover_p1)
 p2.add_tools(hover_p2)
 
 p3.legend.location = "top_right"
-st.bokeh_chart(p1, use_container_width=True)
-st.bokeh_chart(p2, use_container_width=True)
-st.bokeh_chart(p3, use_container_width=True)
+
+col1, col2, col3, col4, col5 = st.columns([6, 17, 17, 17, 6])
+
+with col2:
+            st.bokeh_chart(p1, use_container_width=True)
+with col3:
+            st.bokeh_chart(p2, use_container_width=True)
+with col4:
+            st.bokeh_chart(p3, use_container_width=True)
 
 st.markdown('<div class="box"><p>On observe que les deux distributions se ressemblent. La presse semble attribuer plus facilement des notes moyennes que les spectateurs.</p></div>', unsafe_allow_html=True)
 
