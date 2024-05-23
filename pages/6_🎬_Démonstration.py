@@ -4,7 +4,6 @@ import pandas as pd
 import numpy as np
 from include.css_and_credit import css_and_credit
 from datetime import date
-from sklearn.preprocessing import StandardScaler
 
 css_and_credit()
 
@@ -84,8 +83,6 @@ if st.button('Scotty, lance la prédiction !'):
         'cos_jour_semaine': np.cos(date_sortie.weekday()),
         'sin_jour_semaine': np.sin(date_sortie.weekday())
     }
-    scaler = StandardScaler()
-    df_predict[['budget_euro', 'acteur', 'realisateur', 'scenariste', 'distributeur', 'duree']] = scaler.fit_transform(df_predict[['budget_euro', 'acteur', 'realisateur', 'scenariste', 'distributeur', 'duree']])
     df_predict.loc[0] = data_predict
     input_data = df_predict
     prediction = model.predict(input_data)
