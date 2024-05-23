@@ -15,6 +15,8 @@ from include.css_and_credit import css_and_credit
 
 css_and_credit()
 
+st.header("📊Analyse des Données (DataViz)📊")
+
 allocine = pd.read_csv('data/allocine.csv')
 
 
