@@ -30,6 +30,9 @@ score_scenar = df_scenar[df_scenar['scenariste'] == scenar]['score'].values[0]
 
 date_sortie = st.date_input('Choisir la date de sortie', min_value=date(2000, 1, 1), max_value=date(2023, 12, 31))
 
+country = st.selectbox('Sélectionnez le pays', ['USA', 'France', 'Autre'])
+
+genre = st.selectbox('Sélectionnez le genre', ['Comédie', 'Documentaire', 'Action'])
 
 st.write(score_acteur)
 st.write(score_real)
