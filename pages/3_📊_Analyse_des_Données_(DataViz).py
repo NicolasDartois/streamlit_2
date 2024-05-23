@@ -13,7 +13,7 @@ from bokeh.plotting import figure
 from bokeh.models import HoverTool
 from include.css_and_credit import css_and_credit
 
-st.set_page_config(page_title="Projet Ciné", layout="wide")
+st.set_page_config(page_title="Exploitation cinématographique", layout="wide")
 
 css_and_credit()
 
