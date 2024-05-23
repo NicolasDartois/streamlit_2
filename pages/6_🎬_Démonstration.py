@@ -95,7 +95,7 @@ with col2:
                 df_predict.loc[0] = data_predict
                 input_data = df_predict
                 prediction = model.predict(input_data)
-                st.dataframe(df_predict)
+                st.dataframe(df_predict[['budget_euro','acteur','realisateur','scenariste','distributeur','duree','USA','France','Action','Documentaire','Comédie','cos_jour_mois','sin_jour_mois','cos_mois','sin_mois','cos_jour_semaine','sin_jour_semaine']])
                 st.write('La prédiction est:', prediction[0])
 
 
