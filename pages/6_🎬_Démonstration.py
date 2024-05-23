@@ -46,8 +46,6 @@ duree = st.slider('Sélectionnez la duree', 40, 200, step=20, value=100)
 df_predict = pd.DataFrame(columns = ['budget_euro', 'acteur', 'realisateur', 'scenariste', 'distributeur', 'duree', 'USA', 'France', 'Famille', 'Comédie musicale', 'Musical', 'Comédie dramatique', 'Action', 'Aventure', 'Historique', 'Biopic', 'Guerre', 'Drame', 'Documentaire', 'Fantastique', 'Espionnage', 'Animation', 'Romance', 'Comédie', 'Policier', 'Epouvante-horreur', 'Thriller', 'Science Fiction', 'cos_jour_mois', 'sin_jour_mois', 'cos_mois', 'sin_mois', 'cos_jour_semaine', 'sin_jour_semaine'])
 
 
-st.dataframe(df_predict)
-
 if st.button('Scotty, lance la prédiction !'):
     data_predict = {
         'budget_euro': budget*1000000,
