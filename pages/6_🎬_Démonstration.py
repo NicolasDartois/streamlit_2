@@ -83,9 +83,18 @@ data_predict = {
 }
 
 df_predict.loc[0] = data_predict
-
+genre = st.selectbox('Sélectionnez le genre', ['Comédie', 'Documentaire', 'Action'])
 if pays == 'USA' :
     df_predict['USA'][0] = True
+if pays == 'France' :
+    df_predict['France'][0] = True
+
+if genre == 'Comédie' :
+    df_predict['Comédie'][0] = True
+if genre == 'Documentaire' :
+    df_predict['Documentaire'][0] = True
+if genre == 'Action' :
+    df_predict['Action'][0] = True
 
 st.dataframe(df_predict)
 
