@@ -121,76 +121,79 @@ with col4:
             st.markdown('<div class="box"><p>On remarque une augmentation progressive du nombre de films sortis chaque année, le pic étant atteint en 2019 avec 746 films sortis au cours de l’année. Les effets de la pandémie mondiale en 2020 et 2021 sont également visibles sur ce graphique. L’année dernière, 712 films sont sortis sur les écrans français, soit une moyenne de 13,7 films par semaine.</p></div>', unsafe_allow_html=True)
 
 #---------------#
-genres_to_include = ['Drame', 'Comédie', 'Action', 'Comédie dramatique', 'Aventure', 
-        'Documentaire', 'Biopic', 'Animation', 'Policier', 'Epouvante-horreur', 
-        'Thriller', 'Fantastique']
+col1, col2, col3, col4, col5 = st.columns([2, 8, 1, 8, 2])
 
-genres_color = {'Drame' : 'blue', 'Comédie' : 'red', 'Action' : 'orange', 'Comédie dramatique' : 'purple', 'Aventure' : 'yellow', 
-        'Documentaire' : 'grey', 'Biopic' : 'green', 'Animation' : 'pink', 'Policier' : 'brown', 'Epouvante-horreur' : 'black', 
-        'Thriller' : 'coral', 'Fantastique' : 'turquoise'}
-
-allocine['genre'] = allocine['genre'].str.split(', ')
-allocine = allocine.explode('genre')
-
-allocine['genre'] = allocine['genre'].str.strip()
-allocine['genre'] = allocine['genre'].str.capitalize()
-filtered_data = allocine[allocine['genre'].isin(genres_to_include)].copy()
-filtered_data['premiere_semaine_france'] = pd.to_numeric(filtered_data['premiere_semaine_france'], errors='coerce')
-filtered_data.dropna(subset=['premiere_semaine_france', 'genre'], inplace=True)
-
-median_data = filtered_data.groupby('genre')['premiere_semaine_france'].median().reset_index()
-
-fig5 = px.bar(median_data, x='genre', y='premiere_semaine_france',
-labels={'genre': 'Genre', 'premiere_semaine_france': 'Médiane des entrées en première semaine'},
-title='🎞️ Médiane des entrées en première semaine en France par genre',
-color='genre',
-color_discrete_map=genres_color)
-
-fig5.update_layout(
-xaxis_title='Genre',
-yaxis_title='Médiane des entrées en première semaine',
-xaxis={'categoryorder':'total descending'},
-height=800
-)
-fig5.update_xaxes(tickangle=45)
-fig5.update_layout(width=800, height=600)
-st.plotly_chart(fig5)
-
-st.markdown('<div class="box"><p>On remarque qu’en France, en première semaine, ce sont les films d’action qui génèrent le plus de spectateurs, suivis de près par les films d’aventures. Le drame, genre très représenté chaque année, est loin d’attirer le plus de spectateurs. Ainsi, le lien entre un genre et le succès d’un film est à nuancer notamment par la surreprésentation de certains genres ou encore la perception que nous pouvons en avoir.</p></div>', unsafe_allow_html=True)
-
-#---------------#
-
-allocine['genre'] = allocine['genre'].str.split(', ')
-allocine = allocine.explode('genre')
-
-genres_to_include = ['Drame', 'Comédie', 'Action', 'Comédie dramatique', 'Aventure', 
-        'Documentaire', 'Biopic', 'Animation', 'Policier', 'Epouvante-horreur', 
-        'Thriller', 'Fantastique']
-
-genres_color = {'Drame': 'blue', 'Comédie': 'red', 'Action': 'orange', 'Comédie dramatique': 'purple', 'Aventure': 'yellow', 
-'Documentaire': 'grey', 'Biopic': 'green', 'Animation': 'pink', 'Policier': 'brown', 'Epouvante-horreur': 'black', 
-'Thriller': 'coral', 'Fantastique': 'turquoise'}
-
-allocine = allocine[allocine['genre'].isin(genres_to_include)]
-
-grouped_data = allocine.groupby(['genre', 'mois', 'mois_nom']).size().reset_index(name='counts')
-
-rows, cols = 6, 2
-fig5 = make_subplots(rows=rows, cols=cols, subplot_titles=genres_to_include)
-
-positions = [(i, j) for i in range(1, rows+1) for j in range(1, cols+1)]
-
-for genre, pos in zip(genres_to_include, positions):
-            data = grouped_data[grouped_data['genre'] == genre]
-            trace = go.Bar(x=data['mois'], y=data['counts'], name=genre, marker_color=genres_color[genre])
-            fig5.add_trace(trace, row=pos[0], col=pos[1])
-fig5.update_xaxes(tickvals=allocine['mois'], ticktext=allocine['mois_nom'])
-fig5.update_layout(height=1600, width=800, title_text="🎞️ Occurrences de films par mois et par genre", showlegend=False)
-fig5.update_xaxes(tickangle=45)
-
-st.plotly_chart(fig5)
-
-st.markdown('<div class="box"><p>Ici, nous n’avons représenté que les 12 genres ayant le plus d’occurrences. On remarque des pics de certains genres à des périodes clé. Notamment les films d’horreurs sont plus représentés en octobre (Halloween). Les films d’animation sont plus représentés pendant la période des fêtes de fin d’année (en décembre) et connaissent également des pics en février et octobre qui peuvent correspondre aux vacances scolaires. Il y a un pic de films d’action pendant l’été (traditionnellement période où sortent les blockbusters).</p></div>', unsafe_allow_html=True)
+with col2:
+            genres_to_include = ['Drame', 'Comédie', 'Action', 'Comédie dramatique', 'Aventure', 
+                    'Documentaire', 'Biopic', 'Animation', 'Policier', 'Epouvante-horreur', 
+                    'Thriller', 'Fantastique']
+            
+            genres_color = {'Drame' : 'blue', 'Comédie' : 'red', 'Action' : 'orange', 'Comédie dramatique' : 'purple', 'Aventure' : 'yellow', 
+                    'Documentaire' : 'grey', 'Biopic' : 'green', 'Animation' : 'pink', 'Policier' : 'brown', 'Epouvante-horreur' : 'black', 
+                    'Thriller' : 'coral', 'Fantastique' : 'turquoise'}
+            
+            allocine['genre'] = allocine['genre'].str.split(', ')
+            allocine = allocine.explode('genre')
+            
+            allocine['genre'] = allocine['genre'].str.strip()
+            allocine['genre'] = allocine['genre'].str.capitalize()
+            filtered_data = allocine[allocine['genre'].isin(genres_to_include)].copy()
+            filtered_data['premiere_semaine_france'] = pd.to_numeric(filtered_data['premiere_semaine_france'], errors='coerce')
+            filtered_data.dropna(subset=['premiere_semaine_france', 'genre'], inplace=True)
+            
+            median_data = filtered_data.groupby('genre')['premiere_semaine_france'].median().reset_index()
+            
+            fig5 = px.bar(median_data, x='genre', y='premiere_semaine_france',
+            labels={'genre': 'Genre', 'premiere_semaine_france': 'Médiane des entrées en première semaine'},
+            title='🎞️ Médiane des entrées en première semaine en France par genre',
+            color='genre',
+            color_discrete_map=genres_color)
+            
+            fig5.update_layout(
+                        xaxis_title='Genre',
+                        yaxis_title='Médiane des entrées en première semaine',
+                        xaxis={'categoryorder':'total descending'},
+                        width=800,
+                        height=800
+                        )
+            fig5.update_xaxes(tickangle=45)
+            st.plotly_chart(fig5)
+            
+            st.markdown('<div class="box"><p>On remarque qu’en France, en première semaine, ce sont les films d’action qui génèrent le plus de spectateurs, suivis de près par les films d’aventures. Le drame, genre très représenté chaque année, est loin d’attirer le plus de spectateurs. Ainsi, le lien entre un genre et le succès d’un film est à nuancer notamment par la surreprésentation de certains genres ou encore la perception que nous pouvons en avoir.</p></div>', unsafe_allow_html=True)
+            
+            
+with col4:
+            allocine['genre'] = allocine['genre'].str.split(', ')
+            allocine = allocine.explode('genre')
+            
+            genres_to_include = ['Drame', 'Comédie', 'Action', 'Comédie dramatique', 'Aventure', 
+                    'Documentaire', 'Biopic', 'Animation', 'Policier', 'Epouvante-horreur', 
+                    'Thriller', 'Fantastique']
+            
+            genres_color = {'Drame': 'blue', 'Comédie': 'red', 'Action': 'orange', 'Comédie dramatique': 'purple', 'Aventure': 'yellow', 
+            'Documentaire': 'grey', 'Biopic': 'green', 'Animation': 'pink', 'Policier': 'brown', 'Epouvante-horreur': 'black', 
+            'Thriller': 'coral', 'Fantastique': 'turquoise'}
+            
+            allocine = allocine[allocine['genre'].isin(genres_to_include)]
+            
+            grouped_data = allocine.groupby(['genre', 'mois', 'mois_nom']).size().reset_index(name='counts')
+            
+            rows, cols = 3, 4
+            fig5 = make_subplots(rows=rows, cols=cols, subplot_titles=genres_to_include)
+            
+            positions = [(i, j) for i in range(1, rows+1) for j in range(1, cols+1)]
+            
+            for genre, pos in zip(genres_to_include, positions):
+                        data = grouped_data[grouped_data['genre'] == genre]
+                        trace = go.Bar(x=data['mois'], y=data['counts'], name=genre, marker_color=genres_color[genre])
+                        fig5.add_trace(trace, row=pos[0], col=pos[1])
+            fig5.update_xaxes(tickvals=allocine['mois'], ticktext=allocine['mois_nom'])
+            fig5.update_layout(height=800, width=800, title_text="🎞️ Occurrences de films par mois et par genre", showlegend=False)
+            fig5.update_xaxes(tickangle=45)
+            
+            st.plotly_chart(fig5)
+            
+            st.markdown('<div class="box"><p>Ici, nous n’avons représenté que les 12 genres ayant le plus d’occurrences. On remarque des pics de certains genres à des périodes clé. Notamment les films d’horreurs sont plus représentés en octobre (Halloween). Les films d’animation sont plus représentés pendant la période des fêtes de fin d’année (en décembre) et connaissent également des pics en février et octobre qui peuvent correspondre aux vacances scolaires. Il y a un pic de films d’action pendant l’été (traditionnellement période où sortent les blockbusters).</p></div>', unsafe_allow_html=True)
 
 #---------------#
 
