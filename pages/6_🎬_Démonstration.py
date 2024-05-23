@@ -86,7 +86,7 @@ df_predict.loc[0] = data_predict
 
 st.dataframe(df_predict)
 
-if st.button('Faire une prédiction'):
+if st.button('Scotty, lance la prédiction !'):
     input_data = df_predict
     prediction = model.predict(input_data)
     st.write('La prédiction est:', prediction[0])
