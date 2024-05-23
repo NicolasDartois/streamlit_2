@@ -35,7 +35,7 @@ score_distrib  = df_distrib[df_distrib['distributeur'] == distrib]['score'].valu
 
 date_sortie = st.date_input('Choisir la date de sortie', min_value=date(2000, 1, 1), max_value=date(2023, 12, 31))
 
-country = st.selectbox('Sélectionnez le pays', ['USA', 'France', 'Autre'])
+pays = st.selectbox('Sélectionnez le pays', ['USA', 'France', 'Autre'])
 
 genre = st.selectbox('Sélectionnez le genre', ['Comédie', 'Documentaire', 'Action'])
 
@@ -46,7 +46,7 @@ duree = st.slider('Sélectionnez la duree', 40, 200, step=20, value=100)
 df_predict = pd.DataFrame(columns = ['budget_euro', 'acteur', 'realisateur', 'scenariste', 'distributeur', 'duree', 'USA', 'France', 'Famille', 'Comédie musicale', 'Musical', 'Comédie dramatique', 'Action', 'Aventure', 'Historique', 'Biopic', 'Guerre', 'Drame', 'Documentaire', 'Fantastique', 'Espionnage', 'Animation', 'Romance', 'Comédie', 'Policier', 'Epouvante-horreur', 'Thriller', 'Science Fiction', 'cos_jour_mois', 'sin_jour_mois', 'cos_mois', 'sin_mois', 'cos_jour_semaine', 'sin_jour_semaine'])
 
 data_predict = {
-    'budget_euro': budget,
+    'budget_euro': budget*1000000,
     'acteur': score_acteur,
     'realisateur': score_real,
     'scenariste': score_scenar,
@@ -82,6 +82,8 @@ data_predict = {
     'sin_jour_semaine': np.sin(date_sortie.weekday())
 }
 
+if pays == 'USA' :
+    df['USA'][0] = True
 df_predict.loc[0] = data_predict
 st.dataframe(df_predict)
 
