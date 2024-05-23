@@ -8,7 +8,7 @@ def css_and_credit():
     st.sidebar.markdown("_____________________")
     st.sidebar.markdown("Manon FOUQUET")
     st.sidebar.markdown("Sylvain BRAIZET")
-    st.sidebar.markdown("Nicolas DARTOIS")
+    st.sidebar.markdown("[Nicolas DARTOIS](https://www.linkedin.com/in/nicolas-dartois/)", unsafe_allow_html=True)
     
     background_image = '''
         <style>
