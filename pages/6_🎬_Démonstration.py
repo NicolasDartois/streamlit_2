@@ -49,12 +49,12 @@ df_predict = pd.DataFrame(columns = ['budget_euro', 'acteur', 'realisateur', 'sc
 
 if st.button('Scotty, lance la prédiction !'):
     data_predict = {
-        'budget_euro': float(budget*1000000),
+        'budget_euro': int(budget*1000000),
         'acteur': score_acteur,
         'realisateur': score_real,
         'scenariste': score_scenar,
         'distributeur': score_distrib,
-        'duree': float(duree),
+        'duree': int(duree),
         'USA': True if pays == 'USA' else False,
         'France': True if pays == 'France' else False,
         'Famille': False,
