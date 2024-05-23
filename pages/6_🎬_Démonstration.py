@@ -34,7 +34,8 @@ date_sortie = st.date_input('Choisir la date de sortie', min_value=date(2000, 1,
 st.write(score_acteur)
 st.write(score_real)
 st.write(score_scenar)
-st.write(date_sortie.days)
+st.write(date_sortie.day)
+
 
 
 
