@@ -7,8 +7,9 @@ from datetime import date
 st.set_page_config(page_title="Exploitation cinématographique", page_icon='🎬', layout="wide")
 
 css_and_credit()
-
-st.header("🎬Démonstration🎬")
+col1, col2, col3 = st.columns([3, 3, 3])
+with col2:
+            st.header("🎬Démonstration🎬")
 
 model = jl.load("models/GB.joblib")
 
