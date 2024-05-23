@@ -45,6 +45,12 @@ def css_and_credit():
             border-radius: 10px;
             text-align: justify;
         }
+        .fit-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Peut aussi être 'contain' selon le besoin */
+            display: block;
+        }
         </style>
         '''
     st.markdown(background_image, unsafe_allow_html=True)
