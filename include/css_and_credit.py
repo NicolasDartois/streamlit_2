@@ -6,9 +6,10 @@ def css_and_credit():
         st.sidebar.markdown("<br>", unsafe_allow_html=True)
     st.sidebar.subheader("🎥oct23_cda_exploitation-cinématographique🎥")
     st.sidebar.markdown("_____________________")
-    st.sidebar.markdown("Manon FOUQUET")
-    st.sidebar.markdown("Sylvain BRAIZET")
-    st.sidebar.markdown("[Nicolas DARTOIS](https://www.linkedin.com/in/nicolas-dartois/)", unsafe_allow_html=True)
+    st.sidebar.markdown("[📓 Manon FOUQUET](https://www.linkedin.com/in/nicolas-dartois/)", unsafe_allow_html=True)
+    st.sidebar.markdown("[📓 Sylvain BRAIZET](https://www.linkedin.com/in/sylvain-braizet-ba03ab65/)", unsafe_allow_html=True)
+    st.sidebar.markdown("[📓 Nicolas DARTOIS](https://www.linkedin.com/in/manonfouquet/)", unsafe_allow_html=True)
+    
     
     background_image = '''
         <style>
