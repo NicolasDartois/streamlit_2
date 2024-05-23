@@ -17,6 +17,9 @@ def css_and_credit():
         width: 100%;
         height: auto;
     }
+    h2 {
+        text-align: center;
+    }
     button[title="View fullscreen"] {
         visibility: hidden;
     }
