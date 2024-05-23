@@ -11,6 +11,23 @@ def css_and_credit():
     
     background_image = '''
         <style>
+    .hidden-checkbox {
+        display: none;
+    }
+    .hiddenText {
+        display: none;
+    }
+    .hidden-checkbox:checked + .hiddenText {
+        display: block;
+    }
+    .stApp {
+        background-color: white;
+        background-image: url("https://github.com/NicolasDartois/streamlit_2/blob/main/images/background.jpg?raw=true");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-position: center;
+    }
         .stApp {
             background-color: white;
             background-image: url("https://github.com/NicolasDartois/streamlit_2/blob/main/images/background.jpg?raw=true");
