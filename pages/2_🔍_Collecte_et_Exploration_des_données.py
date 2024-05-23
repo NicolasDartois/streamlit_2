@@ -12,9 +12,8 @@ with col2:
     nous avons constaté que nos données étaient insuffisantes pour élaborer un modèle de machine learning robuste. Plusieurs défis se sont présentés : d’abord, notre jeu de données contenait un nombre excessif de valeurs manquantes. 
     De plus, nous hésitions encore sur la variable cible à prédire, hésitant entre les revenus générés et les votes des spectateurs.Par ailleurs, notre jeu de données couvrait le marché mondial, 
     ce qui nous a rapidement motivés à nous focaliser sur le marché français, nécessitant de trouver de nouvelles sources de données.</p>
-    <img src="https://github.com/NicolasDartois/streamlit_2/blob/main/images/newplot.png?raw=true"  class="fit-img"/></div>""", unsafe_allow_html=True)
-  st.markdown("<br>", unsafe_allow_html=True)
-  st.markdown("""<div class="box"><p>Pour enrichir notre base, nous avons mis en place plusieurs actions :</p>
+    <img src="https://github.com/NicolasDartois/streamlit_2/blob/main/images/newplot.png?raw=true"  class="fit-img"/>
+    <p>Pour enrichir notre base, nous avons mis en place plusieurs actions :</p>
     <p>• Nous avons contacté CBO BOX OFFICE, une société fournissant des données aux professionnels du cinéma. Malgré une proposition contractuelle exposant le contexte non lucratif et éducatif de notre projet, notre demande est restée sans réponse.</p>
     <p>• Nous avons exploré d’autres plateformes telles que KAGGLE pour trouver des jeux de données robustes et adaptés à nos besoins, mais sans succès.</p>
     <p>• Nous avons décidé de procéder au Webscraping de données sur des sites réputés bien administrés, tels qu’Allociné, IMDB PRO (gratuit le premier mois), 
