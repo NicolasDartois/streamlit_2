@@ -90,6 +90,7 @@ if st.button('Scotty, lance la prédiction !'):
     test_features = df_predict[['budget_euro', 'duree']].values.reshape(1, -2)
     test_model.fit(test_features, [1])  # Ajustement fictif avec la même donnée
     test_prediction = test_model.predict(test_features)
+    st.write('La prédiction est:', test_prediction)
 
     st.write("Données utilisées pour la prédiction:", input_data)
     st.write('Test prédiction (modèle simple):', test_prediction[0])
