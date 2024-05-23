@@ -76,19 +76,15 @@ data_predict = {
     'Science Fiction': False,
     'cos_jour_mois': np.cos(date_sortie.day),
     'sin_jour_mois': np.sin(date_sortie.day),
-    'cos_mois': None,
-    'sin_mois': None,
-    'cos_jour_semaine': None,
-    'sin_jour_semaine': None
+    'cos_mois': np.cos(date_sortie.month),
+    'sin_mois': np.sin(date_sortie.month),
+    'cos_jour_semaine': np.cos(date_sortie.weekday),
+    'sin_jour_semaine': np.sin(date_sortie.weekday)
 }
 
+df_predict.loc[0] = data_predict
+st.dataframe(df_predict)
 
-st.write(score_acteur)
-st.write(score_real)
-st.write(score_scenar)
-st.write(date_sortie.day*2)
-st.write(date_sortie.month*2)
-st.write(date_sortie.year*2)
 
 
 
