@@ -1,7 +1,7 @@
 import streamlit as st
-from joblib import load
+import joblib as jl
 
-clf = joblib.load("models/GB.joblib")
+clf = jl.load("models/GB.joblib")
 df = pd.read_csv('data/score_acteur.csv')
 st.dataframe(df)
 
