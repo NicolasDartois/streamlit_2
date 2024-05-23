@@ -1,6 +1,6 @@
 import streamlit as st
 import streamlit.components.v1 as components
-from include.common import css_and_credit
+from include.css_and_credit import css_and_credit
 
 css_and_credit()
 
