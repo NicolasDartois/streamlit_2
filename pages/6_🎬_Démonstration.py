@@ -30,7 +30,7 @@ scenar = st.selectbox('Choisir le scénariste :', df_scenar['scenariste'])
 score_scenar = df_scenar[df_scenar['scenariste'] == scenar]['score'].values[0]
 
 distrib = st.selectbox('Choisir le distributeur :', df_distrib['distributeur'])
-score_scenar = df_distrib[df_distrib['distributeur'] == distrib]['score'].values[0]
+score_distrib  = df_distrib[df_distrib['distributeur'] == distrib]['score'].values[0]
 
 date_sortie = st.date_input('Choisir la date de sortie', min_value=date(2000, 1, 1), max_value=date(2023, 12, 31))
 
