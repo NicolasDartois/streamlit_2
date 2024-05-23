@@ -11,12 +11,13 @@ st.markdown("""
     <p>• Nettoyant les données en éliminant les valeurs aberrantes (réalisé juste avant la modélisation), et en gérant les valeurs manquantes. NB : le dédoublonnage n'était pas nécessaire.</p>
     <p>• Transformant les features en formats compatibles avec les algorithmes d'apprentissage automatique, tels que la normalisation des valeurs et les onehotencoding.</p>
     <p>• En améliorant la qualité des données en calculant des scores afin d'optimiser les performances des modèles et de garantir des résultats plus fiables.</p>
+    <p>• En améliorant la qualité des données en calculant des scores afin d'optimiser les performances des modèles et de garantir des résultats plus fiables.</p>
 </div>
 """, unsafe_allow_html=True)
 
 st.markdown("""
 <div class="box"><h3>Traitement des valeurs manquantes :</h3>
-    <p>Exemple de texte</p>
+    <p>In fine, nous avions très peu de valeurs manquantes. Notre choix a été dans la grande majorité des cas de supprimer les lignes avec des valeurs manquantes.</p>
 </div>
 """, unsafe_allow_html=True)
 
