@@ -17,28 +17,5 @@ acteur = st.selectbox('Choisir un acteur', df_acteur['acteur'])
 score_acteur = df_acteur[df_acteur['acteur'] == acteur]['score_acteur'].values[0]
 
 
-input_data = np.array([[sepal_length, sepal_width, petal_length, petal_width]])
-
-if st.button('Prédire'):
-    prediction = model.predict(input_data)
-    st.subheader(f'La classe prédite est : {prediction[0]}')
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-df = pd.read_csv('data/score_acteur.csv')
-st.dataframe(df)
-
 
 
