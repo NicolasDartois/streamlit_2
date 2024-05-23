@@ -17,7 +17,9 @@ st.set_page_config(page_title="Exploitation cinématographique", page_icon='🎬
 
 css_and_credit()
 
-st.header("📊Analyse des Données (DataViz)📊")
+col1, col2, col3 = st.columns([3, 1, 3])
+with col2:
+            st.header("📊Analyse des Données (DataViz)📊")
 
 allocine = pd.read_csv('data/allocine.csv')
 
@@ -26,9 +28,9 @@ allocine = pd.read_csv('data/allocine.csv')
 
 
 
-col1, col2, col3 = st.columns([2, 2, 1])
+col1, col2, col3, col4 = st.columns([1, 3, 3, 1])
 #---------------#
-with col1:            
+with col2:            
             pays_counts = allocine['pays'].value_counts()
             top_pays = pays_counts[:8]
             autres = pays_counts[8:].sum()
@@ -46,7 +48,7 @@ with col1:
             
             st.markdown('<div class="box"><p>La France (38,9%) et les U.S.A (30,7%) se partagent une importante part du marché cinématographique français. On remarque l’incroyable exportabilité des films américains qui égalise presque le volume de films produits par le pays d’où sont issues les données.</p></div>', unsafe_allow_html=True)
 #---------------#
-with col2:
+with col3:
             fig4 = px.scatter(
                         allocine, 
                         x='cumul_france', 
