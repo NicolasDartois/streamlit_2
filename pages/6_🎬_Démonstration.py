@@ -40,6 +40,8 @@ genre = st.selectbox('Sélectionnez le genre', ['Comédie', 'Documentaire', 'Act
 
 budget = st.slider('Sélectionnez le budget', 1000000, 200000000, step=1000000, value=50000000)
 
+duree = st.slider('Sélectionnez la duree', 40, 200, step=20, value=100)
+
 st.write(score_acteur)
 st.write(score_real)
 st.write(score_scenar)
