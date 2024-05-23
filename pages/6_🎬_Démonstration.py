@@ -82,9 +82,11 @@ data_predict = {
     'sin_jour_semaine': np.sin(date_sortie.weekday())
 }
 
-if pays == 'USA' :
-    df['USA'][0] = True
 df_predict.loc[0] = data_predict
+
+if pays == 'USA' :
+    df_predict['USA'][0] = True
+
 st.dataframe(df_predict)
 
 
