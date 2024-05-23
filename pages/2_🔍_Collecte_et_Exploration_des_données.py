@@ -11,7 +11,7 @@ with col2:
   st.markdown("""<div class="box"><h3>Notre jeu de donnée lors du démarrage et son évolution</h3><p>Au cours de l’analyse initiale de notre jeu de données et à la lumière de nos premiers acquis en matière de formation, 
   nous avons constaté que nos données étaient insuffisantes pour élaborer un modèle de machine learning robuste. Plusieurs défis se sont présentés : d’abord, notre jeu de données contenait un nombre excessif de valeurs manquantes. 
   De plus, nous hésitions encore sur la variable cible à prédire, hésitant entre les revenus générés et les votes des spectateurs.Par ailleurs, notre jeu de données couvrait le marché mondial, 
-  ce qui nous a rapidement motivés à nous focaliser sur le marché français, nécessitant de trouver de nouvelles sources de données.</p></div>""", unsafe_allow_html=True)
+  ce qui nous a rapidement motivés à nous focaliser sur le marché français, nécessitant de trouver de nouvelles sources de données.<br><br></p></div>""", unsafe_allow_html=True)
 with col3:
   st.image('images/Heatmap_NaN.png')
 st.markdown("<br>", unsafe_allow_html=True)
