@@ -2,6 +2,7 @@ import streamlit as st
 import joblib as jl
 import pandas as pd
 from include.css_and_credit import css_and_credit
+from datetime import date
 
 css_and_credit()
 
@@ -27,7 +28,7 @@ score_real = df_real[df_real['realisateur'] == real]['score'].values[0]
 scenar = st.selectbox('Choisir le scénariste :', df_scenar['scenariste'])
 score_scenar = df_scenar[df_scenar['scenariste'] == scenar]['score'].values[0]
 
-date_sortie = st.date_input('Choisir la date de sortie', min_value=date(2000, 1, 1), max_value=datedate(2024, 1, 1))
+date_sortie = st.date_input('Choisir la date de sortie', min_value=date(2000, 1, 1), max_value=date(2024, 1, 1))
 
 
 st.write(score_acteur)
