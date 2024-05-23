@@ -7,7 +7,7 @@ from datetime import date
 st.set_page_config(page_title="Exploitation cinématographique", page_icon='🎬', layout="wide")
 
 css_and_credit()
-col1, col2, col3 = st.columns([3, 3, 3])
+col1, col2, col3 = st.columns([3, 2, 3])
 with col2:
             st.header("🎬Démonstration🎬")
 
