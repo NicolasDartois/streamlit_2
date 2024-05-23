@@ -21,6 +21,7 @@ col1, col2, col3 = st.columns([3, 3, 3])
 with col2:
             st.header("📊Analyse des Données (DataViz)📊")
 
+st.sidebar.markdown("<br><br><br>", unsafe_allow_html=True)
 allocine = pd.read_csv('data/allocine.csv')
 
 
