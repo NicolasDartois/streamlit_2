@@ -1,6 +1,8 @@
 import streamlit as st
 from include.css_and_credit import css_and_credit
 
+st.set_page_config(page_title="Exploitation cinématographique", layout="centered")
+
 css_and_credit()
 
 st.header("🔍Collecte et Exploration des données🔍")
