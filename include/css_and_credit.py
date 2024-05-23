@@ -2,7 +2,7 @@ import streamlit as st
 
 def css_and_credit():
     st.sidebar.image("images/img_sidebar.png", use_column_width=True)
-    for i in range(25):
+    for i in range(5):
         st.sidebar.markdown("<br>", unsafe_allow_html=True)
     st.sidebar.subheader("🎥oct23_cda_exploitation-cinématographique🎥")
     st.sidebar.markdown("_____________________")
