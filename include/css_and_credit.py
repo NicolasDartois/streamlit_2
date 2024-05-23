@@ -12,6 +12,10 @@ def css_and_credit():
     
     background_image = '''
         <style>
+    .plotly-chart-container {
+        width: 100%;
+        height: auto;
+    }
     button[title="View fullscreen"] {
         visibility: hidden;
     }
