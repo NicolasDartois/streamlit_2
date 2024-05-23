@@ -217,7 +217,7 @@ with col2:
             
             st.markdown('<div class="box"><p>C’est le quatuor des films Harry Potter (8 films) qui cumule le plus de spectateurs en première semaine. Dans le reste du classement, on trouve deux acteurs français : Jean Dujardin et Gérard Depardieu, tous deux très populaires et dont certains films ont dépassé les frontières de la France. Ils ont également eu des rôles à l’international. Entre la 6e et la 10e position, on trouve des acteurs américains ayant tous participé à des franchises : Pirates des Caraïbes pour Johnny Depp, Avengers et Iron Man pour Robert Downey Jr., Mission : Impossible pour Tom Cruise et enfin Twilight pour Taylor Lautner.</p></div>', unsafe_allow_html=True)
                   
-   with col4:         
+with col4:         
             allocine_budget = pd.read_csv('data/Allocine_v2_8.csv')
             correlation = allocine_budget['premiere_semaine_france'].corr(allocine_budget['budget_euro'])
             
