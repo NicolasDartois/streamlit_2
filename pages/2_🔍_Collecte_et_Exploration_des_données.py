@@ -13,7 +13,7 @@ with col2:
   De plus, nous hésitions encore sur la variable cible à prédire, hésitant entre les revenus générés et les votes des spectateurs.Par ailleurs, notre jeu de données couvrait le marché mondial, 
   ce qui nous a rapidement motivés à nous focaliser sur le marché français, nécessitant de trouver de nouvelles sources de données.<br><br></p></div>""", unsafe_allow_html=True)
 with col3:
-  st.image('images/Heatmap_NaN.png')
+  st.image('images/Heatmap_NaN.png',width=100)
 st.markdown("<br>", unsafe_allow_html=True)
 col1, col2, col3 = st.columns([2,5,2])
 with col2:
