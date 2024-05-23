@@ -17,7 +17,7 @@ acteur1 = st.selectbox('Choisir l\'acteur principal :', df_acteur['Acteur'])
 score_acteur1 = df_acteur[df_acteur['Acteur'] == acteur1]['Score'].values[0]
 st.write(score_acteur1)
 
-acteur2 = st.selectbox('Choisir l\'acteur principal :', df_acteur['Acteur'])
+acteur2 = st.selectbox('Choisir l\'acteur secondaire :', df_acteur['Acteur'])
 score_acteur2 = df_acteur[df_acteur['Acteur'] == acteur2]['Score'].values[0]
 st.write(score_acteur2)
 st.write((score_acteur1*1.125)+(score_acteur2*0.75))
