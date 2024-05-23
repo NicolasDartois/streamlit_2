@@ -21,25 +21,25 @@ df_distrib = pd.read_csv('data/score_distrib.csv')
 
 col1, col2, col3, col4, col5, col6 = st.columns([1,2,2,2,2,1])
 with col2:
-    acteur1 = st.selectbox('Choisir l\'acteur principal :', df_acteur['Acteur'])
+    acteur1 = st.selectbox('Acteur principal :', df_acteur['Acteur'])
     score_acteur1 = df_acteur[df_acteur['Acteur'] == acteur1]['Score'].values[0]
 with col3:    
-    acteur2 = st.selectbox('Choisir l\'acteur secondaire :', df_acteur['Acteur'])
+    acteur2 = st.selectbox('Acteur secondaire :', df_acteur['Acteur'])
     score_acteur2 = df_acteur[df_acteur['Acteur'] == acteur2]['Score'].values[0]
     score_acteur = (score_acteur1*1.125)+(score_acteur2*0.75)   
 with col4:    
-    real = st.selectbox('Choisir le réalisateur :', df_real['realisateur'])
+    real = st.selectbox('Réalisateur :', df_real['realisateur'])
     score_real = df_real[df_real['realisateur'] == real]['score'].values[0]
 with col5:
-    scenar = st.selectbox('Choisir le scénariste :', df_scenar['scenariste'])
+    scenar = st.selectbox('Scénariste :', df_scenar['scenariste'])
     score_scenar = df_scenar[df_scenar['scenariste'] == scenar]['score'].values[0]
 
 col1, col2, col3, col4, col5, col6 = st.columns([1,2,2,2,2,1])
 with col2:    
-    distrib = st.selectbox('Choisir le distributeur :', df_distrib['distributeur'])
+    distrib = st.selectbox('Distributeur :', df_distrib['distributeur'])
     score_distrib  = df_distrib[df_distrib['distributeur'] == distrib]['score'].values[0]
 with col3:    
-    date_sortie = st.date_input('Choisir la date de sortie', min_value=date(2000, 1, 1), max_value=date(2023, 12, 31))
+    date_sortie = st.date_input('Date de sortie', min_value=date(2000, 1, 1), max_value=date(2023, 12, 31))
 with col4:
     pays = st.selectbox('Sélectionnez le pays', ['USA', 'France', 'Autre'])
 with col5:     
