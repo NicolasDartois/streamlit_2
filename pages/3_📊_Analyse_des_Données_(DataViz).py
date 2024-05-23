@@ -29,7 +29,7 @@ allocine = pd.read_csv('data/allocine.csv')
 
 
 
-col1, col2, col3, col4, col5 = st.columns([2, 6, 1, 6, 2])
+col1, col2, col3, col4, col5 = st.columns([2, 8, 1, 8, 2])
 #---------------#
 with col2:            
             pays_counts = allocine['pays'].value_counts()
