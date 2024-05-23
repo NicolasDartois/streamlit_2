@@ -12,33 +12,6 @@ def css_and_credit():
     
     background_image = '''
         <style>
-        .css-1d391kg {  /* Utiliser la classe CSS actuelle de la barre latérale */
-        width: 20%;
-    }
-
-    @media (max-width: 1200px) {
-        .css-1d391kg {
-            width: 25%;
-        }
-    }
-
-    @media (max-width: 992px) {
-        .css-1d391kg {
-            width: 30%;
-        }
-    }
-
-    @media (max-width: 768px) {
-        .css-1d391kg {
-            width: 35%;
-        }
-    }
-
-    @media (max-width: 576px) {
-        .css-1d391kg {
-            width: 40%;
-        }
-    }
     .plotly-chart-container {
         width: 100%;
         height: auto;
