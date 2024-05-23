@@ -78,8 +78,8 @@ data_predict = {
     'sin_jour_mois': np.sin(date_sortie.day),
     'cos_mois': np.cos(date_sortie.month),
     'sin_mois': np.sin(date_sortie.month),
-    'cos_jour_semaine': np.cos(date_sortie.weekday),
-    'sin_jour_semaine': np.sin(date_sortie.weekday)
+    'cos_jour_semaine': np.cos(date_sortie.weekday()),
+    'sin_jour_semaine': np.sin(date_sortie.weekday())
 }
 
 df_predict.loc[0] = data_predict
