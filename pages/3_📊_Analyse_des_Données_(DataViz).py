@@ -28,9 +28,9 @@ allocine = pd.read_csv('data/allocine.csv')
 
 
 
-
-col1, col2, col3, col4, col5 = st.columns([2, 8, 1, 8, 2])
 #---------------#
+col1, col2, col3, col4, col5 = st.columns([2, 8, 1, 8, 2])
+
 with col2:            
             pays_counts = allocine['pays'].value_counts()
             top_pays = pays_counts[:8]
@@ -48,7 +48,7 @@ with col2:
             st.plotly_chart(fig1)
             
             st.markdown('<div class="box"><p>La France (38,9%) et les U.S.A (30,7%) se partagent une importante part du marché cinématographique français. On remarque l’incroyable exportabilité des films américains qui égalise presque le volume de films produits par le pays d’où sont issues les données.</p></div>', unsafe_allow_html=True)
-#---------------#
+
 with col4:
             fig4 = px.scatter(
                         allocine, 
@@ -70,53 +70,55 @@ with col4:
             st.markdown('<div class="box"><p>En calculant la corrélation entre la première semaine et le cumul en France, on obtient un score de 0.92. La corrélation est donc positive et très élevée. Ainsi, si un film réalise de bonnes performances en première semaine en termes d’entrées, il a des chances de connaître le succès pendant toute son exploitation cinématographique. Cela suppose donc que le nombre d’entrées de la première semaine peuvent être utilisées pour estimer le nombre total d’entrées.</p></div>', unsafe_allow_html=True)
 
 #---------------#
+col1, col2, col3, col4, col5 = st.columns([2, 8, 1, 8, 2])
 
-fig2 = px.box(allocine, x="premiere_semaine_france",
-            hover_data=['titre_original'],
-            title='🎫 Analyse de la distribution de notre target: première semaine en France',
-            labels={'premiere_semaine_france': 'Première semaine en France'})
-fig2.update_layout(width=800, height=400)
-fig2.update_layout(xaxis=dict(showgrid=True, gridwidth=1, gridcolor='lightgrey'))
-st.plotly_chart(fig2)
+with col2: 
+            fig2 = px.box(allocine, x="premiere_semaine_france",
+                        hover_data=['titre_original'],
+                        title='🎫 Analyse de la distribution de notre target: première semaine en France',
+                        labels={'premiere_semaine_france': 'Première semaine en France'})
+            fig2.update_layout(width=800, height=400)
+            fig2.update_layout(xaxis=dict(showgrid=True, gridwidth=1, gridcolor='lightgrey'))
+            st.plotly_chart(fig2)
+            
+            st.markdown('<div class="box"><p>Ces données suggèrent une forte asymétrie dans la distribution des performances des films. La présence de quelques films avec des résultats exceptionnels lors de la première semaine indique que ces films peuvent être des moteurs significatifs pour l’industrie, tandis que la majorité des films affichent des performances beaucoup plus modestes.</p></div>', unsafe_allow_html=True)
 
-st.markdown('<div class="box"><p>Ces données suggèrent une forte asymétrie dans la distribution des performances des films. La présence de quelques films avec des résultats exceptionnels lors de la première semaine indique que ces films peuvent être des moteurs significatifs pour l’industrie, tandis que la majorité des films affichent des performances beaucoup plus modestes.</p></div>', unsafe_allow_html=True)
-
-#---------------#
-distrib = {
-    2000: 532,
-    2001: 504,
-    2002: 487,
-    2003: 509,
-    2004: 559,
-    2005: 550,
-    2006: 589,
-    2007: 573,
-    2008: 555,
-    2009: 558,
-    2010: 579,
-    2011: 588,
-    2012: 614,
-    2013: 654,
-    2014: 663,
-    2015: 652,
-    2016: 716,
-    2017: 693,
-    2018: 683,
-    2019: 746,
-    2020: 364,
-    2021: 454,
-    2022: 681,
-    2023: 712
-}
-annees = list(distrib.keys())
-valeurs = list(distrib.values())
-colorscale = [[0, 'blue'], [1, 'orange']]
-fig3 = go.Figure(data=[go.Bar(x=annees, y=valeurs, marker=dict(color=valeurs, colorscale='Viridis', cmin=0, cmax=max(valeurs)))])
-fig3.update_layout(width=800, height=400)
-fig3.update_layout(title='🎞️ Nombre de films sortis par année en France (après 2000)', xaxis_title='Année de sortie', yaxis_title='Nombre de films')
-st.plotly_chart(fig3)
-
-st.markdown('<div class="box"><p>On remarque une augmentation progressive du nombre de films sortis chaque année, le pic étant atteint en 2019 avec 746 films sortis au cours de l’année. Les effets de la pandémie mondiale en 2020 et 2021 sont également visibles sur ce graphique. L’année dernière, 712 films sont sortis sur les écrans français, soit une moyenne de 13,7 films par semaine.</p></div>', unsafe_allow_html=True)
+with col4:
+            distrib = {
+                2000: 532,
+                2001: 504,
+                2002: 487,
+                2003: 509,
+                2004: 559,
+                2005: 550,
+                2006: 589,
+                2007: 573,
+                2008: 555,
+                2009: 558,
+                2010: 579,
+                2011: 588,
+                2012: 614,
+                2013: 654,
+                2014: 663,
+                2015: 652,
+                2016: 716,
+                2017: 693,
+                2018: 683,
+                2019: 746,
+                2020: 364,
+                2021: 454,
+                2022: 681,
+                2023: 712
+            }
+            annees = list(distrib.keys())
+            valeurs = list(distrib.values())
+            colorscale = [[0, 'blue'], [1, 'orange']]
+            fig3 = go.Figure(data=[go.Bar(x=annees, y=valeurs, marker=dict(color=valeurs, colorscale='Viridis', cmin=0, cmax=max(valeurs)))])
+            fig3.update_layout(width=800, height=400)
+            fig3.update_layout(title='🎞️ Nombre de films sortis par année en France (après 2000)', xaxis_title='Année de sortie', yaxis_title='Nombre de films')
+            st.plotly_chart(fig3)
+            
+            st.markdown('<div class="box"><p>On remarque une augmentation progressive du nombre de films sortis chaque année, le pic étant atteint en 2019 avec 746 films sortis au cours de l’année. Les effets de la pandémie mondiale en 2020 et 2021 sont également visibles sur ce graphique. L’année dernière, 712 films sont sortis sur les écrans français, soit une moyenne de 13,7 films par semaine.</p></div>', unsafe_allow_html=True)
 
 #---------------#
 genres_to_include = ['Drame', 'Comédie', 'Action', 'Comédie dramatique', 'Aventure', 
