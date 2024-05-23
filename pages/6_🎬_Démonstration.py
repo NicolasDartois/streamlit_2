@@ -48,7 +48,7 @@ df_predict = pd.DataFrame(columns = ['budget_euro', 'acteur', 'realisateur', 'sc
 
 if st.button('Scotty, lance la prédiction !'):
     data_predict = {
-        'budget_euro': float(budget),
+        'budget_euro': float(1000000),
         'acteur': score_acteur,
         'realisateur': score_real,
         'scenariste': score_scenar,
