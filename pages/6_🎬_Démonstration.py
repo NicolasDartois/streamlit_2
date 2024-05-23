@@ -13,8 +13,8 @@ df_acteur = pd.read_csv('data/score_acteur.csv')
 df_real = pd.read_csv('data/score_real.csv')
 df_scenar = pd.read_csv('data/score_scenar.csv')
 
-acteur = st.selectbox('Choisir un acteur', df_acteur['acteur'])
-score_acteur = df_acteur[df_acteur['acteur'] == acteur]['score_acteur'].values[0]
+acteur = st.selectbox('Choisir un acteur', df_acteur['Acteur'])
+score_acteur = df_acteur[df_acteur['Acteur'] == acteur]['score_acteur'].values[0]
 
 
 
