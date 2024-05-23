@@ -39,8 +39,8 @@ pays = st.selectbox('Sélectionnez le pays', ['USA', 'France', 'Autre'])
 
 genre = st.selectbox('Sélectionnez le genre', ['Comédie', 'Documentaire', 'Action'])
 
-#budget = st.slider('Sélectionnez le budget en millions d\'euros', 10, 200, step=10, value=50)
-budget = st.selectbox('Sélectionnez le genre', [10, 10000000, 1000000000])
+budget = st.slider('Sélectionnez le budget en millions d\'euros', 10, 200, step=10, value=50)
+
 duree = st.slider('Sélectionnez la duree', 40, 200, step=20, value=100)
 
 df_predict = pd.DataFrame(columns = ['budget_euro', 'acteur', 'realisateur', 'scenariste', 'distributeur', 'duree', 'USA', 'France', 'Famille', 'Comédie musicale', 'Musical', 'Comédie dramatique', 'Action', 'Aventure', 'Historique', 'Biopic', 'Guerre', 'Drame', 'Documentaire', 'Fantastique', 'Espionnage', 'Animation', 'Romance', 'Comédie', 'Policier', 'Epouvante-horreur', 'Thriller', 'Science Fiction', 'cos_jour_mois', 'sin_jour_mois', 'cos_mois', 'sin_mois', 'cos_jour_semaine', 'sin_jour_semaine'])
@@ -48,7 +48,7 @@ df_predict = pd.DataFrame(columns = ['budget_euro', 'acteur', 'realisateur', 'sc
 
 if st.button('Scotty, lance la prédiction !'):
     data_predict = {
-        'budget_euro': float(100000000),
+        'budget_euro': float(budget*1000000),
         'acteur': score_acteur,
         'realisateur': score_real,
         'scenariste': score_scenar,
