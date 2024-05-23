@@ -24,10 +24,6 @@ with col2:
 st.markdown("<br><br><br>", unsafe_allow_html=True)
 allocine = pd.read_csv('data/allocine.csv')
 
-
-
-
-
 #---------------#
 col1, col2, col3, col4, col5 = st.columns([2, 8, 1, 8, 2])
 
@@ -196,31 +192,52 @@ with col4:
             st.markdown('<div class="box"><p>Ici, nous n’avons représenté que les 12 genres ayant le plus d’occurrences. On remarque des pics de certains genres à des périodes clé. Notamment les films d’horreurs sont plus représentés en octobre (Halloween). Les films d’animation sont plus représentés pendant la période des fêtes de fin d’année (en décembre) et connaissent également des pics en février et octobre qui peuvent correspondre aux vacances scolaires. Il y a un pic de films d’action pendant l’été (traditionnellement période où sortent les blockbusters).</p></div>', unsafe_allow_html=True)
 
 #---------------#
+col1, col2, col3, col4, col5 = st.columns([2, 8, 1, 8, 2])
 
-actors_columns = ['acteur_1', 'acteur_2', 'acteur_3', 'acteur_4']
-melted_actors = pd.melt(allocine, id_vars=['premiere_semaine_france'], value_vars=actors_columns, value_name='actor').dropna().drop(columns='variable', axis=1)
-
-top_10_actors = melted_actors.groupby('actor')['premiere_semaine_france'].sum().nlargest(10)
-
-fig6 = px.bar(top_10_actors, x=top_10_actors.values, y=top_10_actors.index, orientation='h',
-text=top_10_actors.values,
-labels={'y': 'Acteurs', 'x': 'Nombre total d’entrées première semaine France'},
-color_discrete_sequence=['green'],
-title='🧑 Top 10 des acteurs avec le plus grand nombre d’entrées en première semaine France')
-
-fig6.update_traces(texttemplate='%{text:.3s}', textposition='inside', hovertemplate='<b>%{y}</b><br>Nombre total d’entrées première semaine: %{x}<extra></extra>')
-fig6.update_layout(
-    xaxis_title='Nombre total d’entrées première semaine France',
-    yaxis_title='Acteurs',
-    uniformtext_minsize=8, uniformtext_mode='hide',
-    height=400, width=800, yaxis_autorange='reversed'
-)
-st.plotly_chart(fig6)
-
-st.markdown('<div class="box"><p>C’est le quatuor des films Harry Potter (8 films) qui cumule le plus de spectateurs en première semaine. Dans le reste du classement, on trouve deux acteurs français : Jean Dujardin et Gérard Depardieu, tous deux très populaires et dont certains films ont dépassé les frontières de la France. Ils ont également eu des rôles à l’international. Entre la 6e et la 10e position, on trouve des acteurs américains ayant tous participé à des franchises : Pirates des Caraïbes pour Johnny Depp, Avengers et Iron Man pour Robert Downey Jr., Mission : Impossible pour Tom Cruise et enfin Twilight pour Taylor Lautner.</p></div>', unsafe_allow_html=True)
+with col2:
+            actors_columns = ['acteur_1', 'acteur_2', 'acteur_3', 'acteur_4']
+            melted_actors = pd.melt(allocine, id_vars=['premiere_semaine_france'], value_vars=actors_columns, value_name='actor').dropna().drop(columns='variable', axis=1)
+            
+            top_10_actors = melted_actors.groupby('actor')['premiere_semaine_france'].sum().nlargest(10)
+            
+            fig6 = px.bar(top_10_actors, x=top_10_actors.values, y=top_10_actors.index, orientation='h',
+            text=top_10_actors.values,
+            labels={'y': 'Acteurs', 'x': 'Nombre total d’entrées première semaine France'},
+            color_discrete_sequence=['green'],
+            title='🧑 Top 10 des acteurs avec le plus grand nombre d’entrées en première semaine France')
+            
+            fig6.update_traces(texttemplate='%{text:.3s}', textposition='inside', hovertemplate='<b>%{y}</b><br>Nombre total d’entrées première semaine: %{x}<extra></extra>')
+            fig6.update_layout(
+                xaxis_title='Nombre total d’entrées première semaine France',
+                yaxis_title='Acteurs',
+                uniformtext_minsize=8, uniformtext_mode='hide',
+                height=400, width=800, yaxis_autorange='reversed'
+            )
+            st.plotly_chart(fig6)
+            
+            st.markdown('<div class="box"><p>C’est le quatuor des films Harry Potter (8 films) qui cumule le plus de spectateurs en première semaine. Dans le reste du classement, on trouve deux acteurs français : Jean Dujardin et Gérard Depardieu, tous deux très populaires et dont certains films ont dépassé les frontières de la France. Ils ont également eu des rôles à l’international. Entre la 6e et la 10e position, on trouve des acteurs américains ayant tous participé à des franchises : Pirates des Caraïbes pour Johnny Depp, Avengers et Iron Man pour Robert Downey Jr., Mission : Impossible pour Tom Cruise et enfin Twilight pour Taylor Lautner.</p></div>', unsafe_allow_html=True)
+                  
+   with col4:         
+            allocine_budget = pd.read_csv('data/Allocine_v2_8.csv')
+            correlation = allocine_budget['premiere_semaine_france'].corr(allocine_budget['budget_euro'])
+            
+            def millions_formatter(x, pos):
+                return f'{x / 1e6}M'
+            formatter = FuncFormatter(millions_formatter)
+            
+            plt.figure(figsize=(20, 10))
+            
+            sns.regplot(x='budget_euro', y='premiere_semaine_france', data=allocine_budget)
+            plt.xlabel('Budget du film')
+            plt.ylabel('Première semaine en France (nombre de spectateurs)')
+            plt.title(f'Corrélation entre le budget du film et la première semaine en France. Pearson : {round(correlation, 3)}')
+            plt.gca().yaxis.set_major_formatter(formatter)
+            plt.gca().xaxis.set_major_formatter(formatter)
+            st.pyplot(plt)
+            
+            st.markdown('<div class="box"><p>Ces graphiques illustrent la corrélation entre le budget d’un film et le nombre d’entrées en première semaine en France. On remarque une corrélation positive avec un coefficient de Pearson de 0,62.</p></div>', unsafe_allow_html=True)
 
 #---------------#
-
 allocine_notes = allocine[['note_presse', 'note_spectateurs']].apply(lambda x: x.str.replace(',', '.').astype(float))
 
 press_histogram, press_edges = np.histogram(allocine_notes['note_presse'], bins=np.linspace(1, 5, 9))
@@ -255,26 +272,5 @@ st.bokeh_chart(p2, use_container_width=True)
 st.bokeh_chart(p3, use_container_width=True)
 
 st.markdown('<div class="box"><p>On observe que les deux distributions se ressemblent. La presse semble attribuer plus facilement des notes moyennes que les spectateurs.</p></div>', unsafe_allow_html=True)
-
-#---------------#
-
-allocine_budget = pd.read_csv('data/Allocine_v2_8.csv')
-correlation = allocine_budget['premiere_semaine_france'].corr(allocine_budget['budget_euro'])
-
-def millions_formatter(x, pos):
-    return f'{x / 1e6}M'
-formatter = FuncFormatter(millions_formatter)
-
-plt.figure(figsize=(20, 10))
-
-sns.regplot(x='budget_euro', y='premiere_semaine_france', data=allocine_budget)
-plt.xlabel('Budget du film')
-plt.ylabel('Première semaine en France (nombre de spectateurs)')
-plt.title(f'Corrélation entre le budget du film et la première semaine en France. Pearson : {round(correlation, 3)}')
-plt.gca().yaxis.set_major_formatter(formatter)
-plt.gca().xaxis.set_major_formatter(formatter)
-st.pyplot(plt)
-
-st.markdown('<div class="box"><p>Ces graphiques illustrent la corrélation entre le budget d’un film et le nombre d’entrées en première semaine en France. On remarque une corrélation positive avec un coefficient de Pearson de 0,62.</p></div>', unsafe_allow_html=True)
 
 #---------------#
