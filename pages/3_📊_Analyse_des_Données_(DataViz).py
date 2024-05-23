@@ -29,7 +29,7 @@ allocine = pd.read_csv('data/allocine.csv')
 
 
 
-col1, col2, col3, col4 = st.columns([1, 3, 3, 1])
+col1, col2, col3, col4, col5 = st.columns([2, 6, 1, 6, 2])
 #---------------#
 with col2:            
             pays_counts = allocine['pays'].value_counts()
@@ -49,7 +49,7 @@ with col2:
             
             st.markdown('<div class="box"><p>La France (38,9%) et les U.S.A (30,7%) se partagent une importante part du marché cinématographique français. On remarque l’incroyable exportabilité des films américains qui égalise presque le volume de films produits par le pays d’où sont issues les données.</p></div>', unsafe_allow_html=True)
 #---------------#
-with col3:
+with col4:
             fig4 = px.scatter(
                         allocine, 
                         x='cumul_france', 
