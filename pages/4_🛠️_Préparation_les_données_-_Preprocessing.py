@@ -8,9 +8,8 @@ st.header("🛠️Preprocessing du jeu de données🛠️")
 
 st.markdown("""
 <div class ="centered-content"><div class="box"><h3>Introduction :</h3>
-    <br>
     <p>Le prétraitement (preprocessing) des données vise à préparer les données brutes pour que notre modèle futur soit le plus performant possible  :</p>
-    <p>• Nettoyant les données en éliminant les valeurs aberrantes (réalisé juste avant la modélisation), et en gérant les valeurs manquantes. NB : le dédoublonnage n'était pas nécessaire.</p>
+    <p>• Nous avons nettoyé les données en éliminant les valeurs aberrantes (ce qui a été réalisé juste avant la phase de modélisation) et géré les valeurs manquantes. À noter que le dédoublonnage n'était pas nécessaire dans ce contexte.</p>
     <p>• Transformant les features en formats compatibles avec les algorithmes d'apprentissage automatique, tels que la normalisation des valeurs et les onehotencoding.</p>
     <p>• En améliorant la qualité des données en calculant des scores afin d'optimiser les performances des modèles et de garantir des résultats plus fiables.</p>
     <p>• Suppression des colonnes n'ayant pas d'intérêt pour notre modèle ou étant composées majoritairement de valeurs manquantes.</p>
@@ -19,14 +18,12 @@ st.markdown("""
 
 st.markdown("""
 <div class ="centered-content"><div class="box"><h3>Traitement des valeurs manquantes :</h3>
-    <br>
     <p>In fine, nous avions très peu de valeurs manquantes. Notre choix a été dans la grande majorité des cas de supprimer les lignes avec des valeurs manquantes.</p>
 </div></div>
 """, unsafe_allow_html=True)
 
 st.markdown("""
 <div class ="centered-content"><div class="box"><h3>Formatage des données :</h3>
-    <br>
     <p>Les étapes de formatage des données :</p>
     <p>• Onehotencoding des genres.</p>
     <p>• Onehotencoding de l'origine du pays du film (en ayant retenu que 3 catégories : France ou USA ou autre (si France et USA sont en False).</p>
