@@ -17,7 +17,7 @@ def css_and_credit():
         display: flex;
         justify-content: center;
         align-items: center;
-        width: 40%;
+        width: 60%;
         max-width: 730px;
         margin-left: auto;
         margin-right: auto;
