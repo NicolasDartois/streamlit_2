@@ -18,7 +18,7 @@ st.markdown("""
 df_modele = pd.read_csv('data/score.csv')
 
 i = 1
-cols = st.colums(5)
+cols = st.columns(5)
 for idx, (modèle, r2, MAE) in enumerate(zip(df_modele['modèle'], df_modele['r2'], df_modele['MAE'])):
     unique_id = f"toggleCheckbox_{idx}"
     hidden_text_id = f"hiddenText_{idx}"
