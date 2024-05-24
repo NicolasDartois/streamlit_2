@@ -18,7 +18,7 @@ st.markdown("""
 
 st.markdown("""
 <div class ="centered-content"><div class="box"><h3>Traitement des valeurs manquantes :</h3>
-    <p>In fine, nous avions très peu de valeurs manquantes. Notre choix a été dans la grande majorité des cas de supprimer les lignes avec des valeurs manquantes.</p>
+    <p>En fin de compte, nous avons constaté que nous avions très peu de valeurs manquantes. Dans la grande majorité des cas, nous avons décidé de supprimer les lignes comportant des valeurs manquantes, car cela nous semblait être l'approche la plus appropriée.</p>
 </div></div>
 """, unsafe_allow_html=True)
 
