@@ -17,16 +17,32 @@ st.markdown("""
 
 df_modele = pd.read_csv('data/score.csv')
 
-for idx, (modèle, r2, MAE) in enumerate(zip(df_modele['modèle'], df_modele['r2'], df_modele['MAE'])):
-    unique_id = f"toggleCheckbox_{idx}"
-    hidden_text_id = f"hiddenText_{idx}"
-    st.markdown(f"""
-        <div class ="grid-models"><div class="box">
-            <label for="{unique_id}" style="cursor: pointer;"><h4>{modèle}</h4></label>
-            <input type="checkbox" id="{unique_id}" class="hidden-checkbox">
-            <p id="{hidden_text_id}" class="hiddenText"><br>R2 : {r2}<br>MAE : {MAE}</p>
-        </div></div>
+st.markdown(f"""
+        <div class ="centered-content"><div class="box"><div class="wrapper">
+        
+            <label for="1" style="cursor: pointer;"><h4>df_modele['modèle'][0]</h4></label>
+            <input type="checkbox" id="1" class="hidden-checkbox">
+            <p id="H1" class="hiddenText"><br>R2 : df_modele['r2'][0]<br>MAE : df_modele['MAE'][0]</p>
+            
+            <label for="1" style="cursor: pointer;"><h4>df_modele['modèle'][0]</h4></label>
+            <input type="checkbox" id="1" class="hidden-checkbox">
+            <p id="H1" class="hiddenText"><br>R2 : df_modele['r2'][0]<br>MAE : df_modele['MAE'][0]</p>
+            
+            <label for="1" style="cursor: pointer;"><h4>df_modele['modèle'][0]</h4></label>
+            <input type="checkbox" id="1" class="hidden-checkbox">
+            <p id="H1" class="hiddenText"><br>R2 : df_modele['r2'][0]<br>MAE : df_modele['MAE'][0]</p>
+            
+            <label for="1" style="cursor: pointer;"><h4>df_modele['modèle'][0]</h4></label>
+            <input type="checkbox" id="1" class="hidden-checkbox">
+            <p id="H1" class="hiddenText"><br>R2 : df_modele['r2'][0]<br>MAE : df_modele['MAE'][0]</p>
+            
+            <label for="1" style="cursor: pointer;"><h4>df_modele['modèle'][0]</h4></label>
+            <input type="checkbox" id="1" class="hidden-checkbox">
+            <p id="H1" class="hiddenText"><br>R2 : df_modele['r2'][0]<br>MAE : df_modele['MAE'][0]</p>
+            
+        </div></div></div>
     """, unsafe_allow_html=True)
+
 
 
 
