@@ -39,7 +39,7 @@ html_representation = figA.to_html(include_plotlyjs=False)
 
 st.markdown(f"""
 <div class="box">
-{html_representation}
+{html_representation}tttttt
 </div>
 """, unsafe_allow_html=True)
 
