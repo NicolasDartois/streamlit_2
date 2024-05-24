@@ -17,7 +17,7 @@ st.markdown("""
 
 df_modele = pd.read_csv('data/score.csv')
 
-st.markdown("""
+st.markdown(f"""
         <div class ="centered-content"><div class="box"><div class="wrapper">
             <label for="1" style="cursor: pointer;"><h4>{df_modele['modèle'][0]}</h4></label>
             <input type="checkbox" id="1" class="hidden-checkbox">
