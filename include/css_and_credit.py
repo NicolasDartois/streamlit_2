@@ -18,7 +18,7 @@ def css_and_credit():
         justify-content: center;
         align-items: center;
         width: 60%;
-        max-width: 1000px;
+        min-width: 400px;
         margin-left: auto;
         margin-right: auto;
     }
