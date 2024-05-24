@@ -57,7 +57,7 @@ def css_and_credit():
         box-shadow: 0 10px 12px rgba(0, 0, 0, 0.1);
         border-radius: 10px;
         text-align: justify;
-        min-width: 800px;
+        width: 60%;
     }
     .fit-img {
         width: 100%;
