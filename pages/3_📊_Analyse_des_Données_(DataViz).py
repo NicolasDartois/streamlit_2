@@ -23,6 +23,29 @@ st.markdown("<br><br><br>", unsafe_allow_html=True)
 allocine = pd.read_csv('data/allocine.csv')
 allocine_budget = pd.read_csv('data/Allocine_v2_8.csv')
 
+pays_counts = allocine['pays'].value_counts()
+top_pays = pays_counts[:8]
+autres = pays_counts[8:].sum()
+top_pays['Autres'] = autres    
+figA = go.Figure(data=[go.Pie(labels=top_pays.index, values=top_pays.values, hole=.3)])
+figA.update_traces(textposition='inside', textinfo='percent+label')
+figA.update_layout(
+            title_text='🌎 Répartition des films par pays',
+            annotations=[dict(text='Pays', x=0.5, y=0.5, font_size=20, showarrow=False)],
+            legend_title="Pays"
+            )
+
+html_representation = figA.to_html(include_plotlyjs=False)
+
+st.write(f"""
+<div class="box">
+{html_representation}
+</div>
+""")
+
+
+
+
 #---------------#
 col1, col2, col3, col4, col5 = st.columns([2, 8, 1, 8, 2])
 
