@@ -20,7 +20,7 @@ allocine = pd.read_csv('data/allocine.csv')
 allocine_budget = pd.read_csv('data/Allocine_v2_8.csv')
 
 #---------------#
-col1, col2, col3, col4, col5 = st.columns([2, 8, 1, 8, 2])
+col1, col2, col3, col4, col5 = st.columns([1, 8, 1, 8, 1])
 
 with col2:            
             pays_counts = allocine['pays'].value_counts()
@@ -58,7 +58,7 @@ with col4:
             st.markdown('<div class="box"><p>En calculant la corrélation entre la première semaine et le cumul en France, on obtient un score de 0.92. La corrélation est donc positive et très élevée. Ainsi, si un film réalise de bonnes performances en première semaine en termes d’entrées, il a des chances de connaître le succès pendant toute son exploitation cinématographique. Cela suppose donc que le nombre d’entrées de la première semaine peuvent être utilisées pour estimer le nombre total d’entrées.</p></div>', unsafe_allow_html=True)
 
 #---------------#
-col1, col2, col3, col4, col5 = st.columns([2, 8, 1, 8, 2])
+col1, col2, col3, col4, col5 = st.columns([1, 8, 1, 8, 1])
 
 with col2: 
             fig3 = px.box(allocine, x="premiere_semaine_france",
