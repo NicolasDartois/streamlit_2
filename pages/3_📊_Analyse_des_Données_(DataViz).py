@@ -10,6 +10,7 @@ import plotly.express as px
 from plotly.subplots import make_subplots
 from plotly.io import to_html
 from bokeh.plotting import figure, show
+from bokeh.io import output_file, show
 from bokeh.models import HoverTool
 from include.css_and_credit import css_and_credit
 
@@ -26,7 +27,10 @@ allocine_budget = pd.read_csv('data/Allocine_v2_8.csv')
 pays_counts = allocine['pays'].value_counts()
 top_pays = pays_counts[:8]
 autres = pays_counts[8:].sum()
-top_pays['Autres'] = autres    
+top_pays['Autres'] = autres  
+labels = top_pays.index.tolist()
+values = top_pays.values.tolist()
+
 p = figure(title="Répartition des films par pays", x_range=labels)
 p.wedge(
     x=1,
