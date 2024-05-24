@@ -2,23 +2,10 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 
-import matplotlib.pyplot as plt
-from matplotlib.ticker import FuncFormatter
-
-import seaborn as sns
-
 import plotly.graph_objects as go
 import plotly.express as px
 from plotly.subplots import make_subplots
 from plotly.io import to_html
-
-from bokeh.plotting import figure, output_file, save
-from bokeh.embed import components
-from bokeh.resources import CDN
-from bokeh.io import show
-from bokeh.models import ColumnDataSource, HoverTool
-from bokeh.transform import cumsum
-from math import pi
 
 from include.css_and_credit import css_and_credit
 
@@ -31,43 +18,6 @@ st.header("📊Analyse des Données (DataViz)📊")
 st.markdown("<br><br><br>", unsafe_allow_html=True)
 allocine = pd.read_csv('data/allocine.csv')
 allocine_budget = pd.read_csv('data/Allocine_v2_8.csv')
-
-pays_counts = allocine['pays'].value_counts()
-top_pays = pays_counts[:8]
-autres = pays_counts[8:].sum()
-top_pays['Autres'] = autres  
-
-data = pd.Series(top_pays).reset_index(name='value').rename(columns={'index':'pays'})
-data['angle'] = data['value']/data['value'].sum() * 2*pi
-data['color'] = ['#f6a580', '#92c5de', '#0571b0', '#ca0020', '#f4a582', '#92c5de', '#0571b0', '#d4b9da', '#d1588a']
-
-p = figure(plot_height=350, title="Répartition des films par pays", toolbar_location=None,
-           tools="hover", tooltips="@pays: @value", x_range=(-0.5, 1.0))
-
-p.wedge(x=0, y=1, radius=0.4, 
-        start_angle=cumsum('angle', include_zero=True), end_angle=cumsum('angle'),
-        line_color="white", fill_color='color', legend_field='pays', source=ColumnDataSource(data))
-
-p.axis.axis_label=None
-p.axis.visible=False
-p.grid.grid_line_color = None
-
-script, div = components(p)
-
-with open("bokeh_plot.html", "w") as file:
-    file.write(f"{script}\n{div}")
-with open("bokeh_plot.html", "r") as file:
-    bokeh_plot_html = file.read()
-
-
-markdown_content = f"""
-<div class="box">
-    {bokeh_plot_html}
-</div>
-"""
-
-st.markdown(markdown_content, unsafe_allow_html=True)
-
 
 #---------------#
 col1, col2, col3, col4, col5 = st.columns([2, 8, 1, 8, 2])
