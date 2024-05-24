@@ -9,7 +9,7 @@ import plotly.graph_objects as go
 import plotly.express as px
 from plotly.subplots import make_subplots
 from plotly.io import to_html
-from bokeh.plotting import figure
+from bokeh.plotting import figure, show
 from bokeh.models import HoverTool
 from include.css_and_credit import css_and_credit
 
@@ -27,19 +27,30 @@ pays_counts = allocine['pays'].value_counts()
 top_pays = pays_counts[:8]
 autres = pays_counts[8:].sum()
 top_pays['Autres'] = autres    
-figA = go.Figure(data=[go.Pie(labels=top_pays.index, values=top_pays.values, hole=.3)])
-figA.update_traces(textposition='inside', textinfo='percent+label')
-figA.update_layout(
-            title_text='🌎 Répartition des films par pays',
-            annotations=[dict(text='Pays', x=0.5, y=0.5, font_size=20, showarrow=False)],
-            legend_title="Pays"
-            )
+p = figure(title="Répartition des films par pays", x_range=labels)
+p.wedge(
+    x=1,
+    y=1,
+    radius=0.8,
+    start_angle=0,
+    end_angle=2 * np.pi / len(values) * np.cumsum(values),
+    line_color="gray",
+    fill_color="skyblue",
+    legend_field=labels,
+    hover_text=f"@{labels}: @{values}{'%'}",
+)
+p.add_layout(p.title[0], "above")
+p.add_layout(p.xaxis.axis_label, "below")
+p.yaxis.major_label_orientation = None
 
-st.markdown(f"""
+html = p.to_html()
+
+# Afficher le graphique Bokeh dans le div Markdown Streamlit
+st.markdown("""
 <div class="centered-content">
-test {st.plotly_chart(figA)} test
+{}
 </div>
-""", unsafe_allow_html=True)
+""".format(html))
 
 
 
