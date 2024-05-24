@@ -22,7 +22,7 @@ cols = st.columns(5)
 for idx, (modèle, r2, MAE) in enumerate(zip(df_modele['modèle'], df_modele['r2'], df_modele['MAE'])):
     unique_id = f"toggleCheckbox_{idx}"
     hidden_text_id = f"hiddenText_{idx}"
-    with col[(i-1) % 5]: 
+    with cols[(i-1) % 5]: 
         st.markdown(f"""
             <div class ="centered-content"><div class="box">
                 <label for="{unique_id}" style="cursor: pointer;"><h4>{modèle}</h4></label>
