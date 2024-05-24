@@ -39,7 +39,7 @@ top_pays['Autres'] = autres
 
 data = pd.Series(top_pays).reset_index(name='value').rename(columns={'index':'pays'})
 data['angle'] = data['value']/data['value'].sum() * 2*pi
-data['color'] = ['#f6a580', '#92c5de', '#0571b0', '#ca0020', '#f4a582', '#92c5de', '#0571b0', '#d4b9da']
+data['color'] = ['#f6a580', '#92c5de', '#0571b0', '#ca0020', '#f4a582', '#92c5de', '#0571b0', '#d4b9da', '#d1588a']
 
 p = figure(plot_height=350, title="Répartition des films par pays", toolbar_location=None,
            tools="hover", tooltips="@pays: @value", x_range=(-0.5, 1.0))
