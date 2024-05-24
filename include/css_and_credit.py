@@ -24,12 +24,25 @@ def css_and_credit():
         margin-left: auto;
         margin-right: auto;
     }
-    .grid-container {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Ajuste le nombre de colonnes automatiquement */
-        gap: 20px; /* Espace entre les éléments */
-        width: 80%;
-        margin: auto;
+    .custom-grid-container {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        width: 100%;
+        flex-wrap: wrap;
+        gap: 20px; /* espace entre les éléments */
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .custom-box {
+        background-color: white;
+        padding: 20px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        box-shadow: 0 10px 12px rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+        text-align: justify;
+        width: 200px; /* largeur fixe pour chaque boîte */
     }
     .plotly-chart-container {
         width: 100%;
