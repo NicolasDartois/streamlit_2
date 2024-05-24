@@ -14,7 +14,7 @@ def css_and_credit():
     background_image = '''
         <style>
     .css-18e3th9 {
-        max-width: 800px;  /* Ajustez cette valeur selon vos besoins */
+        max-width: 1800px;  /* Ajustez cette valeur selon vos besoins */
     }
     .plotly-chart-container {
         width: 100%;
