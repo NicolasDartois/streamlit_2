@@ -71,7 +71,10 @@ def css_and_credit():
         height: 100%;
         object-fit: cover; /* Peut aussi être 'contain' selon le besoin */
         display: block;
-        }
+    }
+    .centered-content a {
+        display: none;
+    }
         </style>
         '''
     st.markdown(background_image, unsafe_allow_html=True)
