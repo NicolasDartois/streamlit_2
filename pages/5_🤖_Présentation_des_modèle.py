@@ -18,11 +18,11 @@ st.markdown("""
 df_modele = pd.read_csv('data/score.csv')
 
 i = 1
-col1, col2, col3, col4, col5 = st.colums(5)
+cols = st.colums(5)
 for idx, (modèle, r2, MAE) in enumerate(zip(df_modele['modèle'], df_modele['r2'], df_modele['MAE'])):
     unique_id = f"toggleCheckbox_{idx}"
     hidden_text_id = f"hiddenText_{idx}"
-    with col{i}: 
+    with col[(i-1) % 5]: 
         st.markdown(f"""
             <div class ="centered-content"><div class="box">
                 <label for="{unique_id}" style="cursor: pointer;"><h4>{modèle}</h4></label>
@@ -30,7 +30,7 @@ for idx, (modèle, r2, MAE) in enumerate(zip(df_modele['modèle'], df_modele['r2
                 <p id="{hidden_text_id}" class="hiddenText"><br>R2 : {r2}<br>MAE : {MAE}</p>
             </div></div>
         """, unsafe_allow_html=True)
-    i = i+1
+    i += 1
 
 
 
