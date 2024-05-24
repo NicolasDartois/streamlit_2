@@ -1,14 +1,16 @@
 import streamlit as st
 
+image_html = f'<img src="{images/linkedin.png}" style="width:20px; vertical-align:middle;">
+
 def css_and_credit():
     #st.sidebar.image("images/img_sidebar.png", use_column_width=True)
     for i in range(2):
         st.sidebar.markdown("<br>", unsafe_allow_html=True)
     st.sidebar.subheader("🎥oct23_cda_exploitation-cinématographique🎥")
     st.sidebar.markdown("_____________________")
-    st.sidebar.markdown("[📓 Manon FOUQUET](https://www.linkedin.com/in/manonfouquet/)", unsafe_allow_html=True)
-    st.sidebar.markdown("[📓 Sylvain BRAIZET](https://www.linkedin.com/in/sylvain-braizet-ba03ab65/)", unsafe_allow_html=True)
-    st.sidebar.markdown("[📓 Nicolas DARTOIS](https://www.linkedin.com/in/nicolas-dartois/)", unsafe_allow_html=True)
+    st.sidebar.markdown(f"{image_html} [Manon FOUQUET](https://www.linkedin.com/in/manonfouquet/)", unsafe_allow_html=True)
+    st.sidebar.markdown(f"{image_html} [Sylvain BRAIZET](https://www.linkedin.com/in/sylvain-braizet-ba03ab65/)", unsafe_allow_html=True)
+    st.sidebar.markdown(f"{image_html} [Nicolas DARTOIS](https://www.linkedin.com/in/nicolas-dartois/)", unsafe_allow_html=True)
     
     
     background_image = '''
