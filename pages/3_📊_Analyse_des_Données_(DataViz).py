@@ -35,8 +35,6 @@ figA.update_layout(
             legend_title="Pays"
             )
 
-html_representation = figA.to_html(include_plotlyjs=False)
-
 st.markdown(f"""
 <div class="centered-content">
 test {st.plotly_chart(figA)} test
