@@ -1,6 +1,6 @@
 import streamlit as st
 
-image_html = f'<img src="images/linkedin.png" style="width:20px; vertical-align:middle;">'
+image_html = f'<img src="https://github.com/NicolasDartois/streamlit_2/blob/main/images/linkedin.png?raw=true" style="width:20px; vertical-align:middle;">'
 
 def css_and_credit():
     #st.sidebar.image("images/img_sidebar.png", use_column_width=True)
