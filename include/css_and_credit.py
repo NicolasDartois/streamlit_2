@@ -65,6 +65,7 @@ def css_and_credit():
         border-radius: 10px;
         text-align: justify;
         width: 100%;
+        overflow: hidden;
     }
     .fit-img {
         width: 100%;
