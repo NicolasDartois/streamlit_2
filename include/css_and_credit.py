@@ -60,8 +60,6 @@ def css_and_credit():
         padding: 20px;
         margin-top: 20px;
         margin-bottom: 20px;
-        margin-left: 20px;
-        margin-right: 20px;
         box-shadow: 0 10px 12px rgba(0, 0, 0, 0.1);
         border-radius: 10px;
         text-align: justify;
