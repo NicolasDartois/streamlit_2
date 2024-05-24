@@ -21,7 +21,7 @@ for idx, (modèle, r2, MAE) in enumerate(zip(df_modele['modèle'], df_modele['r2
     unique_id = f"toggleCheckbox_{idx}"
     hidden_text_id = f"hiddenText_{idx}"
     st.markdown(f"""
-        <div class ="centered-content"><div class="box">
+        <div class ="grid-models"><div class="box">
             <label for="{unique_id}" style="cursor: pointer;"><h4>{modèle}</h4></label>
             <input type="checkbox" id="{unique_id}" class="hidden-checkbox">
             <p id="{hidden_text_id}" class="hiddenText"><br>R2 : {r2}<br>MAE : {MAE}</p>
