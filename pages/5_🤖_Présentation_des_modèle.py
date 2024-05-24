@@ -18,23 +18,31 @@ st.markdown("""
 df_modele = pd.read_csv('data/score.csv')
 
 st.markdown(f"""
-        <div class ="centered-content"><div class="box"><div class="wrapper">
-            <label for="1" style="cursor: pointer;"><h4>{df_modele['modèle'][0]}</h4></label>
-            <input type="checkbox" id="1" class="hidden-checkbox">
-            <p id="H1" class="hiddenText"><br>R2 : {df_modele['r2'][0]}<br>MAE : {df_modele['MAE'][0]}</p>
-            <label for="1" style="cursor: pointer;"><h4>{df_modele['modèle'][0]}</h4></label>
-            <input type="checkbox" id="1" class="hidden-checkbox">
-            <p id="H1" class="hiddenText"><br>R2 : {df_modele['r2'][0]}<br>MAE : {df_modele['MAE'][0]}</p>
-            <label for="1" style="cursor: pointer;"><h4>{df_modele['modèle'][0]}</h4></label>
-            <input type="checkbox" id="1" class="hidden-checkbox">
-            <p id="H1" class="hiddenText"><br>R2 : {df_modele['r2'][0]}<br>MAE : {df_modele['MAE'][0]}</p>
-            <label for="1" style="cursor: pointer;"><h4>{df_modele['modèle'][0]}</h4></label>
-            <input type="checkbox" id="1" class="hidden-checkbox">
-            <p id="H1" class="hiddenText"><br>R2 : {df_modele['r2'][0]}<br>MAE : {df_modele['MAE'][0]}</p>
-            <label for="1" style="cursor: pointer;"><h4>{df_modele['modèle'][0]}</h4></label>
-            <input type="checkbox" id="1" class="hidden-checkbox">
-            <p id="H1" class="hiddenText"><br>R2 : {df_modele['r2'][0]}<br>MAE : {df_modele['MAE'][0]}</p>
-        </div></div></div>
+        <div class ="centered-content">
+            <div class="wrapper">
+                <div class="box">
+                    <label for="1" style="cursor: pointer;"><h4>{df_modele['modèle'][0]}</h4></label>
+                    <input type="checkbox" id="1" class="hidden-checkbox">
+                    <p id="H1" class="hiddenText"><br>R2 : {df_modele['r2'][0]}<br>MAE : {df_modele['MAE'][0]}</p>
+                </div><div class="box">
+                    <label for="1" style="cursor: pointer;"><h4>{df_modele['modèle'][0]}</h4></label>
+                    <input type="checkbox" id="1" class="hidden-checkbox">
+                    <p id="H1" class="hiddenText"><br>R2 : {df_modele['r2'][0]}<br>MAE : {df_modele['MAE'][0]}</p>
+                </div><div class="box">
+                    <label for="1" style="cursor: pointer;"><h4>{df_modele['modèle'][0]}</h4></label>
+                    <input type="checkbox" id="1" class="hidden-checkbox">
+                    <p id="H1" class="hiddenText"><br>R2 : {df_modele['r2'][0]}<br>MAE : {df_modele['MAE'][0]}</p>
+                </div><div class="box">
+                    <label for="1" style="cursor: pointer;"><h4>{df_modele['modèle'][0]}</h4></label>
+                    <input type="checkbox" id="1" class="hidden-checkbox">
+                    <p id="H1" class="hiddenText"><br>R2 : {df_modele['r2'][0]}<br>MAE : {df_modele['MAE'][0]}</p>
+                </div><div class="box">
+                    <label for="1" style="cursor: pointer;"><h4>{df_modele['modèle'][0]}</h4></label>
+                    <input type="checkbox" id="1" class="hidden-checkbox">
+                    <p id="H1" class="hiddenText"><br>R2 : {df_modele['r2'][0]}<br>MAE : {df_modele['MAE'][0]}</p>
+                </div>
+            </div>
+        </div>
 """, unsafe_allow_html=True)
 
 
