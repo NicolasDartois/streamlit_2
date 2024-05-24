@@ -17,8 +17,10 @@ def css_and_credit():
         display: flex;
         justify-content: center;
         align-items: center;
-        width: 20%; /* Définissez la largeur en pourcentage ici */
-        max-width: 730px; /* Largeur maximale pour les petits écrans */
+        width: 20%;
+        max-width: 730px;
+        margin-left: auto;
+        margin-right: auto;
     }
     .plotly-chart-container {
         width: 100%;
