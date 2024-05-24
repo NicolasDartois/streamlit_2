@@ -27,6 +27,7 @@ def css_and_credit():
     .wrapper {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+        padding: 20px;
     }
     .plotly-chart-container {
         width: 100%;
