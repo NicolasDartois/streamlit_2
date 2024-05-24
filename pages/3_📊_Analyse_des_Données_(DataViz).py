@@ -4,14 +4,22 @@ import numpy as np
 
 import matplotlib.pyplot as plt
 from matplotlib.ticker import FuncFormatter
+
 import seaborn as sns
+
 import plotly.graph_objects as go
 import plotly.express as px
 from plotly.subplots import make_subplots
 from plotly.io import to_html
-from bokeh.plotting import figure, show
-from bokeh.io import output_file, show
-from bokeh.models import HoverTool
+
+from bokeh.plotting import figure, output_file, save
+from bokeh.embed import file_html
+from bokeh.resources import CDN
+from bokeh.io import show
+from bokeh.models import ColumnDataSource, HoverTool
+from bokeh.transform import cumsum
+from math import pi
+
 from include.css_and_credit import css_and_credit
 
 st.set_page_config(page_title="Exploitation cinématographique", page_icon='🎬', layout="wide")
@@ -28,35 +36,31 @@ pays_counts = allocine['pays'].value_counts()
 top_pays = pays_counts[:8]
 autres = pays_counts[8:].sum()
 top_pays['Autres'] = autres  
-labels = top_pays.index.tolist()
-values = top_pays.values.tolist()
 
-p = figure(title="Répartition des films par pays", x_range=labels)
-p.wedge(
-    x=1,
-    y=1,
-    radius=0.8,
-    start_angle=0,
-    end_angle=2 * np.pi / len(values) * np.cumsum(values),
-    line_color="gray",
-    fill_color="skyblue",
-    legend_field=labels,
-    hover_text=f"@{labels}: @{values}{'%'}",
-)
-p.add_layout(p.title[0], "above")
-p.add_layout(p.xaxis.axis_label, "below")
-p.yaxis.major_label_orientation = None
+data = pd.Series(top_pays).reset_index(name='value').rename(columns={'index':'pays'})
+data['angle'] = data['value']/data['value'].sum() * 2*pi
+data['color'] = ['#f6a580', '#92c5de', '#0571b0', '#ca0020', '#f4a582', '#92c5de', '#0571b0', '#d4b9da']
 
-html = p.to_html()
+p = figure(plot_height=350, title="Répartition des films par pays", toolbar_location=None,
+           tools="hover", tooltips="@pays: @value", x_range=(-0.5, 1.0))
 
-# Afficher le graphique Bokeh dans le div Markdown Streamlit
-st.markdown("""
-<div class="centered-content">
-{}
+p.wedge(x=0, y=1, radius=0.4, 
+        start_angle=cumsum('angle', include_zero=True), end_angle=cumsum('angle'),
+        line_color="white", fill_color='color', legend_field='pays', source=ColumnDataSource(data))
+
+p.axis.axis_label=None
+p.axis.visible=False
+p.grid.grid_line_color = None
+
+bokeh_plot_html = file_html(p, CDN, "my_plot")
+
+markdown_content = f"""
+<div class="box">
+    {bokeh_plot_html}
 </div>
-""".format(html))
+"""
 
-
+st.markdown(markdown_content, unsafe_allow_html=True)
 
 
 #---------------#
