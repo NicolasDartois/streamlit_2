@@ -6,7 +6,7 @@ st.set_page_config(page_title="Exploitation cinématographique", page_icon='🎬
 css_and_credit()
 st.header("🔍Collecte et Exploration des données🔍")
 
-st.markdown("""<div class="box centered-content"><h3>Notre jeu de donnée lors du démarrage et son évolution</h3></div>""")
+st.markdown("""<div class="box centered-content"><h3>Notre jeu de donnée lors du démarrage et son évolution</h3></div>""", unsafe_allow_html=True)
 
 col1, col2, col3 = st.columns([2,5,2])
 with col2:
