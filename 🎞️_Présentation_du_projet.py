@@ -3,7 +3,7 @@ import streamlit.components.v1 as components
 from include.css_and_credit import css_and_credit
 
 st.set_page_config(page_title="Exploitation cinématographique", page_icon='🎬', layout="wide")
-st.title("🎥 L'IA au service de la production cinématographique ! 🎥")
+st.markdown("""<div class ="centered-content"><div class="box"><h1>🎥 L'IA au service de la production cinématographique ! 🎥</h1></div></div>""")
 
 css_and_credit()
 
