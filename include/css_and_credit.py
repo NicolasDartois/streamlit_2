@@ -13,8 +13,12 @@ def css_and_credit():
     
     background_image = '''
         <style>
-    .css-18e3th9 {
-        max-width: 1800px;  /* Ajustez cette valeur selon vos besoins */
+    .centered-content {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 80%; /* Définissez la largeur en pourcentage ici */
+        max-width: 730px; /* Largeur maximale pour les petits écrans */
     }
     .plotly-chart-container {
         width: 100%;
