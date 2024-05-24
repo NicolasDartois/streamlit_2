@@ -6,6 +6,8 @@ st.set_page_config(page_title="Exploitation cinématographique", page_icon='🎬
 css_and_credit()
 st.header("🔍Collecte et Exploration des données🔍")
 
+st.markdown("""<div class="box centered-content"><h3>Notre jeu de donnée lors du démarrage et son évolution</h3></div>""")
+
 col1, col2, col3 = st.columns([2,5,2])
 with col2:
   st.markdown("""<div class="box"><h3>Notre jeu de donnée lors du démarrage et son évolution</h3><p>Au cours de l’analyse initiale de notre jeu de données et à la lumière de nos premiers acquis en matière de formation, 
