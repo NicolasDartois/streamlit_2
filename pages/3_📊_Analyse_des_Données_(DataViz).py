@@ -37,11 +37,11 @@ figA.update_layout(
 
 html_representation = figA.to_html(include_plotlyjs=False)
 
-st.write(f"""
+st.markdown(f"""
 <div class="box">
 {html_representation}
 </div>
-""")
+""", unsafe_allow_html=True)
 
 
 
