@@ -13,7 +13,7 @@ from plotly.subplots import make_subplots
 from plotly.io import to_html
 
 from bokeh.plotting import figure, output_file, save
-from bokeh.embed import file_html
+from bokeh.embed import components
 from bokeh.resources import CDN
 from bokeh.io import show
 from bokeh.models import ColumnDataSource, HoverTool
@@ -52,7 +52,13 @@ p.axis.axis_label=None
 p.axis.visible=False
 p.grid.grid_line_color = None
 
-bokeh_plot_html = file_html(p, CDN, "my_plot")
+script, div = components(p)
+
+with open("bokeh_plot.html", "w") as file:
+    file.write(f"{script}\n{div}")
+with open("bokeh_plot.html", "r") as file:
+    bokeh_plot_html = file.read()
+
 
 markdown_content = f"""
 <div class="box">
