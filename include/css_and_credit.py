@@ -24,17 +24,12 @@ def css_and_credit():
         margin-left: auto;
         margin-right: auto;
     }
-    .grid-models {
+    .grid-container {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        gap: 20px;
-        justify-content: center;
-        align-items: center;
-        width: 100%;
-        max-width: 1200px;
-        margin-left: auto;
-        margin-right: auto;
-        
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Ajuste le nombre de colonnes automatiquement */
+        gap: 20px; /* Espace entre les éléments */
+        width: 80%;
+        margin: auto;
     }
     .plotly-chart-container {
         width: 100%;
