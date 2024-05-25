@@ -16,13 +16,12 @@ def css_and_credit():
     background_image = '''
         <style>
     .tab-container {
-        display: flex;
-        flex-direction: column;
         width: 100%;
     }
     .tab-buttons {
         display: flex;
         justify-content: center;
+        margin-bottom: 20px;
     }
     .tab-buttons button {
         background-color: #f1f1f1;
@@ -31,6 +30,7 @@ def css_and_credit():
         cursor: pointer;
         transition: 0.3s;
         font-size: 16px;
+        margin: 0 5px;
     }
     .tab-buttons button:hover {
         background-color: #ddd;
