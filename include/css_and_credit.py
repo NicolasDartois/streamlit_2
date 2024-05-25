@@ -26,9 +26,7 @@ def css_and_credit():
     .tabs label {
         padding: 10px;
         background: #eee;
-        border: 1px solid #ccc;
         cursor: pointer;
-        margin-bottom: -1px;
     }    
     .tabs .content > div {
         display: none;
