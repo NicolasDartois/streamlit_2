@@ -25,42 +25,6 @@ def css_and_credit():
         margin-right: auto;
         flex-direction: column;
     }
-    .tab-container {
-        width: 100%;
-    }
-    .tabs {
-        display: flex;
-        justify-content: center;
-        margin-bottom: 20px;
-    }
-    .tabs label {
-        background-color: #f1f1f1;
-        padding: 10px 20px;
-        cursor: pointer;
-        transition: 0.3s;
-        font-size: 16px;
-        margin: 0 5px;
-        border-radius: 10px;
-    }
-    .tabs label:hover {
-        background-color: #ddd;
-    }
-    .tabs input[type="radio"] {
-        display: none;
-    }
-    .tab-content {
-        display: none;
-        padding: 20px;
-        border-top: none;
-    }
-    .tabs input[type="radio"]:checked + label {
-        background-color: #ccc;
-    }
-    #tab1:checked ~ .tab-content-container #content1,
-    #tab2:checked ~ .tab-content-container #content2,
-    #tab3:checked ~ .tab-content-container #content3 {
-        display: block;
-    }
     .centered-content {
         display: flex;
         justify-content: center;
