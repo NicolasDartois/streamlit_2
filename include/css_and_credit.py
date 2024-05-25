@@ -57,6 +57,11 @@ def css_and_credit():
     .tabs label:not(:last-of-type) {
         border-right: none;
     }
+    .tab-titles {
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+    }
     .centered-content {
         display: flex;
         justify-content: center;
