@@ -14,7 +14,17 @@ def css_and_credit():
     
     
     background_image = '''
-        <style>
+    <style>
+    .centered-content {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 60%;
+        min-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+        flex-direction: column;
+    }
     .tab-container {
         width: 100%;
     }
