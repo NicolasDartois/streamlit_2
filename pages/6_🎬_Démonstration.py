@@ -95,7 +95,7 @@ with col2:
                 prediction = model.predict(input_data)
                 st.dataframe(df_predict[['budget_euro','acteur','realisateur','scenariste','distributeur','duree','USA','France','Action','Documentaire','Comédie','cos_jour_mois','sin_jour_mois','cos_mois','sin_mois','cos_jour_semaine','sin_jour_semaine']])
                 st.write('Le modèle predit ', str(round(prediction[0])), ' entrées la première semaine en france.')
-                st.write(f'Le modèle predit <span style='font-size:20px;'>{str(round(prediction[0]))}</span> entrées la première semaine en france.')
+                st.write(f'Le modèle predit <span style="font-size:20px;">{str(round(prediction[0]))}</span> entrées la première semaine en france.')
 
 
 
