@@ -40,6 +40,7 @@ def css_and_credit():
         transition: 0.3s;
         font-size: 16px;
         margin: 0 5px;
+        border-radius: 10px;
     }
     .tabs label:hover {
         background-color: #ddd;
@@ -52,15 +53,12 @@ def css_and_credit():
         padding: 20px;
         border-top: none;
     }
-    .tab-content > .box {
-        margin: 0;
-    }
     .tabs input[type="radio"]:checked + label {
         background-color: #ccc;
     }
-    #tab1:checked ~ #content1,
-    #tab2:checked ~ #content2,
-    #tab3:checked ~ #content3 {
+    #tab1:checked ~ .tab-content-container #content1,
+    #tab2:checked ~ .tab-content-container #content2,
+    #tab3:checked ~ .tab-content-container #content3 {
         display: block;
     }
     .centered-content {
