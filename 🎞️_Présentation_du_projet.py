@@ -10,12 +10,14 @@ css_and_credit()
 st.markdown("""
   <div class ="centered-content">
       <div class="tabs">
-        <input type="radio" name="tabs" id="tab1" checked>
-        <label for="tab1">Contexte</label>
-        <input type="radio" name="tabs" id="tab2">
-        <label for="tab2">Objectif</label>
-        <input type="radio" name="tabs" id="tab3">
-        <label for="tab3">Pourquoi Streamlit</label>      
+        <div class="tab-titles">
+          <input type="radio" name="tabs" id="tab1" checked>
+          <label for="tab1">Contexte</label>
+          <input type="radio" name="tabs" id="tab2">
+          <label for="tab2">Objectif</label>
+          <input type="radio" name="tabs" id="tab3">
+          <label for="tab3">Pourquoi Streamlit</label> 
+        </div>
       <div class="content">
         <div id="content1">
           <div class="box"><h3>Le contexte :</h3>
