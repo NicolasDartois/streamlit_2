@@ -14,54 +14,48 @@ def css_and_credit():
     
     
     background_image = '''
-        <style>
-    .tabs {
-        margin: 0 auto;
-    }
-    
-    .tabs input[type="radio"] {
-        display: none;
-    }
-    
-    .tabs label {
-        padding: 10px 20px;
-        background: #eee;
-        cursor: pointer;
-        display: inline-block;
-        margin-bottom: -1px;
-    }
-    
-    .tabs .content > div {
-        display: none;
-        border-top: none;
-    }
-    
-    #tab1:checked ~ .content #content1,
-    #tab2:checked ~ .content #content2,
-    #tab3:checked ~ .content #content3 {
-        display: block;
-    }
-    
-    .tabs input[type="radio"]:checked + label {
-        background: #fff;
-    }
-    
-    .tabs label:first-of-type {
-        border-radius: 5px 5px 0 0;
-    }
-    
-    .tabs label:last-of-type {
-        border-radius: 5px 5px 0 0;
-    }
-    
-    .tabs label:not(:last-of-type) {
-        border-right: none;
-    }
-    .tab-titles {
-        display: flex;
-        flex-wrap: nowrap;
-        justify-content: space-between;
-    }
+        <style>.tabs {
+    width: 50%;
+    margin: 0 auto;
+}
+
+.tab-titles {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+}
+
+.tabs input[type="radio"] {
+    display: none;
+}
+
+.tabs label {
+    padding: 10px 20px;
+    background: #eee;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    flex: 1;
+    text-align: center;
+    margin-bottom: -1px;
+}
+
+.tabs .content > div {
+    display: none;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-top: none;
+}
+
+#tab1:checked ~ .content #content1,
+#tab2:checked ~ .content #content2,
+#tab3:checked ~ .content #content3 {
+    display: block;
+}
+
+.tabs input[type="radio"]:checked + label {
+    background: #fff;
+    border-bottom: 1px solid #fff;
+}
     .centered-content {
         display: flex;
         justify-content: center;
