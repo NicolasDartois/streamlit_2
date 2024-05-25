@@ -193,9 +193,9 @@ col1, col2, col3, col4, col5 = st.columns([2, 8, 1, 8, 2])
 
 with col2:
             actors_columns = ['acteur_1', 'acteur_2', 'acteur_3', 'acteur_4']
-            melted_actors = pd.melt(allocine, id_vars=['premiere_semaine_france'], value_vars=actors_columns, value_name='actor').dropna().drop(columns='variable', axis=1)
+            melted_actors = pd.melt(allocine, id_vars=['cumul_france'], value_vars=actors_columns, value_name='actor').dropna().drop(columns='variable', axis=1)
             
-            top_10_actors = melted_actors.groupby('actor')['premiere_semaine_france'].sum().nlargest(10)
+            top_10_actors = melted_actors.groupby('actor')['cumul_france'].sum().nlargest(10)
             
             fig6 = px.bar(top_10_actors, x=top_10_actors.values, y=top_10_actors.index, orientation='h',
             text=top_10_actors.values,
