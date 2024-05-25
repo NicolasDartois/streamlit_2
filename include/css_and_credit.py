@@ -14,15 +14,16 @@ def css_and_credit():
     
     
     background_image = '''
-        <style>.tabs {
+        <style>
+        
+
+.tabs {
     width: 50%;
     margin: 0 auto;
 }
 
 .tab-titles {
     display: flex;
-    flex-wrap: nowrap;
-    justify-content: space-between;
 }
 
 .tabs input[type="radio"] {
@@ -55,6 +56,18 @@ def css_and_credit():
 .tabs input[type="radio"]:checked + label {
     background: #fff;
     border-bottom: 1px solid #fff;
+}
+
+.tabs label:first-of-type {
+    border-radius: 5px 5px 0 0;
+}
+
+.tabs label:last-of-type {
+    border-radius: 5px 5px 0 0;
+}
+
+.tabs label:not(:last-of-type) {
+    border-right: none;
 }
     .centered-content {
         display: flex;
