@@ -22,6 +22,8 @@ st.markdown("""<div class ="centered-content"><div class="box"><h3>Pourquoi avoi
     En effet, Streamlit est un outil de plus en plus prisé au sein des entreprises.</p>
   <p>En intégrant Streamlit, nous avons non seulement amélioré l\'interactivité et l\'impact visuel de notre présentation, mais aussi enrichi notre expérience d\'apprentissage avec une application technologique en pleine expansion. 
     Cette démarche nous a permis de nous approprier efficacement cet outil moderne, en vue de l\'utiliser plus tard dans nos futures carrières.</p></div></div>""", unsafe_allow_html=True)
+
+
 st.markdown("""
   <div class ="centered-content">
       <div class="tabs">
@@ -30,8 +32,7 @@ st.markdown("""
         <input type="radio" name="tabs" id="tab2">
         <label for="tab2">Objectif</label>
         <input type="radio" name="tabs" id="tab3">
-        <label for="tab3">Pourquoi Streamlit</label>
-      
+        <label for="tab3">Pourquoi Streamlit</label>      
       <div class="content">
         <div id="content1">
           <div class="box"><h3>Le contexte :</h3>
