@@ -31,7 +31,6 @@ def css_and_credit():
     .tabs .content > div {
         display: none;
         padding: 20px;
-        border: 1px solid #ccc;
         border-top: none;
     }    
     #tab1:checked ~ .content #content1,
