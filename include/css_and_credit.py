@@ -15,6 +15,37 @@ def css_and_credit():
     
     background_image = '''
         <style>
+    .tab-container {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+    .tab-buttons {
+        display: flex;
+        justify-content: center;
+    }
+    .tab-buttons button {
+        background-color: #f1f1f1;
+        border: none;
+        padding: 10px 20px;
+        cursor: pointer;
+        transition: 0.3s;
+        font-size: 16px;
+    }
+    .tab-buttons button:hover {
+        background-color: #ddd;
+    }
+    .tab-buttons button.active {
+        background-color: #ccc;
+    }
+    .tab-content {
+        display: none;
+        padding: 20px;
+        border-top: none;
+    }
+    .tab-content.active {
+        display: block;
+    }
     .centered-content {
         display: flex;
         justify-content: center;
