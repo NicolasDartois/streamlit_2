@@ -18,7 +18,6 @@ def css_and_credit():
     .tabs {
         display: flex;
         flex-direction: column;
-        width: 50%;
         margin: 0 auto;
     }    
     .tabs input[type="radio"] {
