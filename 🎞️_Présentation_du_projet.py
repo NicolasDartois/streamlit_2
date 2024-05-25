@@ -29,14 +29,11 @@ st.markdown("""
         <div class="tabs">
             <input type="radio" id="tab1" name="tab-group" checked>
             <label for="tab1">Le contexte</label>
-            
             <input type="radio" id="tab2" name="tab-group">
             <label for="tab2">L'objectif du projet</label>
-            
             <input type="radio" id="tab3" name="tab-group">
             <label for="tab3">Pourquoi avoir choisi Streamlit ?</label>
-        </div>
-        
+        </div>        
         <div id="content1" class="tab-content">
             <div class="box">
                 <h3>Le contexte :</h3>
@@ -45,16 +42,14 @@ st.markdown("""
                 Cette pratique, à la fois ludique et ancrée dans les mœurs du secteur, a été le catalyseur de notre projet. Notre objectif est de mettre au point un modèle de machine learning capable de prédire avec la plus grande précision possible le nombre d'entrées qu'un film réalisera. 
                 Ce modèle s'appuiera sur des données préalablement collectées, alliant des critères quantitatifs et qualitatifs pour établir ses prévisions.</p>
             </div>
-        </div>
-        
+        </div>        
         <div id="content2" class="tab-content">
             <div class="box">
                 <h3>L'objectif du projet :</h3>
                 <p>L'objectif central de notre projet est de développer un outil accessible et convivial, permettant à tout utilisateur de prévoir le nombre de spectateurs d'un film à la fin de sa première semaine en salle. 
                 En renseignant des paramètres spécifiques de son choix, l'utilisateur pourra obtenir rapidement une estimation précise des entrées en salle.</p>
             </div>
-        </div>
-        
+        </div>        
         <div id="content3" class="tab-content">
             <div class="box">
                 <h3>Pourquoi avoir choisi Streamlit ?</h3>
