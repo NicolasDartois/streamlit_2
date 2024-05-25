@@ -16,7 +16,6 @@ def css_and_credit():
     background_image = '''
         <style>
     .tabs {
-        width: 50%;
         margin: 0 auto;
     }
     
@@ -34,7 +33,6 @@ def css_and_credit():
     
     .tabs .content > div {
         display: none;
-        border: 1px solid #ccc;
         border-top: none;
     }
     
@@ -46,7 +44,6 @@ def css_and_credit():
     
     .tabs input[type="radio"]:checked + label {
         background: #fff;
-        border-bottom: 1px solid #fff;
     }
     
     .tabs label:first-of-type {
