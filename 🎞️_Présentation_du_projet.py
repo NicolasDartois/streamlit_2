@@ -75,5 +75,10 @@ st.markdown("""
         document.getElementById(tabName).classList.add("active");
         evt.currentTarget.className += " active";
     }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        // Initial setup to show the first tab and hide the rest
+        openTab({currentTarget: document.querySelector('.tab-link.active')}, 'Contexte');
+    });
 </script>
 """, unsafe_allow_html=True)
