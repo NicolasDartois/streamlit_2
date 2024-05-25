@@ -18,32 +18,39 @@ def css_and_credit():
     .tab-container {
         width: 100%;
     }
-    .tab-buttons {
+    .tabs {
         display: flex;
         justify-content: center;
         margin-bottom: 20px;
     }
-    .tab-buttons button {
+    .tabs label {
         background-color: #f1f1f1;
-        border: none;
         padding: 10px 20px;
         cursor: pointer;
         transition: 0.3s;
         font-size: 16px;
         margin: 0 5px;
     }
-    .tab-buttons button:hover {
+    .tabs label:hover {
         background-color: #ddd;
     }
-    .tab-buttons button.active {
-        background-color: #ccc;
+    .tabs input[type="radio"] {
+        display: none;
     }
     .tab-content {
         display: none;
         padding: 20px;
         border-top: none;
     }
-    .tab-content.active {
+    .tab-content > .box {
+        margin: 0;
+    }
+    .tabs input[type="radio"]:checked + label {
+        background-color: #ccc;
+    }
+    #tab1:checked ~ #content1,
+    #tab2:checked ~ #content2,
+    #tab3:checked ~ #content3 {
         display: block;
     }
     .centered-content {
