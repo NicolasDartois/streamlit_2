@@ -26,12 +26,18 @@ st.markdown("""<div class ="centered-content"><div class="box"><h3>Pourquoi avoi
 st.markdown("""
 <div class="centered-content">
     <div class="tab-container">
-        <div class="tab-buttons">
-            <button class="tab-link active" onclick="openTab(event, 'Contexte')">Le contexte</button>
-            <button class="tab-link" onclick="openTab(event, 'Objectif')">L'objectif du projet</button>
-            <button class="tab-link" onclick="openTab(event, 'Streamlit')">Pourquoi avoir choisi Streamlit ?</button>
+        <div class="tabs">
+            <input type="radio" id="tab1" name="tab-group" checked>
+            <label for="tab1">Le contexte</label>
+            
+            <input type="radio" id="tab2" name="tab-group">
+            <label for="tab2">L'objectif du projet</label>
+            
+            <input type="radio" id="tab3" name="tab-group">
+            <label for="tab3">Pourquoi avoir choisi Streamlit ?</label>
         </div>
-        <div id="Contexte" class="tab-content active">
+        
+        <div id="content1" class="tab-content">
             <div class="box">
                 <h3>Le contexte :</h3>
                 <p>Le projet que nous présentons dans ce document est le fruit de notre propre initiative. Inspiré par une idée originale d'un des membres de notre groupe, ce projet s'est développé autour d'une ambition commune : transformer radicalement l'industrie du cinéma !</p>
@@ -40,14 +46,16 @@ st.markdown("""
                 Ce modèle s'appuiera sur des données préalablement collectées, alliant des critères quantitatifs et qualitatifs pour établir ses prévisions.</p>
             </div>
         </div>
-        <div id="Objectif" class="tab-content">
+        
+        <div id="content2" class="tab-content">
             <div class="box">
                 <h3>L'objectif du projet :</h3>
                 <p>L'objectif central de notre projet est de développer un outil accessible et convivial, permettant à tout utilisateur de prévoir le nombre de spectateurs d'un film à la fin de sa première semaine en salle. 
                 En renseignant des paramètres spécifiques de son choix, l'utilisateur pourra obtenir rapidement une estimation précise des entrées en salle.</p>
             </div>
         </div>
-        <div id="Streamlit" class="tab-content">
+        
+        <div id="content3" class="tab-content">
             <div class="box">
                 <h3>Pourquoi avoir choisi Streamlit ?</h3>
                 <p>Au-delà des fonctionnalités de base de cet applicatif, qui contribuent à rendre nos présentations plus dynamiques et visuellement impactantes, il est important de souligner que le choix de Streamlit pour présenter notre projet a également répondu à plusieurs objectifs pédagogiques. 
@@ -58,27 +66,4 @@ st.markdown("""
         </div>
     </div>
 </div>
-
-<script>
-    function openTab(evt, tabName) {
-        var i, tabcontent, tablinks;
-        tabcontent = document.getElementsByClassName("tab-content");
-        for (i = 0; i < tabcontent.length; i++) {
-            tabcontent[i].style.display = "none";
-            tabcontent[i].classList.remove("active");
-        }
-        tablinks = document.getElementsByClassName("tab-link");
-        for (i = 0; i < tablinks.length; i++) {
-            tablinks[i].className = tablinks[i].className.replace(" active", "");
-        }
-        document.getElementById(tabName).style.display = "block";
-        document.getElementById(tabName).classList.add("active");
-        evt.currentTarget.className += " active";
-    }
-
-    document.addEventListener('DOMContentLoaded', function() {
-        // Initial setup to show the first tab and hide the rest
-        openTab({currentTarget: document.querySelector('.tab-link.active')}, 'Contexte');
-    });
-</script>
 """, unsafe_allow_html=True)
