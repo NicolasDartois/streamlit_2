@@ -15,11 +15,11 @@ with tab1:
     <p>Traditionnellement, il est courant que les producteurs et les professionnels du cinéma fassent des paris amicaux sur le nombre de spectateurs qu\'un film attirera à la fin de sa première semaine en salle. 
       Cette pratique, à la fois ludique et ancrée dans les mœurs du secteur, a été le catalyseur de notre projet. Notre objectif est de mettre au point un modèle de machine learning capable de prédire avec la plus grande précision possible le nombre d\'entrées qu\'un film réalisera. 
       Ce modèle s\'appuiera sur des données préalablement collectées, alliant des critères quantitatifs et qualitatifs pour établir ses prévisions.</p></div></div>""", unsafe_allow_html=True)
- with tab2: 
+with tab2: 
   st.markdown("""<div class ="centered-content"><div class="box"><h3>L\'objectif du projet :</h3>
     <p>L\'objectif central de notre projet est de développer un outil accessible et convivial, permettant à tout utilisateur de prévoir le nombre de spectateurs d\'un film à la fin de sa première semaine en salle. 
       En renseignant des paramètres spécifiques de son choix, l\'utilisateur pourra obtenir rapidement une estimation précise des entrées en salle.</p></div></div>""", unsafe_allow_html=True)
- with tab3: 
+with tab3: 
   st.markdown("""<div class ="centered-content"><div class="box"><h3>Pourquoi avoir choisi Streamlit ?</h3>
     <p>Au-delà des fonctionnalités de base de cet applicatif, qui contribuent à rendre nos présentations plus dynamiques et visuellement impactantes, il est important de souligner que le choix de Streamlit pour présenter notre projet a également répondu à plusieurs objectifs pédagogiques. 
       En effet, Streamlit est un outil de plus en plus prisé au sein des entreprises.</p>
