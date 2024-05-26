@@ -188,8 +188,8 @@ with col2:
         prompt_synopsis = f"""Génère un synopsis en français pour un film {pays} sorti en {date_sortie.year}, réalisé par {real}, distribué par {distrib}, dans le genre {genre}, avec {acteur1} en acteur principal et {acteur2} en acteur secondaire."""
         response_synopsis = client.chat.completions.create(
             model="gpt-4",
-            messages=[{"role": "system", "content": "You are a creative assistant."}, 
-                      {"role": "user", "content": prompt_synopsis}]
+            messages=[{"role": "user", "content": prompt_synopsis}],
+            stream=True,
         )
         
         text_synopsis = response_synopsis.choices[0].message['content']
@@ -197,8 +197,8 @@ with col2:
         prompt_titre = f"""Génère un titre en français pour ce synopsis : {text_synopsis}"""
         response_titre = client.chat.completions.create(
             model="gpt-4",
-            messages=[{"role": "system", "content": "You are a creative assistant."}, 
-                      {"role": "user", "content": prompt_titre}]
+            messages=[{"role": "user", "content": prompt_titre}],
+            stream=True,
         )
         
         text_titre = response_titre.choices[0].message['content']
@@ -212,7 +212,7 @@ with col2:
         )
 
 
-        st.write(response_synopsis)
-        st.write(response_titre)
+        st.write(text_synopsis)
+        st.write(text_titre)
         st.image(response_affiche)
 
