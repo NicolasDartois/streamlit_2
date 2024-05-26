@@ -4,6 +4,26 @@ import pandas as pd
 import numpy as np
 from include.css_and_credit import css_and_credit
 from datetime import date
+import openai
+
+openai.api_key = 'votre_cle_api_openai'
+
+def generate_text(prompt):
+    response = openai.Completion.create(
+        engine="gpt-4", # Utilisez "text-davinci-003" si "gpt-4" n'est pas disponible pour vous
+        prompt=prompt,
+        max_tokens=100
+    )
+    return response.choices[0].text.strip()
+
+def generate_image(prompt):
+    response = openai.Image.create(
+        prompt=prompt,
+        n=1,
+        size="1024x1024"
+    )
+    return response['data'][0]['url']
+
 st.set_page_config(page_title="Exploitation cinématographique", page_icon='🎬', layout="wide")
 
 css_and_credit()
@@ -95,6 +115,9 @@ with col2:
                 prediction = model.predict(input_data)
                 st.dataframe(df_predict[['budget_euro','acteur','realisateur','scenariste','distributeur','duree','USA','France','Action','Documentaire','Comédie','cos_jour_mois','sin_jour_mois','cos_mois','sin_mois','cos_jour_semaine','sin_jour_semaine']])
                 st.write(f'Le modèle predit <span style="font-size:20px; color:#27AE60;"><b>{str(round(prediction[0]))}</b></span> entrées la première semaine en france.', unsafe_allow_html=True)
+                if st.button('Mais que fait John Connor ?!'):
+                            st.write('test')
+                
 
 
 
