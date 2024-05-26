@@ -200,8 +200,8 @@ with col2:
         )
         
         prompt_affiche = f"""Génère une affiche en français pour ce synopsis (Aucun acteur sur l'affiche ne doit ressembler à une personne réelle) : {response_synopsis}"""
-        response_affiche = client.images.create(
-            model="dall-e-2", 
+        response_affiche = client.images.generate(
+            model="dall-e-3", 
             prompt=prompt_affiche, 
             n=1, 
             size="1024x1023"
