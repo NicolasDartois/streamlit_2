@@ -10,4 +10,4 @@ bokeh==2.4.3
 xgboost
 statsmodels
 common
-openai==0.28
+openai
