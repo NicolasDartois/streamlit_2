@@ -209,6 +209,7 @@ with col2:
         with col2:   
           st.image(response_affiche.data[0].url)
         with col3:
-          st.header(response_titre.choices[0].message.content)
-          st.write(response_synopsis.choices[0].message.content)
+          st.markdown(f"""
+            <div class="box"><h3>{response_titre.choices[0].message.content}</h3>
+            <p>{response_synopsis.choices[0].message.content}</p></div>""", unsafe_allow_html=True)
 
