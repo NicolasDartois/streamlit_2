@@ -189,14 +189,12 @@ with col2:
         response_synopsis = client.chat.completions.create(
             model="gpt-4",
             messages=[{"role": "user", "content": prompt_synopsis}],
-            stream=True,
         )
 
         prompt_titre = f"""Génère un titre en français pour ce synopsis : {response_synopsis}"""
         response_titre = client.chat.completions.create(
             model="gpt-4",
             messages=[{"role": "user", "content": prompt_titre}],
-            stream=True,
         )
         
         prompt_affiche = f"""Génère une affiche en français pour ce synopsis (Aucun acteur sur l'affiche ne doit ressembler à une personne réelle) : {response_synopsis}"""
@@ -211,5 +209,5 @@ with col2:
         st.write(response_synopsis)
         st.write(response_titre)
         st.write(prompt_titre)
-        st.image(response_affiche)
+        st.image(response_affiche.data[0].url)
 
