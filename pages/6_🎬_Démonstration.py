@@ -185,7 +185,7 @@ with col2:
     
     if st.session_state.button2_clicked:
 
-        prompt_synopsis = f"""Génère un synopsis en français pour un film {pays} sorti en {date_sortie.year}, réalisé par {real}, distribué par {distrib}, dans le genre {genre}, avec {acteur1} en acteur principal et {acteur2} en acteur secondaire."""
+        prompt_synopsis = f"""Génère un synopsis en français pour un film {pays} sorti en {date_sortie.year}, réalisé par {real}, distribué par {distrib}, dans le genre {genre}, avec {acteur1} en acteur principal et {acteur2} en acteur secondaire.(Attention, ne donne pas le titre dans ta reponse)"""
         response_synopsis = client.chat.completions.create(
             model="gpt-4",
             messages=[{"role": "user", "content": prompt_synopsis}],
@@ -210,5 +210,6 @@ with col2:
 
         st.write(response_synopsis)
         st.write(response_titre)
+        st.write(prompt_titre)
         st.image(response_affiche)
 
