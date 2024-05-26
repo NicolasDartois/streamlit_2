@@ -206,7 +206,7 @@ with col2:
         #)
 
 
-        st.write(response_synopsis)
-        st.write(response_titre)
+        st.write(response_synopsis.choices[0].message['content'])
+        st.write(response_titre.choices[0].message['content'])
         #st.image(response_affiche.data[0].url)
 
