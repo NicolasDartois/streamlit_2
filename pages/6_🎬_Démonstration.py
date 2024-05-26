@@ -119,6 +119,26 @@ with col2:
                     st.dataframe(df_predict[['budget_euro','acteur','realisateur','scenariste','distributeur','duree','USA','France','Action','Documentaire','Comédie','cos_jour_mois','sin_jour_mois','cos_mois','sin_mois','cos_jour_semaine','sin_jour_semaine']])
                     st.write(f'Le modèle predit <span style="font-size:20px; color:#27AE60;"><b>{str(round(prediction[0]))}</b></span> entrées la première semaine en france.', unsafe_allow_html=True)
                 
+# Utiliser l'état de session pour suivre l'interaction avec les boutons
+if 'button1_clicked' not in st.session_state:
+    st.session_state.button1_clicked = False
+if 'button2_clicked' not in st.session_state:
+    st.session_state.button2_clicked = False
 
+# Premier bouton
+if st.button('Scotty ?!'):
+    st.session_state.button1_clicked = True
+
+if st.session_state.button1_clicked:
+    st.dataframe(df_predict[['budget_euro', 'acteur', 'realisateur', 'scenariste', 'distributeur', 'duree', 'USA', 'France', 'Action', 'Documentaire', 'Comédie', 'cos_jour_mois', 'sin_jour_mois', 'cos_mois', 'sin_mois', 'cos_jour_semaine', 'sin_jour_semaine']])
+    st.write(f'Le modèle prédit <span style="font-size:20px; color:#27AE60;"><b>{str(round(prediction[0]))}</b></span> entrées la première semaine en France.', unsafe_allow_html=True)
+    
+    # Deuxième bouton
+    if st.button('Mais que fait John Connor ?!'):
+        st.session_state.button2_clicked = True
+
+if st.session_state.button2_clicked:
+    st.dataframe(df_predict[['budget_euro', 'acteur', 'realisateur', 'scenariste', 'distributeur', 'duree', 'USA', 'France', 'Action', 'Documentaire', 'Comédie', 'cos_jour_mois', 'sin_jour_mois', 'cos_mois', 'sin_mois', 'cos_jour_semaine', 'sin_jour_semaine']])
+    st.write(f'Le modèle prédit <span style="font-size:20px; color:#27AE60;"><b>{str(round(prediction[0]))}</b></span> entrées la première semaine en France.', unsafe_allow_html=True)
 
 
