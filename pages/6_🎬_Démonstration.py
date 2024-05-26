@@ -191,7 +191,7 @@ with col2:
             messages=[{"role": "user", "content": prompt_synopsis}],
         )
 
-        prompt_titre = f"""Génère un titre en français pour ce synopsis : {response_synopsis}"""
+        prompt_titre = f"""Génère un titre en français pour ce synopsis (Attention, uniquement le titre dans ta reponse, rien d'autre) : {response_synopsis}"""
         response_titre = client.chat.completions.create(
             model="gpt-4",
             messages=[{"role": "user", "content": prompt_titre}],
@@ -209,6 +209,6 @@ with col2:
         with col1:   
           st.image(response_affiche.data[0].url)
         with col2:
-          st.header(response_synopsis.choices[0].message.content)
-          st.write(response_titre.choices[0].message.content)
+          st.header(response_titre.choices[0].message.content)
+          st.write(response_synopsis.choices[0].message.content)
 
