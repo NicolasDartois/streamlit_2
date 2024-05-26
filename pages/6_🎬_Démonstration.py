@@ -7,7 +7,7 @@ from datetime import date
 import openai
 import os
 
-openai.api_key = 'test'
+openai.api_key = os.getenv("API_KEY_OPENAI")
 
 def generate_text(prompt):
     response = openai.Completion.create(
@@ -42,6 +42,7 @@ col1, col2, col3, col4, col5, col6 = st.columns([1,2,2,2,2,1])
 with col2:
     acteur1 = st.selectbox('Acteur principal :', df_acteur['Acteur'])
     score_acteur1 = df_acteur[df_acteur['Acteur'] == acteur1]['Score'].values[0]
+    
 with col3:    
     acteur2 = st.selectbox('Acteur secondaire :', df_acteur['Acteur'])
     score_acteur2 = df_acteur[df_acteur['Acteur'] == acteur2]['Score'].values[0]
@@ -181,6 +182,14 @@ with col2:
             st.session_state.button2_clicked = True
     
     if st.session_state.button2_clicked:
-        api_key = os.getenv("API_KEY_OPENAI")
+        prompt_synopsis = f"""Génère un synopsis en français pour un film {pays} sorti en {date_sortie.year}, réalisé par {real}, distribué par {distrib}, dans le genre {genre}, avec {acteur1} en acteur principal et {acteur2} en acteur secondaire."""
+        response_synopsis = openai.ChatCompletion.create(model="gpt-4",messages=[{"role": "system", "content": "You are a creative assistant."},{"role": "user", "content": prompt_synopsis}])
+        prompt_titre = f"""Génère un titre en francais pour ce synopsis : {response_synopsis}"""
+        response_titre = openai.ChatCompletion.create(model="gpt-4",messages=[{"role": "system", "content": "You are a creative assistant."},{"role": "user", "content": prompt_titre}])
+        prompt_affiche = f"""Génère une affiche en francais pour ce synopsis (Aucun acteur sur l'affiche ne doit ressembler a une personne réelle) : {response_synopsis}"""
+        response_affiche = openai.Image.create(model="dall-e-2",prompt=prompt_affiche,n=1,size="1024x1024")
 
+        st.write(response_synopsis)
+        st.write(response_titre)
+        st.image(response_affiche)
 
