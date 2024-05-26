@@ -205,10 +205,10 @@ with col2:
             size="1024x1792"
         )
 
-        col1, col2 = st.columns([1, 2])
-        with col1:   
+        col1, col2, col3, col4 = st.columns([1, 1, 7, 1])
+        with col2:   
           st.image(response_affiche.data[0].url)
-        with col2:
+        with col3:
           st.header(response_titre.choices[0].message.content)
           st.write(response_synopsis.choices[0].message.content)
 
