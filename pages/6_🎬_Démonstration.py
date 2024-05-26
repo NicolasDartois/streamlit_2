@@ -208,7 +208,7 @@ with col2:
         col1, col2, col3, col4 = st.columns([1, 1, 7, 1])
         with col2:  
           st.markdown(f"""
-            <img src={response_affiche.data[0].url}  class="fit-img"/>""", unsafe_allow_html=True)
+            <div class="box"><img src={response_affiche.data[0].url}  class="fit-img"/></div>""", unsafe_allow_html=True)
         with col3:
           st.markdown(f"""
             <div class="box"><h3>{response_titre.choices[0].message.content}</h3>
