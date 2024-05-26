@@ -208,7 +208,7 @@ with col2:
         )
 
 
-        st.write(text_synopsis)
-        st.write(text_titre)
+        st.write(response_synopsis)
+        st.write(response_titre)
         st.image(response_affiche)
 
