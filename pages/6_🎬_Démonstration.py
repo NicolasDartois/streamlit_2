@@ -187,21 +187,34 @@ with col2:
         
         # Création de la requête pour le synopsis
         prompt_synopsis = f"""Génère un synopsis en français pour un film {pays} sorti en {date_sortie.year}, réalisé par {real}, distribué par {distrib}, dans le genre {genre}, avec {acteur1} en acteur principal et {acteur2} en acteur secondaire."""
-        response_synopsis = client.completions.create(model="gpt-4", prompt=prompt_synopsis)
+        response_synopsis = client.ChatCompletion.create(
+            model="gpt-4",  # Assurez-vous que c'est le bon modèle pour le chat
+            messages=[{"role": "system", "content": "You are a creative assistant."}, 
+                      {"role": "user", "content": prompt_synopsis}]
+        )
         
         # Extraction du texte de la réponse pour le synopsis
-        text_synopsis = response_synopsis.choices[0].text
+        text_synopsis = response_synopsis.choices[0].message['content']
         
         # Création de la requête pour le titre du film
         prompt_titre = f"""Génère un titre en français pour ce synopsis : {text_synopsis}"""
-        response_titre = client.completions.create(model="gpt-4", prompt=pimprompt_titre)
+        response_titre = client.ChatCompletion.create(
+            model="gpt-4",
+            messages=[{"role": "system", "content": "You are a creative assistant."}, 
+                      {"role": "user", "content": prompt_titre}]
+        )
         
         # Extraction du texte de la réponse pour le titre
-        text_titre = response_titre.choices[0].text
+        text_titre = response_titre.choices[0].message['content']
         
         # Création de la requête pour l'affiche du film
         prompt_affiche = f"""Génère une affiche en français pour ce synopsis (Aucun acteur sur l'affiche ne doit ressembler à une personne réelle) : {text_synopsis}"""
-        response_affiche = client.images.create(model="dall-e-2", prompt=prompt_affiche, n=1, size="720x978")
+        response_affiche = client.images.create(
+            model="dall-e-2", 
+            prompt=prompt_affiche, 
+            n=1, 
+            size="1024x1023"
+        )
 
 
         st.write(response_synopsis)
