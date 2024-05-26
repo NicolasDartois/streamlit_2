@@ -4,14 +4,16 @@ import pandas as pd
 import numpy as np
 from include.css_and_credit import css_and_credit
 from datetime import date
-import openai
+from openai import OpenAI
 import os
 
-openai.api_key = os.getenv("API_KEY_OPENAI")
+client = OpenAI(
+  api_key=os.environ['API_KEY_OPENAI'],
+)
 
 def generate_text(prompt):
     response = openai.Completion.create(
-        engine="gpt-4", # Utilisez "text-davinci-003" si "gpt-4" n'est pas disponible pour vous
+        engine="gpt-4",
         prompt=prompt,
         max_tokens=100
     )
