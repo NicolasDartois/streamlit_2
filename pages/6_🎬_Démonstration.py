@@ -204,10 +204,11 @@ with col2:
             n=1, 
             size="1024x1792"
         )
-
+      
         col1, col2, col3, col4 = st.columns([1, 1, 7, 1])
-        with col2:   
-          st.image(response_affiche.data[0].url)
+        with col2:  
+          st.markdown(f"""
+            <img src={response_affiche.data[0].url}  class="fit-img"/>""", unsafe_allow_html=True)
         with col3:
           st.markdown(f"""
             <div class="box"><h3>{response_titre.choices[0].message.content}</h3>
