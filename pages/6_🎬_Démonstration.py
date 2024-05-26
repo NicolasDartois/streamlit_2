@@ -187,7 +187,7 @@ with col2:
         
         # Création de la requête pour le synopsis
         prompt_synopsis = f"""Génère un synopsis en français pour un film {pays} sorti en {date_sortie.year}, réalisé par {real}, distribué par {distrib}, dans le genre {genre}, avec {acteur1} en acteur principal et {acteur2} en acteur secondaire."""
-        response_synopsis = client.ChatCompletion.create(
+        response_synopsis = client.completions.create(
             model="gpt-4",  # Assurez-vous que c'est le bon modèle pour le chat
             messages=[{"role": "system", "content": "You are a creative assistant."}, 
                       {"role": "user", "content": prompt_synopsis}]
@@ -198,7 +198,7 @@ with col2:
         
         # Création de la requête pour le titre du film
         prompt_titre = f"""Génère un titre en français pour ce synopsis : {text_synopsis}"""
-        response_titre = client.ChatCompletion.create(
+        response_titre = client.completions.create(
             model="gpt-4",
             messages=[{"role": "system", "content": "You are a creative assistant."}, 
                       {"role": "user", "content": prompt_titre}]
