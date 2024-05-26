@@ -183,9 +183,9 @@ with col2:
     
     if st.session_state.button2_clicked:
         prompt_synopsis = f"""Génère un synopsis en français pour un film {pays} sorti en {date_sortie.year}, réalisé par {real}, distribué par {distrib}, dans le genre {genre}, avec {acteur1} en acteur principal et {acteur2} en acteur secondaire."""
-        response_synopsis = openai.ChatCompletion.create(model="gpt-4",messages=[{"role": "system", "content": "You are a creative assistant."},{"role": "user", "content": prompt_synopsis}])
+        response_synopsis = openai.Completion.create(model="gpt-4",messages=[{"role": "system", "content": "You are a creative assistant."},{"role": "user", "content": prompt_synopsis}])
         prompt_titre = f"""Génère un titre en francais pour ce synopsis : {response_synopsis}"""
-        response_titre = openai.ChatCompletion.create(model="gpt-4",messages=[{"role": "system", "content": "You are a creative assistant."},{"role": "user", "content": prompt_titre}])
+        response_titre = openai.Completion.create(model="gpt-4",messages=[{"role": "system", "content": "You are a creative assistant."},{"role": "user", "content": prompt_titre}])
         prompt_affiche = f"""Génère une affiche en francais pour ce synopsis (Aucun acteur sur l'affiche ne doit ressembler a une personne réelle) : {response_synopsis}"""
         response_affiche = openai.Image.create(model="dall-e-2",prompt=prompt_affiche,n=1,size="1024x1024")
 
