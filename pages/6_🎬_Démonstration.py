@@ -182,6 +182,5 @@ with col2:
     
     if st.session_state.button2_clicked:
         api_key = os.getenv("API_KEY_OPENAI")
-        st.write("La clé API est :", api_key)
 
 
