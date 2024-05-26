@@ -204,7 +204,7 @@ with col2:
             model="dall-e-3", 
             prompt=prompt_affiche, 
             n=1, 
-            size="1024x1023"
+            size="1792x1024"
         )
 
 
