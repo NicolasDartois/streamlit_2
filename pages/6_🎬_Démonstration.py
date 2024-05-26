@@ -5,6 +5,7 @@ import numpy as np
 from include.css_and_credit import css_and_credit
 from datetime import date
 import openai
+import os
 
 openai.api_key = 'test'
 
@@ -180,8 +181,7 @@ with col2:
             st.session_state.button2_clicked = True
     
     if st.session_state.button2_clicked:
-        generated_text = generate_text("")
-        st.write("Texte généré :")
-        st.write(generated_text)
+        api_key = os.getenv("API_KEY_OPENAI")
+        st.write("La clé API est :", api_key
 
 
