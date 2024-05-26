@@ -192,14 +192,14 @@ with col2:
             stream=True,
         )
 
-        prompt_titre = f"""Génère un titre en français pour ce synopsis : {text_synopsis}"""
+        prompt_titre = f"""Génère un titre en français pour ce synopsis : {response_synopsis}"""
         response_titre = client.chat.completions.create(
             model="gpt-4",
             messages=[{"role": "user", "content": prompt_titre}],
             stream=True,
         )
         
-        prompt_affiche = f"""Génère une affiche en français pour ce synopsis (Aucun acteur sur l'affiche ne doit ressembler à une personne réelle) : {text_synopsis}"""
+        prompt_affiche = f"""Génère une affiche en français pour ce synopsis (Aucun acteur sur l'affiche ne doit ressembler à une personne réelle) : {response_synopsis}"""
         response_affiche = client.images.create(
             model="dall-e-2", 
             prompt=prompt_affiche, 
