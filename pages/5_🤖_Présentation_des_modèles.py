@@ -36,7 +36,7 @@ st.markdown(f"""
                     <label for="4" style="cursor: pointer;"><h6>{df_modele['modèle'][3]}</h6></label>
                     <input type="checkbox" id="4" class="hidden-checkbox">
                     <p id="H4" class="hiddenText"><br>R2 : {df_modele['r2'][3]}<br>MAE : {df_modele['MAE'][3]}</p>
-                </div><div class="box">
+                </div><div class="box2">
                     <label for="5" style="cursor: pointer;"><h6>{df_modele['modèle'][4]}</h6></label>
                     <input type="checkbox" id="5" class="hidden-checkbox">
                     <p id="H5" class="hiddenText"><br>R2 : {df_modele['r2'][4]}<br>MAE : {df_modele['MAE'][4]}</p>
