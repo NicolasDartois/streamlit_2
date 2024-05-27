@@ -159,6 +159,7 @@ with col4:
             st.markdown('<div class="box"><p>La France (38,9%) et les U.S.A (30,7%) se partagent une importante part du marché cinématographique français. On remarque l’incroyable exportabilité des films américains qui égalise presque le volume de films produits par le pays d’où sont issues les données.</p></div>', unsafe_allow_html=True)
 
 #---------------#
+col1, col2, col3, col4, col5 = st.columns([2, 6, 1, 10, 2])
 
 with col2:
             genres_to_include = ['Drame', 'Comédie', 'Action', 'Comédie dramatique', 'Aventure', 
