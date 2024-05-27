@@ -15,39 +15,6 @@ def css_and_credit():
     
     background_image = '''
         <style>
-    .tabs {
-        margin: 0 auto;
-    }
-    
-    .tabs input[type="radio"] {
-        display: none;
-    }
-    
-    .tabs label {
-        padding: 10px 20px;
-        background: #eee;
-        cursor: pointer;
-        display: inline-block;
-    }
-    
-    .tabs .content > div {
-        display: none;
-        border-top: none;
-    }
-    
-    #tab1:checked ~ .content #content1,
-    #tab2:checked ~ .content #content2,
-    #tab3:checked ~ .content #content3 {
-        display: block;
-    }
-    
-    .tabs input[type="radio"]:checked + label {
-        background: #fff;
-    }
-    
-    .tabs label:not(:last-of-type) {
-        border-right: none;
-    }
     .centered-content {
         display: flex;
         justify-content: center;
