@@ -45,6 +45,13 @@ st.markdown(f"""
         </div>
 """, unsafe_allow_html=True)
 
+st.markdown("""
+<div class ="centered-content"><div class="box"><h3>Choix du type de modèle :</h3>
+    <p>Nous avons d'abord testé trois modèles simples différents (RandomForest, Régression linéaire, DecisionTree). Nous avons constaté que le modèle random forest était le plus prometteur (au niveau de la MAE et du score R2). Nous avons donc décidé de tester deux autres modèles similaires au random forest, le gradient boosting et le XGBoost, en utilisant GridSearchCV et RandomizedSearchCV pour trouver les meilleurs hyperparamètres.</p>
+    <p>Nous avons retenu le gradient boosting avec les meilleurs hyperparamètres car c'est le modèle avec lequel nous avons obtenu les meilleures performances.</p>
+</div></div>
+""", unsafe_allow_html=True)
+
 
 
 
