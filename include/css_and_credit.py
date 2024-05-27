@@ -65,6 +65,7 @@ def css_and_credit():
         background-position: center;
     }
     .box {
+        text-align: center;
         background-color: white;
         padding: 20px;
         margin-top: 20px;
