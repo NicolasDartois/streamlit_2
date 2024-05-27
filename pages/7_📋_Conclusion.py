@@ -3,7 +3,7 @@ from include.css_and_credit import css_and_credit
 st.set_page_config(page_title="Exploitation cinématographique", page_icon='🎬', layout="wide")
 
 css_and_credit()
-st.header("📋 Conclusion 📋")
+st.header("📋 Conclusion")
 
 st.markdown("""<div class ="centered-content"><div class="box"><h3>Notre jeu de donnée lors du démarrage et son évolution</h3>
     <p>Malgré les défis rencontrés, notre projet de prédiction du nombre d’entrées en première semaine dans les cinémas français a abouti à des résultats prometteurs. 
