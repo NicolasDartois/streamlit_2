@@ -7,9 +7,7 @@ from datetime import date
 from openai import OpenAI
 import os
 
-client = OpenAI(
-  api_key=os.environ['API_KEY_OPENAI'],
-)
+#client = OpenAI(api_key=os.environ['API_KEY_OPENAI'])
 
 def generate_text(prompt):
     response = openai.Completion.create(
