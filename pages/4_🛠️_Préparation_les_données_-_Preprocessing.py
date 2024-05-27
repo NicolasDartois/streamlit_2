@@ -4,7 +4,7 @@ st.set_page_config(page_title="Exploitation cinématographique", page_icon='🎬
 
 css_and_credit()
 
-st.header("🛠️Preprocessing du jeu de données🛠️")
+st.header("🛠️ Preprocessing du jeu de données")
 
 st.markdown("""
 <div class ="centered-content"><div class="box"><h3>Introduction :</h3>
