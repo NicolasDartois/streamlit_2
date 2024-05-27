@@ -72,6 +72,9 @@ def css_and_credit():
         width: 100%;
         transition: height 0.3s ease;
     }
+    .box h6{
+        text-align: center;
+    }
     .fit-img {
         width: 100%;
         height: 100%;
