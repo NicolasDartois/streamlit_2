@@ -45,14 +45,6 @@ def css_and_credit():
         background: #fff;
     }
     
-    .tabs label:first-of-type {
-        border-radius: 5px 5px 0 0;
-    }
-    
-    .tabs label:last-of-type {
-        border-radius: 5px 5px 0 0;
-    }
-    
     .tabs label:not(:last-of-type) {
         border-right: none;
     }
