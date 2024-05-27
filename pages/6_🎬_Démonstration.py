@@ -7,7 +7,7 @@ from datetime import date
 from openai import OpenAI
 import os
 
-#client = OpenAI(api_key=os.environ['API_KEY_OPENAI'])
+client = OpenAI(api_key=os.environ['API_KEY_OPENAI'])
 
 def generate_text(prompt):
     response = openai.Completion.create(
@@ -118,38 +118,38 @@ with col2:
                 st.dataframe(df_predict[['budget_euro','acteur','realisateur','scenariste','distributeur','duree','USA','France','Action','Documentaire','Comédie','cos_jour_mois','sin_jour_mois','cos_mois','sin_mois','cos_jour_semaine','sin_jour_semaine']])
                 st.write(f'Le modèle predit <span style="font-size:20px; color:#27AE60;"><b>{str(round(prediction[0]))}</b></span> entrées la première semaine en france.', unsafe_allow_html=True)
                 
-                #prompt_synopsis = f"""Génère un synopsis en français pour un film {pays} sorti en {date_sortie.year}, réalisé par {real}, distribué par {distrib}, dans le genre {genre}, avec {acteur1} en acteur principal et {acteur2} en acteur secondaire.(Attention, ne donne pas le titre dans ta reponse)"""
-                #response_synopsis = client.chat.completions.create(
-                #    model="gpt-4",
-                #    messages=[{"role": "user", "content": prompt_synopsis}],
-                #)
+                prompt_synopsis = f"""Génère un synopsis en français pour un film {pays} sorti en {date_sortie.year}, réalisé par {real}, distribué par {distrib}, dans le genre {genre}, avec {acteur1} en acteur principal et {acteur2} en acteur secondaire.(Attention, ne donne pas le titre dans ta reponse)"""
+                response_synopsis = client.chat.completions.create(
+                    model="gpt-4",
+                    messages=[{"role": "user", "content": prompt_synopsis}],
+                )
         
-                #prompt_titre = f"""Génère un titre en français pour ce synopsis (Attention, uniquement le titre dans ta reponse, rien d'autre) : {response_synopsis}"""
-                #response_titre = client.chat.completions.create(
-                #    model="gpt-4",
-                #    messages=[{"role": "user", "content": prompt_titre}],
-                #)
+                prompt_titre = f"""Génère un titre en français pour ce synopsis (Attention, uniquement le titre dans ta reponse, rien d'autre) : {response_synopsis.choices[0].message.content}"""
+                response_titre = client.chat.completions.create(
+                    model="gpt-4",
+                    messages=[{"role": "user", "content": prompt_titre}],
+                )
                 
-                #prompt_affiche = f"""Génère une affiche en français pour ce synopsis (Aucun acteur sur l'affiche ne doit ressembler à une personne réelle) : {response_synopsis}"""
-                #response_affiche = client.images.generate(
-                #    model="dall-e-3", 
-                #    prompt=prompt_affiche, 
-                #    n=1, 
-                #    size="1024x1792"
-                #)
+                prompt_affiche = f"""Génère une affiche en français pour ce film {response_titre.choices[0].message.content} qui a ce synopsis (Aucun acteur sur l'affiche ne doit ressembler à une personne réelle) : {response_synopsis.choices[0].message.content}"""
+                response_affiche = client.images.generate(
+                    model="dall-e-3", 
+                    prompt=prompt_affiche, 
+                    n=1, 
+                    size="1024x1792"
+                )
               
                 col1, col2, col3, col4 = st.columns([2, 3, 13, 2])
                 st.markdown(f"""
                     <div class="wrapper2">
                         <div class="box">
-                            <img src="https://github.com/NicolasDartois/streamlit_2/blob/main/images/test.png?raw=true" class="fit-img"/>
+                            <img src= class="fit-img"/>
                         </div>
                         <div class="box">
-                            <h3>"Double Jeu à Manhattan : Variations sur un Thème de Woody Allen"</h3>
+                            <h3></h3>
                             <h6>Le <b>{date_sortie}</b> en salle</h6>
                             <h6>Par <b>{real}</b></h6>
                             <h6> Avec <b>{acteur1}</b> et <b>{acteur2}</b></h6>
-                            <p>Dans un quartier chic de Manhattan, vit un ancien professeur d'université aux talents musicaux remarquables mais dont la carrière artistique n'a jamais décollé, joué par Woody Allen. Sa vie ordinaire et quelque peu morose s'anime un jour où un double mystérieux le remplace subitement dans sa vie quotidienne. Ce double, aussi joué par Woody Allen, est tout ce qu'il n'a jamais réussi à être : confiant, séduisant, et incroyablement talentueux. Notre professeur comprend rapidement que son double est une version améliorée de lui-même et accepte sa présence, espérant tirer des leçons de son comportement.Cependant, alors que le double commence à prendre une place de plus en plus importante, créant des complications hilarantes, l'ancien professeur se trouve dans une position délicate : il doit à la fois gérer sa jalousie envers cette version de lui-même plus réussie et essayer de reprendre sa place dans sa propre vie. Il concocte un plan pour se débarrasser de son alter ego, mais les choses ne se passent pas comme prévu. S'ensuit une série de péripéties irrésistiblement drôles qui mettront en lumière le vrai visage du professeur.Le film, réalisé par Roman Polanski, emprunte à la fois à la comédie, au fantastique et au drame, jouant habilement sur les différentes tonalités pour faire avancer l'histoire. Entre situations cocasses, reparties cinglantes et moments d'émotion, on suit avec délice le combat existentiel de cet homme contre lui-même, dans une mise en abîme teintée d'ironie et de tendresse. Il sera question d'identité, de quête du soi, d'acceptation de soi et d'accomplissement personnel à travers cette comédie inattendue et délicieusement absurde.</p>
+                            <p></p>
                         </div>
                     </div>""", unsafe_allow_html=True)
 
