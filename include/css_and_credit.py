@@ -21,12 +21,10 @@ def css_and_credit():
         align-items: center;
         width: 60%;
         min-width: 800px;
-        margin: 20px auto;
         
     }
     .wrapper {
         min-width: 800px;
-        margin: 20px auto;
         width: 100%;
         display: grid;
         grid-template-columns: repeat(5, 1fr);
