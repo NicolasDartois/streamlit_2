@@ -35,13 +35,7 @@ def css_and_credit():
         width: 100%;
         height: auto;
     }
-    .label {
-        text-align: center;
-    }
     .h2 {
-        text-align: center;
-    }
-    .h6 {
         text-align: center;
     }
     button[title="View fullscreen"] {
