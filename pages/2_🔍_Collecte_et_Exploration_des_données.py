@@ -4,7 +4,7 @@ from include.css_and_credit import css_and_credit
 st.set_page_config(page_title="Exploitation cinématographique", page_icon='🎬', layout="wide")
 
 css_and_credit()
-st.header("🔍Collecte et Exploration des données🔍")
+st.header("🔍 Collecte et Exploration des données")
 
 
 st.markdown("""<div class ="centered-content"><div class="box"><h3>Notre jeu de donnée lors du démarrage et son évolution</h3><p>Au cours de l’analyse initiale de notre jeu de données et à la lumière de nos premiers acquis en matière de formation, 
