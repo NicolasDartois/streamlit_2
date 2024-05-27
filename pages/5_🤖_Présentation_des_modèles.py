@@ -5,7 +5,7 @@ st.set_page_config(page_title="Exploitation cinématographique", page_icon='🎬
 
 css_and_credit()
 
-st.header("🤖Présentation des modèles🤖")
+st.header("🤖 Présentation des modèles")
 
 st.markdown("""
 <div class ="centered-content"><div class="box"><h3>Choix du type de modèle :</h3>
