@@ -27,7 +27,7 @@ def css_and_credit():
     .wrapper {
         min-width: 800px;
         margin: 20px auto;
-        width: 60%;
+        width: 100%;
         display: grid;
         grid-template-columns: repeat(5, 1fr);
         gap: 20px;
