@@ -140,7 +140,7 @@ with col2:
               
                 col1, col2, col3, col4 = st.columns([2, 3, 13, 2])
                 st.markdown(f"""
-                    <div class="wrapper">
+                    <div class="wrapper2">
                         <div class="box">
                             <img src="https://github.com/NicolasDartois/streamlit_2/blob/main/images/test.png?raw=true" class="fit-img"/>
                         </div>
