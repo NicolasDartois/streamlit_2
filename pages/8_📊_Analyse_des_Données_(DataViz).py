@@ -23,6 +23,7 @@ with col2:
 
 st.markdown("<br><br><br>", unsafe_allow_html=True)
 allocine = pd.read_csv('data/allocine.csv')
+allocine_budget = pd.read_csv('data/Allocine_v2_8.csv')
 
 #---------------#
 col1, col2, col3, col4, col5 = st.columns([2, 8, 1, 8, 2])
