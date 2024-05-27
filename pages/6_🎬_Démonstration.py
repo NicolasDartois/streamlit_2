@@ -40,7 +40,7 @@ df_distrib = pd.read_csv('data/score_distrib.csv')
 
 col1, col2, col3, col4, col5, col6 = st.columns([1,2,2,2,2,1])
 with col1:
-    ia = st.checkbox()
+    ia = st.checkbox('')
 with col2:
     acteur1 = st.selectbox('Acteur principal :', df_acteur['Acteur'])
     score_acteur1 = df_acteur[df_acteur['Acteur'] == acteur1]['Score'].values[0]
