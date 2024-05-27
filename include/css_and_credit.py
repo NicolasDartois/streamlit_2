@@ -21,12 +21,10 @@ def css_and_credit():
         align-items: center;
         width: 60%;
         min-width: 800px;
-        margin-left: auto;
-        margin-right: auto;
     }
     .wrapper {
         display: grid;
-        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+        grid-template-columns: repeat(5, 1fr);
         gap: 20px;
     }
     .plotly-chart-container {
