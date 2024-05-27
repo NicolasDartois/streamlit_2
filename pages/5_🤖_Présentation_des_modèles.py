@@ -22,7 +22,7 @@ st.markdown(f"""
             <div class="box2">
                 <label for="5" style="cursor: pointer;"><h6>{df_modele['modèle'][4]}</h6></label>
                 <input type="checkbox" id="5" class="hidden-checkbox">
-                <img src="https://github.com/NicolasDartois/streamlit_2/blob/main/images/score_acteur.png?raw=true" id="H5" class="fit-img hiddenText"/>
+                <img src="https://github.com/NicolasDartois/streamlit_2/blob/main/images/Modeles_basiques.png?raw=true" id="H5" class="fit-img hiddenText"/>
             </div>
         </div>
 """, unsafe_allow_html=True)
