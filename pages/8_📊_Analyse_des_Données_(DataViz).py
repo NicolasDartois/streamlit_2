@@ -65,7 +65,7 @@ with col2:
             
             st.markdown('<div class="box"><p>On remarque une augmentation progressive du nombre de films sortis chaque année, le pic étant atteint en 2019 avec 746 films sortis au cours de l’année. Les effets de la pandémie mondiale en 2020 et 2021 sont également visibles sur ce graphique. L’année dernière, 712 films sont sortis sur les écrans français, soit une moyenne de 13,7 films par semaine.</p></div>', unsafe_allow_html=True)
 
-with col2: 
+with col4: 
             fig2 = px.box(allocine, x="premiere_semaine_france",
                         hover_data=['titre_original'],
                         title='🎫 Analyse de la distribution de notre target: première semaine en France',
