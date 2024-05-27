@@ -21,6 +21,8 @@ def css_and_credit():
         align-items: center;
         width: 60%;
         min-width: 800px;
+        margin: 20px auto;
+        
     }
     .wrapper {
         display: grid;
