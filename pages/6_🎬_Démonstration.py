@@ -139,16 +139,17 @@ with col2:
                 #)
               
                 col1, col2, col3, col4 = st.columns([2, 3, 13, 2])
-                with col2:  
-                  st.markdown(f"""
-                    <div class="box"><img src="https://github.com/NicolasDartois/streamlit_2/blob/main/images/test.png?raw=true" class="fit-img"/></div>""", unsafe_allow_html=True)
-                with col3:
-                  st.markdown(f"""
-                    <div class="box"><h3>"Double Jeu à Manhattan : Variations sur un Thème de Woody Allen"</h3>
-                    <p>Dans un quartier chic de Manhattan, vit un ancien professeur d'université aux talents musicaux remarquables mais dont la carrière artistique n'a jamais décollé, joué par Woody Allen. Sa vie ordinaire et quelque peu morose s'anime un jour où un double mystérieux le remplace subitement dans sa vie quotidienne. Ce double, aussi joué par Woody Allen, est tout ce qu'il n'a jamais réussi à être : confiant, séduisant, et incroyablement talentueux. Notre professeur comprend rapidement que son double est une version améliorée de lui-même et accepte sa présence, espérant tirer des leçons de son comportement.
+                st.markdown(f"""
+                    <div class="wrapper">
+                        <div class="box">
+                            <img src="https://github.com/NicolasDartois/streamlit_2/blob/main/images/test.png?raw=true" class="fit-img"/>
+                        </div>
+                        <div class="box">
+                            <h3>"Double Jeu à Manhattan : Variations sur un Thème de Woody Allen"</h3>
+                            <p>Dans un quartier chic de Manhattan, vit un ancien professeur d'université aux talents musicaux remarquables mais dont la carrière artistique n'a jamais décollé, joué par Woody Allen. Sa vie ordinaire et quelque peu morose s'anime un jour où un double mystérieux le remplace subitement dans sa vie quotidienne. Ce double, aussi joué par Woody Allen, est tout ce qu'il n'a jamais réussi à être : confiant, séduisant, et incroyablement talentueux. Notre professeur comprend rapidement que son double est une version améliorée de lui-même et accepte sa présence, espérant tirer des leçons de son comportement.Cependant, alors que le double commence à prendre une place de plus en plus importante, créant des complications hilarantes, l'ancien professeur se trouve dans une position délicate : il doit à la fois gérer sa jalousie envers cette version de lui-même plus réussie et essayer de reprendre sa place dans sa propre vie. Il concocte un plan pour se débarrasser de son alter ego, mais les choses ne se passent pas comme prévu. S'ensuit une série de péripéties irrésistiblement drôles qui mettront en lumière le vrai visage du professeur.Le film, réalisé par Roman Polanski, emprunte à la fois à la comédie, au fantastique et au drame, jouant habilement sur les différentes tonalités pour faire avancer l'histoire. Entre situations cocasses, reparties cinglantes et moments d'émotion, on suit avec délice le combat existentiel de cet homme contre lui-même, dans une mise en abîme teintée d'ironie et de tendresse. Il sera question d'identité, de quête du soi, d'acceptation de soi et d'accomplissement personnel à travers cette comédie inattendue et délicieusement absurde.</p>
+                        </div>
+                    </div>""", unsafe_allow_html=True)
 
-Cependant, alors que le double commence à prendre une place de plus en plus importante, créant des complications hilarantes, l'ancien professeur se trouve dans une position délicate : il doit à la fois gérer sa jalousie envers cette version de lui-même plus réussie et essayer de reprendre sa place dans sa propre vie. Il concocte un plan pour se débarrasser de son alter ego, mais les choses ne se passent pas comme prévu. S'ensuit une série de péripéties irrésistiblement drôles qui mettront en lumière le vrai visage du professeur.
-
-Le film, réalisé par Roman Polanski, emprunte à la fois à la comédie, au fantastique et au drame, jouant habilement sur les différentes tonalités pour faire avancer l'histoire. Entre situations cocasses, reparties cinglantes et moments d'émotion, on suit avec délice le combat existentiel de cet homme contre lui-même, dans une mise en abîme teintée d'ironie et de tendresse. Il sera question d'identité, de quête du soi, d'acceptation de soi et d'accomplissement personnel à travers cette comédie inattendue et délicieusement absurde.</p></div>""", unsafe_allow_html=True)
-
+                
+                
 
