@@ -27,9 +27,9 @@ st.markdown(f"""
         </div>
         <div class ="centered-content">
             <div class="box2">
-                <label for="5" style="cursor: pointer;"><h4>Modèles basiques :</h4></label>
-                <input type="checkbox" id="5" class="hidden-checkbox">
-                <img src="https://github.com/NicolasDartois/streamlit_2/blob/main/images/Modeles_basiques.png?raw=true" id="H5" class="fit-img hiddenText"/>
+                <label for="6" style="cursor: pointer;"><h4>Modèles basiques :</h4></label>
+                <input type="checkbox" id="6" class="hidden-checkbox">
+                <img src="https://github.com/NicolasDartois/streamlit_2/blob/main/images/Modeles_basiques.png?raw=true" id="6" class="fit-img hiddenText"/>
             </div>
         </div>
 """, unsafe_allow_html=True)
