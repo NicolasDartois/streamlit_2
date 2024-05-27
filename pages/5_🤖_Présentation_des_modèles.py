@@ -20,7 +20,14 @@ df_modele = pd.read_csv('data/score.csv')
 st.markdown(f"""
         <div class ="centered-content">
             <div class="box2">
-                <label for="5" style="cursor: pointer;"><h6>{df_modele['modèle'][4]}</h6></label>
+                <label for="5" style="cursor: pointer;"><h4>Modèles basiques :</h4></label>
+                <input type="checkbox" id="5" class="hidden-checkbox">
+                <img src="https://github.com/NicolasDartois/streamlit_2/blob/main/images/Modeles_basiques.png?raw=true" id="H5" class="fit-img hiddenText"/>
+            </div>
+        </div>
+        <div class ="centered-content">
+            <div class="box2">
+                <label for="5" style="cursor: pointer;"><h4>Modèles basiques :</h4></label>
                 <input type="checkbox" id="5" class="hidden-checkbox">
                 <img src="https://github.com/NicolasDartois/streamlit_2/blob/main/images/Modeles_basiques.png?raw=true" id="H5" class="fit-img hiddenText"/>
             </div>
