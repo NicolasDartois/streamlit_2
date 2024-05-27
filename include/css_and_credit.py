@@ -25,6 +25,9 @@ def css_and_credit():
         
     }
     .wrapper {
+        min-width: 800px;
+        margin: 20px auto;
+        width: 60%;
         display: grid;
         grid-template-columns: repeat(5, 1fr);
         gap: 20px;
@@ -57,6 +60,39 @@ def css_and_credit():
         background-position: center;
     }
     .box {
+        background-color: white;
+        padding: 20px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        box-shadow: 0 10px 12px rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+        text-align: justify;
+        width: 100%;
+        transition: height 0.3s ease;
+    }
+    .box-left {
+        background-color: white;
+        padding: 20px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        box-shadow: 0 10px 12px rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+        text-align: justify;
+        width: 100%;
+        transition: height 0.3s ease;
+    }
+    .box-right {
+        background-color: white;
+        padding: 20px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        box-shadow: 0 10px 12px rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+        text-align: justify;
+        width: 100%;
+        transition: height 0.3s ease;
+    }
+    .box-center {
         background-color: white;
         padding: 20px;
         margin-top: 20px;
