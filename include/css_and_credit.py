@@ -39,6 +39,9 @@ def css_and_credit():
     h2 {
         text-align: center;
     }
+    h6 {
+        text-align: center;
+    }
     button[title="View fullscreen"] {
         visibility: hidden;
     }
@@ -60,39 +63,6 @@ def css_and_credit():
         background-position: center;
     }
     .box {
-        background-color: white;
-        padding: 20px;
-        margin-top: 20px;
-        margin-bottom: 20px;
-        box-shadow: 0 10px 12px rgba(0, 0, 0, 0.1);
-        border-radius: 10px;
-        text-align: justify;
-        width: 100%;
-        transition: height 0.3s ease;
-    }
-    .box-left {
-        background-color: white;
-        padding: 20px;
-        margin-top: 20px;
-        margin-bottom: 20px;
-        box-shadow: 0 10px 12px rgba(0, 0, 0, 0.1);
-        border-radius: 10px;
-        text-align: justify;
-        width: 100%;
-        transition: height 0.3s ease;
-    }
-    .box-right {
-        background-color: white;
-        padding: 20px;
-        margin-top: 20px;
-        margin-bottom: 20px;
-        box-shadow: 0 10px 12px rgba(0, 0, 0, 0.1);
-        border-radius: 10px;
-        text-align: justify;
-        width: 100%;
-        transition: height 0.3s ease;
-    }
-    .box-center {
         background-color: white;
         padding: 20px;
         margin-top: 20px;
