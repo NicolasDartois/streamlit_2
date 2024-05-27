@@ -19,28 +19,10 @@ df_modele = pd.read_csv('data/score.csv')
 
 st.markdown(f"""
         <div class ="centered-content">
-            <div class="wrapper">
-                <div class="box">
-                    <label for="1" style="cursor: pointer;"><h6>{df_modele['modèle'][0]}</h6></label>
-                    <input type="checkbox" id="1" class="hidden-checkbox">
-                    <p id="H1" class="hiddenText"><br>R2 : {df_modele['r2'][0]}<br>MAE : {df_modele['MAE'][0]}</p>
-                </div><div class="box">
-                    <label for="2" style="cursor: pointer;"><h6>{df_modele['modèle'][1]}</h6></label>
-                    <input type="checkbox" id="2" class="hidden-checkbox">
-                    <p id="H2" class="hiddenText"><br>R2 : {df_modele['r2'][1]}<br>MAE : {df_modele['MAE'][1]}</p>
-                </div><div class="box">
-                    <label for="3" style="cursor: pointer;"><h6>{df_modele['modèle'][2]}</h6></label>
-                    <input type="checkbox" id="3" class="hidden-checkbox">
-                    <p id="H3" class="hiddenText"><br>R2 : {df_modele['r2'][2]}<br>MAE : {df_modele['MAE'][2]}</p>
-                </div><div class="box">
-                    <label for="4" style="cursor: pointer;"><h6>{df_modele['modèle'][3]}</h6></label>
-                    <input type="checkbox" id="4" class="hidden-checkbox">
-                    <p id="H4" class="hiddenText"><br>R2 : {df_modele['r2'][3]}<br>MAE : {df_modele['MAE'][3]}</p>
-                </div><div class="box2">
-                    <label for="5" style="cursor: pointer;"><h6>{df_modele['modèle'][4]}</h6></label>
-                    <input type="checkbox" id="5" class="hidden-checkbox">
-                    <p id="H5" class="hiddenText"><br>R2 : {df_modele['r2'][4]}<br>MAE : {df_modele['MAE'][4]}</p>
-                </div>
+            <div class="box2">
+                <label for="5" style="cursor: pointer;"><h6>{df_modele['modèle'][4]}</h6></label>
+                <input type="checkbox" id="5" class="hidden-checkbox">
+                <p id="H5" class="hiddenText"><br>R2 : {df_modele['r2'][4]}<br>MAE : {df_modele['MAE'][4]}</p>
             </div>
         </div>
 """, unsafe_allow_html=True)
