@@ -31,6 +31,13 @@ def css_and_credit():
         grid-template-columns: repeat(5, 1fr);
         gap: 20px;
     }
+    .wrapper2 {
+        min-width: 800px;
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr 4fr;
+        gap: 20px;
+    }
     .plotly-chart-container {
         width: 100%;
         height: auto;
