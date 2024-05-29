@@ -117,7 +117,7 @@ with col2:
                 df_predict.loc[0] = data_predict
                 input_data = df_predict
                 prediction = model.predict(input_data)
-                st.dataframe(df_predict[['budget_euro','acteur','realisateur','scenariste','distributeur','duree','USA','France','Action','Documentaire','Comédie','cos_jour_mois','sin_jour_mois','cos_mois','sin_mois','cos_jour_semaine','sin_jour_semaine']])
+                st.dataframe(df_predict[['budget_euro','acteur','realisateur','scenariste','distributeur','duree','USA','France','Action','Documentaire','Comédie','Thriller','cos_jour_mois','sin_jour_mois','cos_mois','sin_mois','cos_jour_semaine','sin_jour_semaine']])
                 st.write(f'Le modèle predit <span style="font-size:20px; color:#27AE60;"><b>{str(round(prediction[0]))}</b></span> entrées la première semaine en france.', unsafe_allow_html=True)
                 if ia:
                     prompt_synopsis = f"""Génère un synopsis en français pour un film {pays} sorti en {date_sortie.year}, réalisé par {real}, distribué par {distrib}, dans le genre {genre}, avec {acteur1} en acteur principal et {acteur2} en acteur secondaire.(Attention, ne donne pas le titre dans ta reponse)"""
