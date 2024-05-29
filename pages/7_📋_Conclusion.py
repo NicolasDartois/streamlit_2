@@ -15,4 +15,5 @@ st.markdown("""<div class ="centered-content"><div class="box"><h3>Notre jeu de 
     <p>• L’ajout de données temporelles cohérentes par rapport à la date de sortie des films (évaluation de la notoriété des acteurs au moment de la sortie de chacun de ses films…) permettrait d’affiner notre scoring.</p>
     <p>• Les tendances culturelles, bien que difficiles à transformer en data, peuvent parfois influer sur un succès ou un échec.</p>
     <p>• L’actualisation des budgets en fonction de l’érosion monétaire permettrait d’obtenir des budgets plus précis.</p>
-    <p>NB: nous aurions pu avoir accès à des données plus riches, mais cela impliquait des abonnements payants, ce qui était contraire à l’esprit du projet.</p>""", unsafe_allow_html=True)
+    <p>NB: nous aurions pu avoir accès à des données plus riches, mais cela impliquait des abonnements payants, ce qui était contraire à l’esprit du projet.</p>
+    <img src= class="https://github.com/NicolasDartois/streamlit_2/blob/main/images/end.jpg?raw=true"/>""", unsafe_allow_html=True)
