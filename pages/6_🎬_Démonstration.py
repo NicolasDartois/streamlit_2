@@ -65,7 +65,7 @@ with col3:
 with col4:
     pays = st.selectbox('Sélectionnez le pays', ['USA', 'France', 'Autre'])
 with col5:     
-    genre = st.selectbox('Sélectionnez le genre', ['Comédie', 'Documentaire', 'Action'])
+    genre = st.selectbox('Sélectionnez le genre', ['Comédie', 'Documentaire', 'Action', 'Thriller'])
 
 col1, col2, col3, col4 = st.columns([1,4,4,1])
 with col2:
@@ -105,7 +105,7 @@ with col2:
                     'Comédie': True if genre == 'Comédie' else False,
                     'Policier': False,
                     'Epouvante-horreur': False,
-                    'Thriller': False,
+                    'Thriller': True if genre == 'Thriller' else False,
                     'Science Fiction': False,
                     'cos_jour_mois': np.cos(date_sortie.day),
                     'sin_jour_mois': np.sin(date_sortie.day),
