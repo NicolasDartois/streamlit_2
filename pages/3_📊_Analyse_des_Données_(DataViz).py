@@ -277,6 +277,6 @@ with col4:
 col1, col2, col3 = st.columns([2, 17, 2])
 
 with col2:
-            st.markdown('<div class="box"><p>En examinant attentivement le graphique comparatif des notes attribuées par les spectateurs et la presse pour des films sortis au cinéma, on remarque que les deux distributions présentent des similitudes notables. la distribution des notes données par la presse est plus importante que celle des spéctateurs entre 2,5 et 3,5.Cela indique une tendance à attribuer des notes moyennes de manière plus fréquente.</p></div>', unsafe_allow_html=True)
+            st.markdown('<div class="box"><p>En examinant attentivement le graphique comparatif des notes attribuées par les spectateurs et la presse pour des films sortis au cinéma, on remarque que les deux distributions présentent des similitudes notables. Les spectateurs semblent attribuer moins facilement des bonnes notes que la presse, car ils ne donnent quasiment pas de notes au-delà de 4,5. </p></div>', unsafe_allow_html=True)
 
 #---------------#
