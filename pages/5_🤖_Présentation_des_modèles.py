@@ -42,10 +42,10 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 st.markdown("""
-<div class ="centered-content"><div class="box"><h3>Modèle retenu :</h3>
-    <p>Nous avons d'abord testé trois modèles simples différents (RandomForest, Régression linéaire, DecisionTree). Nous avons constaté que le modèle random forest était le plus prometteur (au niveau de la MAE et du score R2). Nous avons donc décidé de tester deux autres modèles similaires au random forest, le gradient boosting et le XGBoost, en utilisant GridSearchCV et RandomizedSearchCV pour trouver les meilleurs hyperparamètres.</p>
-    <p>Nous avons retenu le gradient boosting avec les meilleurs hyperparamètres car c'est le modèle avec lequel nous avons obtenu les meilleures performances.</p>
-    <img src="https://github.com/NicolasDartois/streamlit_2/blob/main/images/Modeles_complexes.png?raw=true" class="fit-img"/>
+<div class ="centered-content"><div class="box"><h3>Analyse des résidus :</h3>
+    <p>Nous avons réalisé un test de Shapiro-Wilk sur nos résidus et nous pouvons rejeter l'hypothèse selon laquelle les résidus suivent une distribution normal</p>
+    <p>Pour approfondir notre réflexion, nous avons effectué une analyse graphique des résidus de notre modèle. Malgré le rejet de l'hypothèse d'une distribution normale par le test de Shapiro-Wilk, on constate une distribution centrée sur le zéro, ce qui est une bonne chose. Cependant, on observe également une dispersion plus importante pour les valeurs élevées, ce qui indique que le modèle a du mal à prédire correctement les valeurs les plus grandes.</p>
+    <img src="" class="fit-img"/>
 </div></div>
 """, unsafe_allow_html=True)
 
