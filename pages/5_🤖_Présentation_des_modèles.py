@@ -43,9 +43,10 @@ st.markdown("""
 
 st.markdown("""
 <div class ="centered-content"><div class="box"><h3>Analyse des résidus :</h3>
-    <p>Nous avons réalisé un test de Shapiro-Wilk sur nos résidus et nous pouvons rejeter l'hypothèse selon laquelle les résidus suivent une distribution normal</p>
+    <p>Nous avons réalisé un test de Shapiro-Wilk sur nos résidus et nous pouvons rejeter l'hypothèse selon laquelle les résidus suivent une distribution normal (Statistique W=0.9387043118476868, p-value=4.959552971195757e-20)</p>
     <p>Pour approfondir notre réflexion, nous avons effectué une analyse graphique des résidus de notre modèle. Malgré le rejet de l'hypothèse d'une distribution normale par le test de Shapiro-Wilk, on constate une distribution centrée sur le zéro, ce qui est une bonne chose. Cependant, on observe également une dispersion plus importante pour les valeurs élevées, ce qui indique que le modèle a du mal à prédire correctement les valeurs les plus grandes.</p>
-    <img src="" class="fit-img"/>
+    <img src="https://github.com/NicolasDartois/streamlit_2/blob/main/images/output.png?raw=true" class="fit-img"/>
+    <img src="https://github.com/NicolasDartois/streamlit_2/blob/main/images/output2.png?raw=true" class="fit-img"/>
 </div></div>
 """, unsafe_allow_html=True)
 
